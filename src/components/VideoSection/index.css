@@ -1,0 +1,86 @@
+/* Reset margins and paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .video-section {
+    position: relative;
+    width: 100%;
+    height: 585px; /* Adjust height as needed */
+    overflow: hidden;
+   
+  }
+  
+  .background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the entire container */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #323232;
+
+    
+  }
+  
+  .video-overlay h1 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Add this to your existing CSS styles */
+/* Add this to your existing CSS styles */
+.overlay-text {
+  position: absolute;
+  top: 50%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 3cap;
+  width: 60%;
+}
+
+.overlay-button-container {
+  position: absolute;
+  top: 75%; /* Adjust the top position as needed */
+  left: 50%; /* Horizontally center the button */
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+.overlay-button {
+  background-color: #ddd; /* Button background color */
+  color: #333; /* Button text color */
+  border: solid; 
+  border-width: 0.15cap; 
+  padding: 30px 50px; /* Adjust padding as needed */
+  font-size: 30px; /* Adjust font size as needed */
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 15px; /* Add rounded corners */
+  transition: background-color 0.3s; /* Add a smooth transition effect on hover */
+}
+
+.overlay-button:hover {
+  background-color: #444; /* Change background color on hover */
+  color: #ddd;
+  border: none;
+
+}
+
