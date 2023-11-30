@@ -8,7 +8,18 @@ const TextImageSection = ({ content }) => {
         <div key={index} className={`row ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
           <div className="text-content">
             <h2>{item.title}</h2>
-            <p>{item.text}</p>
+            <p>
+              {item.text}
+              {/* Inline URL with the text */}
+              {item.url && 
+                <span> 
+                  {' '} 
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.urlText || 'Learn More'}
+                  </a>
+                </span>
+              }
+            </p>
           </div>
           {item.imageUrl && (
             <div className="image-content">

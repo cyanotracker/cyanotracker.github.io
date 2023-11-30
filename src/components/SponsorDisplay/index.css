@@ -1,0 +1,39 @@
+.sponsor-display {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 50px;
+    margin: 0px 30px
+  }
+  
+  .sponsor {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 20px;
+  }
+  
+  .sponsor:last-child {
+    border-bottom: none; 
+  }
+  
+  .sponsor-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+    margin-top: 10px;
+  }
+  
+  .sponsor-logo {
+    width: 100px; 
+    height: auto; 
+    margin-right: 30px;
+  }
+  
+  .sponsor-name {
+    font-weight: bold;
+  }
+  
+  .sponsor-program {
+    margin-left: 20px;
+  }
+  
