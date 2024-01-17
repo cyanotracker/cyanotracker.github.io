@@ -49,7 +49,7 @@ function MainContent() {
       />
       <Reacttweet tweets={tweets}></Reacttweet>
 
-      <iframe
+      {/* <iframe
   width="600"
   height="450"
   style={{ border: 0 }}
@@ -57,7 +57,7 @@ function MainContent() {
   allowFullScreen
   referrerPolicy="no-referrer-when-downgrade"
   src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA">
-</iframe>
+</iframe> */}
 
       <Footer></Footer>
     </>
