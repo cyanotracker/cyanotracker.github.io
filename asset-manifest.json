@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.bf085526.css",
-    "main.js": "/static/js/main.e061d39b.js",
+    "main.css": "/static/css/main.e6a055e5.css",
+    "main.js": "/static/js/main.fb15872f.js",
     "static/js/787.c73cc71e.chunk.js": "/static/js/787.c73cc71e.chunk.js",
     "static/media/algae2.mp4": "/static/media/algae2.9efd07b7af88f6c29107.mp4",
     "static/media/img2.jpg": "/static/media/img2.8c7b9b25612e4ab1f919.jpg",
-    "static/media/img1.jpg": "/static/media/img1.9cb425ebef29d1e0781a.jpg",
     "static/media/nasa.png": "/static/media/nasa.c58c2bab33b0a92f1b04.png",
     "static/media/nsf.png": "/static/media/nsf.aaeb36799e518dccaa66.png",
+    "static/media/img1.jpg": "/static/media/img1.4efac379d8dbea63c773.jpg",
     "static/media/uga.png": "/static/media/uga.3175a21d7055788c105c.png",
     "static/media/cyanoTRACKER_WEB.png": "/static/media/cyanoTRACKER_WEB.5c8cbaa2e9770d61fc44.png",
     "index.html": "/index.html",
-    "main.bf085526.css.map": "/static/css/main.bf085526.css.map",
-    "main.e061d39b.js.map": "/static/js/main.e061d39b.js.map",
+    "main.e6a055e5.css.map": "/static/css/main.e6a055e5.css.map",
+    "main.fb15872f.js.map": "/static/js/main.fb15872f.js.map",
     "787.c73cc71e.chunk.js.map": "/static/js/787.c73cc71e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf085526.css",
-    "static/js/main.e061d39b.js"
+    "static/css/main.e6a055e5.css",
+    "static/js/main.fb15872f.js"
   ]
 }
