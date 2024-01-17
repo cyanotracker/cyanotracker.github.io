@@ -22,8 +22,8 @@ const Navbar = () => {
       </div>
       <ul className={`navbar-nav ${isOpen ? "open" : ""}`}>
         <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
-        {/* <li><Link to="/about" onClick={toggleMenu}>About US</Link></li>
-        <li><Link to="/cyanoHAB" onClick={toggleMenu}>Report a CyanoHAB</Link></li> */}
+        <li><Link to="/publications" onClick={toggleMenu}>Publications</Link></li>
+        <li><Link to="/Cyanosense2" onClick={toggleMenu}>Cyano Sense 2.0</Link></li>
         <li><Link to="/faq" onClick={toggleMenu}>FAQ</Link></li>
       </ul>
     </nav>

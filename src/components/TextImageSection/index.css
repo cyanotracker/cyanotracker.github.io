@@ -29,7 +29,7 @@
 
 /* Styling for image content */
 .image-content {
-  flex: 1; /* Less space allocated to image */
+  flex: 2; /* Less space allocated to image */
   padding: 1rem;
   border-radius: 10%;
 }

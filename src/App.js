@@ -12,8 +12,12 @@ import './App.css';
 import SponsorDisplay from './components/SponsorDisplay';
 // Assuming these are other components you might have
 import Faq from './pages/Faq.jsx';
-import nsf from './assets/nsf.png';
-import nasa from './assets/nasa.png';
+import Reacttweet from './components/React-tweet';
+import Publications from './pages/Publications.jsx';
+
+import Cyanosense2 from "./pages/Cyanosense2.jsx";
+
+
 function MainContent() {
   const contents = [
     {
@@ -31,29 +35,11 @@ function MainContent() {
     // Add more content objects as needed
   ];
 
-  const sponsors = [
-    {
-      name: 'National Science Foundation (NSF)',
-      logoUrl: nsf, // Replace with actual logo path
-      programs: [
-        { name: 'Cyber-Innovation for Sustainability Science and Engineering (CyberSEES)', awardNumber: '1442672' }
-      ]
-    },
-    {
-      name: 'National Aeronautics and Space Administration (NASA)',
-      logoUrl: nasa, // Replace with actual logo path
-      programs: [
-        { name: 'Earth Science Research from Operational Geostationary Satellite Systems', awardNumber: '80NSSC23K1258' },
-        { name: 'Future Investigators in NASA Earth and Space Science and Technology', awardNumber: '80NSSC24K0068' }
-      ]
-    }
-  ];
+  const tweets = [ '1744937196849668348', '1715933527596814433']
 
   return (
     <>
       <VideoSection videoSrc={src} overlayText={<><h1>CyanoTRACKER</h1><h3>CyanoTRACKER employs a multi-cloud framework for early detection and dissemination of cyanobacterial harmful algal blooms (CyanoHABs) in inland waters worldwide</h3></>}></VideoSection>
-      <h1 style={{paddingTop:'20px'}}>Project Sponsors</h1>
-      <SponsorDisplay sponsors={sponsors} />
       <TextImageSection content={contents} />
       {/* <PlayOnScrollVideo videoSrc={src} overlayText="dkjcdhvdjvhb"></PlayOnScrollVideo> */}
       <h2>Watch the CyanoTRACKER Video</h2>
@@ -61,6 +47,18 @@ function MainContent() {
         videoId="q-mtCnw6Yro"
         description="Watch the cyanotracker video below on how you can provide vital information during your next trip to the lake."
       />
+      <Reacttweet tweets={tweets}></Reacttweet>
+
+      <iframe
+  width="600"
+  height="450"
+  style={{ border: 0 }}
+  loading="lazy"
+  allowFullScreen
+  referrerPolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA">
+</iframe>
+
       <Footer></Footer>
     </>
   );
@@ -75,6 +73,8 @@ function App() {
         <Route path="/" element={<MainContent />} />
         {/* <Route path="/about" element={<About/>} />
         <Route path="/cyanoHAB" element={<cyanoHAB/>} /> */}
+        <Route path="/Publications" element={<Publications/>} />
+        <Route path="/Cyanosense2" element={<Cyanosense2/>} />
         <Route path='/Faq' element={<Faq/>}/>
       </Routes>
     </Router>

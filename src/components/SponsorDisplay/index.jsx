@@ -8,7 +8,7 @@ const SponsorDisplay = ({ sponsors }) => {
         <div key={index} className="sponsor">
           <div className="sponsor-header">
             <img src={sponsor.logoUrl} alt={sponsor.name} className="sponsor-logo" />
-            <h3 className="sponsor-name">{sponsor.name}</h3>
+            <h4 className="sponsor-name">{sponsor.name}</h4>
           </div>
           {sponsor.programs.map((program, progIndex) => (
             <p key={progIndex} className="sponsor-program">

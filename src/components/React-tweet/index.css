@@ -1,0 +1,15 @@
+.tweet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* This makes the container take at least the full height of the viewport */
+    padding: 20px;
+  }
+  
+  /* Optional: Set a max-width for individual tweets */
+  .tweet > * {
+    max-width: 600px; /* Adjust as needed */
+    width: 100%;
+    margin-bottom: 20px; /* Space between tweets */
+  }

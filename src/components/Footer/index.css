@@ -1,26 +1,56 @@
+
+.footer-top {
+  text-align: center;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.sponsor-display-container { /* Assuming this is the class for your SponsorDisplay component */
+  border-right: 1px solid #ddd; /* Adds a vertical line */
+  padding-right: 20px; /* Adds spacing to the right of the content */
+  margin-right: 20px; /* Adds spacing between the border and the next element */
+}
+
+.footer-upper {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.hosted-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px; 
+}
+
+
 .footer {
   background-color: #222;
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: auto;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .footer-content h3 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .footer-links {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .footer-links a {
-  margin: 0 15px;
+  margin: 0 10px;
   color: #fff;
   text-decoration: none;
 }
@@ -37,4 +67,8 @@
 
 .social-links a:hover {
   color: #ddd;
+}
+
+.contact-info a{
+  color: white;
 }

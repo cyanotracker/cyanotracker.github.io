@@ -1,30 +1,58 @@
-
-import './index.css';
 import React from 'react';
-import { FaTwitter, FaInstagram, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
+import './index.css';
+import { FaTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import uga from './uga.png';
+import SponsorDisplay from '../SponsorDisplay'; // Import the SponsorDisplay component
+import nsf from '../../assets/nsf.png';
+import nasa from '../../assets/nasa.png';
+
+const sponsors = [
+  {
+    name: 'National Science Foundation (NSF)',
+    logoUrl: nsf, // Replace with actual logo path
+    programs: [
+      { name: 'Cyber-Innovation for Sustainability Science and Engineering (CyberSEES)', awardNumber: '1442672' }
+    ]
+  },
+  {
+    name: 'National Aeronautics and Space Administration (NASA)',
+    logoUrl: nasa, // Replace with actual logo path
+    programs: [
+      { name: 'Earth Science Research from Operational Geostationary Satellite Systems', awardNumber: '80NSSC23K1258' },
+      { name: 'Future Investigators in NASA Earth and Space Science and Technology', awardNumber: '80NSSC24K0068' }
+    ]
+  }
+];
+
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-content">
+      <div className="footer-top">
         <h3>CyanoTRACKER</h3>
         <p>Monitoring and Reporting Algal Blooms</p>
         <div className="social-links">
-          <a href="https://twitter.com/CyanoTracker" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-          <a href="https://www.instagram.com/cyanotracker/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://www.facebook.com/cyanotracker/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-          {/* Add LinkedIn icon link if needed */}
-          {/* <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a> */}
+          {/* Social links */}
         </div>
-        {/* University of Georgia Info */}
-        <div className="hosted-by">
-          <img src={uga} alt="University of Georgia Logo" style={{width:'200px'}} className="uga-logo" />
-          <p>Hosted by the <a href="https://www.uga.edu/" target="_blank" rel="noopener noreferrer" style={{color:'white'}}>University of Georgia</a></p>
-        </div>
-        {/* Additional Footer Content */}
       </div>
+      <div className="footer-upper">
+        <SponsorDisplay sponsors={sponsors} />
+        <div className="hosted-contact-info">
+          <div className="hosted-by">
+            <img src={uga} alt="University of Georgia Logo" style={{width:'200px'}} className="uga-logo" />
+            <p>Hosted by the <a href="https://www.uga.edu/" target="_blank" rel="noopener noreferrer" style={{color:'white'}}>University of Georgia</a></p>
+          </div>
+          <span className="contact-info">
+            <p>Contact us:</p>
+            <a href="mailto:cyanotracker@gmail.com">cyanotracker@gmail.com</a>&nbsp; &nbsp; &nbsp;
+            <a href="mailto:dmishra@uga.edu">dmishra@uga.edu</a>
+          </span>
+        </div>
+      </div>
+      {/* Other footer content if any */}
     </footer>
   );
 };
+
+
 export default Footer;
