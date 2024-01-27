@@ -16,7 +16,7 @@ const Faq =() =>  {
       <Accordion title={"What can one do about algal blooms, especially those caused by blue-green algae?"}><p>If you suspect a blue-green bloom is present and are unable to provide information to our cyber infrastructure, be sure to keep people and pets away from the bloom and avoid activities that may lead to contact with the water. If you suspect health effects from having had direct contact with a blue-green algae bloom, contact your doctor (or in the event of pet contact, call your veterinarian) immediately.</p></Accordion>
       <Accordion title={"What can a lakeshore and near-lake homeowner do to help prevent algal blooms?"}><p>Environmental Specialist Anthony Dodd from the Georgia Power Company has released some helpful tips for near-lake residents to prevent the onset of harmful algal blooms:</p><ul><li>Don't use more lawn or garden fertilizer than recommended, and keep fertilizer out of storm drains and off driveways and sidewalks</li><li>Maintain a buffer to native plants around shorelines and streams (native plants don.t require fertilizers and help filter water as well)</li><li>Properly care for and maintain household septic systems</li><li>Do not allow livestock or pet waste into the lake. Don't feed waterfowl</li><li>Prevent soil erosion</li></ul></Accordion>
     </div>  
-    <Footer></Footer>
+    
     
     </>
   );

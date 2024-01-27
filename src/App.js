@@ -48,8 +48,8 @@ function MainContent() {
         description="Watch the cyanotracker video below on how you can provide vital information during your next trip to the lake."
       />
       <Reacttweet tweets={tweets}></Reacttweet>
-
-      {/* <iframe
+      {/* 
+      <iframe
   width="600"
   height="450"
   style={{ border: 0 }}
@@ -57,27 +57,32 @@ function MainContent() {
   allowFullScreen
   referrerPolicy="no-referrer-when-downgrade"
   src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA">
-</iframe> */}
+</iframe>
+  */}
 
-      <Footer></Footer>
+      
     </>
   );
 }
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        
-        <Route path="/" element={<MainContent />} />
-        {/* <Route path="/about" element={<About/>} />
-        <Route path="/cyanoHAB" element={<cyanoHAB/>} /> */}
-        <Route path="/Publications" element={<Publications/>} />
-        <Route path="/Cyanosense2" element={<Cyanosense2/>} />
-        <Route path='/Faq' element={<Faq/>}/>
-      </Routes>
-    </Router>
+    <>
+    
+      <Router>
+        <Navbar />
+        <Routes>
+          
+          <Route path="/" element={<MainContent />} />
+          {/* <Route path="/about" element={<About/>} />
+          <Route path="/cyanoHAB" element={<cyanoHAB/>} /> */}
+          <Route path="/Publications" element={<Publications/>} />
+          <Route path="/Cyanosense2" element={<Cyanosense2/>} />
+          <Route path='/Faq' element={<Faq/>}/>
+        </Routes>
+      </Router>
+      <Footer></Footer>   
+    </>
   );
 }
 

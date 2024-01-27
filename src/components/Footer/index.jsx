@@ -28,13 +28,17 @@ const sponsors = [
 const Footer = () => {
   return (
     <footer className="footer">
+        {/*
       <div className="footer-top">
-        <h3>CyanoTRACKER</h3>
-        <p>Monitoring and Reporting Algal Blooms</p>
+      
+      <h3>CyanoTRACKER</h3>
+      <p>Monitoring and Reporting Algal Blooms</p>
+        *
         <div className="social-links">
-          {/* Social links */}
+           Social links 
         </div>
       </div>
+      */}
       <div className="footer-upper">
         <SponsorDisplay sponsors={sponsors} />
         <div className="hosted-contact-info">

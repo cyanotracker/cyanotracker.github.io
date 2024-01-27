@@ -1,42 +1,50 @@
-.card {
-    border: 1px solid #ddd;
+/* PublicationCard.css */
+
+.publications-card {
+    background-color: #434343;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    margin: 30px
-}
+    margin: 40px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+  
+  }
+  
+  .publications-card:hover {
+    transform: translateY(-5px);
+    transform: scale(1.04);
+  
+  }
 
-.card:hover {
-    transform: scale(1.05);
-    background-color: #202123;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.title {
-    font-size: 18px;
-    font-weight: bold;
+  .publications-title {
+    font-size: 1.8em;
+    color:#E69A8DFF;
     margin-bottom: 10px;
-}
+  }
+  
 
-.authors {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.journal {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.pages {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.link {
-    color: #007bff;
+  
+  .authors {
+    font-style: italic;
+    color:var(--color5);
+    margin-bottom: 8px;
+  }
+  .journal {
+    color:var(--color4);
+  }
+  
+  .publications-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color:#4E9F3D ;
+    color: var(--color3);
     text-decoration: none;
-    font-size: 16px;
-}
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .publications-link:hover {
+    background-color: var(--color4);
+  }
+  

@@ -1,3 +1,60 @@
+# Project name: CyanoTracker
+
+# Description
+The dazzling and innocuous colors of cyanobacteria blooms do not fully reveal just how toxic they can be. Sometimes, a full-scale problem may not be visually noticeable. Droughts and extreme agricultural run-off can lead to an explosive growth of toxic cyanobacteria, forming a blanket of scum that prevents light from reaching deeper into the water column and degrading aquatic habitats, and creating low or depleted oxygen in a water body. The global proliferation of CyanoHABs have presented a major risk to the public and wildlife, and ecosystem and economic services provided by inland water resources (Image source: Dr.Susan Wilde, UGA).
+ 
+
+## Live Demo
+The live demo of the website is hosted on ( https://cyanotracker.uga.edu/ )
+
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+## Prerequisites
+
+
+- Node.js
+- npm or yarn
+- React
+- Git
+
+## Installing
+A step-by-step series of examples that tell you how to get a development environment running.
+
+1. Clone the repository:
+   
+   git clone https://github.com/cyanotracker/cyanotracker.github.io.git
+   
+2. Navigate to the project directory:
+   
+   cd <directory name>
+   
+3. Install dependencies:
+   
+   npm install
+   
+
+## Running the Project
+
+npm start
+
+
+## Deployment
+Instructions for deploying the project on gh-pages.
+
+1. Build the project:
+   
+   npm run build
+   
+2. Deploy to gh-pages:
+   
+   npm run deploy
+   
+
+# Branches
+- main: The main branch contains the React project source code.
+- gh-pages: This is the production branch, hosting the built version of the project.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,0 +1,89 @@
+
+
+.CardImageOuter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #333;
+  margin-top: 20px;
+}
+
+.textContainer-right {
+  order: 2; /* Adjust the order to move text container to the right */
+}
+.section {  
+  background-color: #3c3b3b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); ;
+  border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cyano_card {
+  background-color: #575151;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.cyano_card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.imageSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  max-width: 85%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 20px;
+}
+
+.cyano_card > h2 {
+  color: #E69A8DFF;
+  margin-bottom: 10px;
+}
+.cyano_card >  p {
+ text-align: left;
+}
+
+p {
+  font-size: 1.1em;
+}
+.mainHeading{
+  margin-top: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .textContainer,
+  .imageSection{
+    padding: 20px;
+  }
+  .imageSection-graph1 {
+    width: 100%;
+  }
+}

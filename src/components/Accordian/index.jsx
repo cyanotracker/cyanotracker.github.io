@@ -6,7 +6,7 @@ const Accordion = ({ title, children }) => {
 
     return (
         <>
-        <div className='container'></div>
+        
         <div className="accordion">
             <div 
                 className="accordion-header" 
