@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import VideoSection from './components/VideoSection';
 import TextImageSection from './components/TextImageSection';
@@ -10,11 +10,9 @@ import Footer from './components/Footer';
 import YouTubeVideo from './components/YouTubeVideo';
 import './App.css';
 import SponsorDisplay from './components/SponsorDisplay';
-// Assuming these are other components you might have
 import Faq from './pages/Faq.jsx';
 import Reacttweet from './components/React-tweet';
 import Publications from './pages/Publications.jsx';
-
 import Cyanosense2 from "./pages/Cyanosense2.jsx";
 
 
