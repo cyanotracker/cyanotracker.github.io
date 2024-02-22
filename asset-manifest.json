@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e04c2c92.css",
-    "main.js": "/static/js/main.40960d9f.js",
+    "main.css": "/static/css/main.f598c811.css",
+    "main.js": "/static/js/main.a0f64b45.js",
     "static/js/787.c73cc71e.chunk.js": "/static/js/787.c73cc71e.chunk.js",
     "static/media/algae2.mp4": "/static/media/algae2.9efd07b7af88f6c29107.mp4",
     "static/media/img2.jpg": "/static/media/img2.8c7b9b25612e4ab1f919.jpg",
@@ -9,11 +9,11 @@
     "static/media/cyano_2.png": "/static/media/cyano_2.fbd44d0385fdfe2d04b9.png",
     "static/media/Chintan.jpg": "/static/media/Chintan.6fe9319cf78c7adcff49.jpg",
     "static/media/project_overview.png": "/static/media/project_overview.fa278b4c52d0d24e37be.png",
-    "static/media/Ranganadh.jpg": "/static/media/Ranganadh.a32cb47febe1ba46a23f.jpg",
     "static/media/nasa.png": "/static/media/nasa.c58c2bab33b0a92f1b04.png",
+    "static/media/Ranganadh.jpg": "/static/media/Ranganadh.93a888d90ae83bcc7251.jpg",
+    "static/media/Abhishek_C.jpg": "/static/media/Abhishek_C.202b042e6c253ff031cf.jpg",
     "static/media/graph-1.png": "/static/media/graph-1.3721c8478c2f4bcebd08.png",
-    "static/media/Abhishek_Kumar.png": "/static/media/Abhishek_Kumar.db8c21a8d84f3a058e9c.png",
-    "static/media/Abhishek_C.jpg": "/static/media/Abhishek_C.98f7136a01941e20621c.jpg",
+    "static/media/Abhishek_Kumar.png": "/static/media/Abhishek_Kumar.21fcb96056523a9d8048.png",
     "static/media/our_approach.png": "/static/media/our_approach.d83bcb01ebdd5bf2c923.png",
     "static/media/graph-2.png": "/static/media/graph-2.e2850eca1a8a2872dd18.png",
     "static/media/nsf.png": "/static/media/nsf.aaeb36799e518dccaa66.png",
@@ -23,12 +23,12 @@
     "static/media/Cyano_Poster_new.png": "/static/media/Cyano_Poster_new.bb5105b84915fb84647c.png",
     "static/media/Deepak_Mishra.jpg": "/static/media/Deepak_Mishra.9f6595aad19630e97d2b.jpg",
     "index.html": "/index.html",
-    "main.e04c2c92.css.map": "/static/css/main.e04c2c92.css.map",
-    "main.40960d9f.js.map": "/static/js/main.40960d9f.js.map",
+    "main.f598c811.css.map": "/static/css/main.f598c811.css.map",
+    "main.a0f64b45.js.map": "/static/js/main.a0f64b45.js.map",
     "787.c73cc71e.chunk.js.map": "/static/js/787.c73cc71e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e04c2c92.css",
-    "static/js/main.40960d9f.js"
+    "static/css/main.f598c811.css",
+    "static/js/main.a0f64b45.js"
   ]
 }
