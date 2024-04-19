@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.497ee3a6.css",
-    "main.js": "/static/js/main.01ecc7b5.js",
+    "main.css": "/static/css/main.24f2cd10.css",
+    "main.js": "/static/js/main.d8bbe84c.js",
     "static/js/787.c73cc71e.chunk.js": "/static/js/787.c73cc71e.chunk.js",
     "static/media/algae2.mp4": "/static/media/algae2.9efd07b7af88f6c29107.mp4",
     "static/media/img2.jpg": "/static/media/img2.8c7b9b25612e4ab1f919.jpg",
@@ -23,12 +23,12 @@
     "static/media/Cyano_Poster_new.png": "/static/media/Cyano_Poster_new.bb5105b84915fb84647c.png",
     "static/media/Deepak_Mishra.jpg": "/static/media/Deepak_Mishra.9f6595aad19630e97d2b.jpg",
     "index.html": "/index.html",
-    "main.497ee3a6.css.map": "/static/css/main.497ee3a6.css.map",
-    "main.01ecc7b5.js.map": "/static/js/main.01ecc7b5.js.map",
+    "main.24f2cd10.css.map": "/static/css/main.24f2cd10.css.map",
+    "main.d8bbe84c.js.map": "/static/js/main.d8bbe84c.js.map",
     "787.c73cc71e.chunk.js.map": "/static/js/787.c73cc71e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.497ee3a6.css",
-    "static/js/main.01ecc7b5.js"
+    "static/css/main.24f2cd10.css",
+    "static/js/main.d8bbe84c.js"
   ]
 }
