@@ -1,0 +1,251 @@
+[
+  {
+      "title": "Continuous and synoptic assessment of Indian inland waters for harmful algae blooms.",
+      "authors": "Maniyar, Chintan B., Abhishek Kumar, and Deepak R. Mishra",
+      "journal": "Harmful Algae",
+      "year": "2022",
+      "volume": "111",
+      "type":"journal",
+      "link": "https://doi.org/10.1016/j.hal.2021.102160",
+      "image":"https://ars.els-cdn.com/content/image/1-s2.0-S1568988321X0011X-cov150h.gif"
+    },
+    {
+      "title": "CyanoTRACKER: A cloud-based integrated multi-platform architecture for global observation of cyanobacterial harmful algal blooms",
+      "authors": "Mishra, Deepak R., et al.",
+      "journal": "Harmful algae",
+      "year": "2020",
+      "volume": "96",
+      "type":"journal",
+      "link": "https://doi.org/10.1016/j.hal.2020.101828",
+      "image":"https://ars.els-cdn.com/content/image/1-s2.0-S1568988320X00059-cov150h.gif"
+    },
+    {
+      "title": "Landsat 8 virtual orange band for mapping cyanobacterial blooms.",
+      "authors": "Kumar, Abhishek, Deepak R. Mishra, and Nirav Ilango.",
+      "journal": "Remote Sensing",
+      "year": "2020",
+      "volume": "12.5",
+      "type":"journal",
+      "link": "https://doi.org/10.3390/rs12050868",
+      "image":"Remote_Sensing_2020.jpg"
+    },
+    {
+      "title": "A multi-cloud cyber infrastructure for monitoring global proliferation of cyanobacterial harmful algal blooms",
+      "authors": "Mishra, Deepak, et al.",
+      "journal": "IGARSS, 2018-2018 IEEE International Geoscience and Remote Sensing Symposium. IEEE",
+      "year": "2018",
+      "type":"journal",
+      "link": "https://doi.org/10.1109/IGARSS.2018.8519144",
+      "image":"https://cdn11.bigcommerce.com/s-eb528d73s5/images/stencil/1280x1280/products/55575/58457/041602__64828.1636347815.png?c=1"
+    },
+    {
+      "title": "A novel cross-satellite based assessment of the spatio-temporal development of a cyanobacterial harmful algal bloom.",
+      "authors": "Page, Benjamin P., Abhishek Kumar, and Deepak R. Mishra",
+      "journal": "International journal of applied earth observation and geoinformation 66",
+      "year": "2018",
+      "volume": "66",
+      "type":"journal",
+      "link": "https://doi.org/10.1016/j.jag.2017.11.003",
+      "image":"https://ars.els-cdn.com/content/image/1-s2.0-S1569843223X00107-cov150h.gif"
+    },
+    
+    {
+      "title": "CyanoSense: a wireless remote sensor system using raspberry-pi and arduino with application to algal bloom.",
+      "authors": "Boddula, Vinay, Lakshmish Ramaswamy, and Deepak Mishra",
+      "journal": "2017 IEEE International Conference on AI & Mobile Services (AIMS). IEEE",
+      "year": "2017",
+      "type":"conference-proceedings",
+      "link": "https://doi.org/10.1109/AIMS.2017.19",
+      "image":"https://media.springernature.com/full/springer-static/cover-hires/book/978-3-319-94361-9"
+    },
+    {
+      "title": "A spatio-temporal mining approach for enhancing satellite data availability: a case study on blue green algae.",
+      "authors": "Boddula, Vinay, Lakshmish Ramaswamy, and Deepak Mishra",
+      "journal": "2017 IEEE International Congress on Big Data (BigData Congress). IEEE",
+      "year": "2017",
+      "type":"conference-proceedings",
+      "link": " https://doi.org/10.1109/BigDataCongress.2017.37",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST1sQQphpMNAdMeJBJI16t2OvoY3sJLejVcjrSLXD1vA&s"
+    },
+    {
+      "title": "Data driven analysis of Algal Bloom activity for effective Water Sustainability.",
+      "authors": "Boddula, Vinay, et al.",
+      "journal": "2016 IEEE International Conferences on Big Data and Cloud Computing (BDCloud), Social Computing and Networking (SocialCom), Sustainable Computing and Communications (SustainCom)(BDCloud-SocialCom-SustainCom). IEEE",
+      "year": "2016",
+      "type":"conference-proceedings",
+      "link": " https://doi.org/10.1109/BDCloud-SocialCom-SustainCom.2016.69",
+      "image":"https://cdn11.bigcommerce.com/s-eb528d73s5/products/46224/images/49106/032182__17228.1636344031.386.513.png?c=1"
+    },
+    {
+      "title": "Harnessing social media for environmental sustainability: a measurement study on harmful algal blooms.",
+      "authors": "Boddula, Vinay, et al.",
+      "journal": "2015 IEEE Conference on Collaboration and Internet Computing (CIC). IEEE",
+      "year": "2015",
+      "type":"conference-proceedings",
+      "link": "https://doi.org/10.1109/CIC.2015.31",
+      "image":"iee_2015.jpg"
+    },
+    {
+      "title": "Cyanosense 2.0: Low-Cost Wireless Proximal Sensing Infrastructure for Remote Monitoring of CyanoHABs",
+      "authors": "Keshav Raviprakash, Chintan B. Maniyar, Deepak R. Mishra",
+      "journal": "UGA Water Science and Policy Symposium, GA, USA. October 2024",
+      "year": "2023",
+      "type":"conference-presentations",
+      "link": "https://docs.google.com/presentation/d/e/2PACX-1vQ7LYzqtoA65Rp1M516fLmyI8xQlR8ftpOZuWrp7uqPEwtB9Ie4fMWnnkHTWbeRHw/pub?start=false&loop=true&delayms=3000&slide=id.p1",
+      "image":"https://d3i71xaburhd42.cloudfront.net/46982c8395a5fb2f6447617a4eb45c150c5a6ee0/1-Figure1-1.png"
+    },
+    {
+      "title":"Proximal and Satellite-based Remote Sensing of US Waters for Cyanobacterial Harmful Algal Blooms: Detection, Monitoring and Early Warning",
+      "authors":"Chintan B. Maniyar and Deepak R. Mishra",
+      "type":"conference-presentations",
+      "journal":"UGA Climate and Water Research Slam, GA, USA. April 2024",
+      "link":"https://docs.google.com/presentation/d/e/2PACX-1vTcevN49j2PFvQLCt2qHbc78pLiMac_WxGhAl1i0k5_l3Q0nbK-OrJ6EeH62d9FGg/pub?start=true&loop=true&delayms=10000",
+      "image":"https://i.pinimg.com/originals/4b/1a/0a/4b1a0a93f9d0ac0a3e2b43469194dbc1.jpg",
+      "year":"2024"
+
+    },
+    {
+      "title":"Multi-Sensor based Global Forecasting of Cyanobacterial Harmful Algal Blooms using Deep Learning with Long Short-Term Memory",
+      "authors":"Chintan B. Maniyar, Abhishek Kumar and Deepak R. Mishra",
+      "type":"conference-presentations",
+      "journal": "IEEE International Geosciences and Remote Sensing Symposium, Kuala Lumpur, Malaysia, July 2022",
+      "link": "https://docs.google.com/presentation/d/e/2PACX-1vT_1xgzkYSzUybb3ug4-2xjmkrEmgjNXaF12d4IRCx680HP55ctZIAERbSsqtC2HQ/pub?start=false&loop=false&delayms=5000",
+      "image":"https://pbs.twimg.com/media/DjfG_OEWwAAGACL?format=jpg&name=4096x4096",
+      "year":"2022"
+    },
+{
+    "title": "Geo-AI for Forecasting Anthropogenic Harmful Algae Blooms using Sentinel-3 and Open Social Media",
+"authors": "Chintan B. Maniyar and Deepak R. Mishra",
+"journal": "ASPRS Virtual Annual Meeting 2022, March 2022",
+"link":"https://docs.google.com/presentation/d/e/2PACX-1vQdvisQW7wlqFej9NIJrAW6AmvNXMVLu5H9owLHOymQLtUdixFIvfkF8wS-n_SSzw/pub?start=false&loop=false&delayms=5000",
+"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZgkpVUlCPqNtKzX2PSi9eHb009QN2KwKfdD43s9JLPZ84NGZZ",
+"type":"conference-presentations",
+"year":"2022"
+
+}
+,
+ {
+"title": "Frequent Synoptic Monitoring of Cyanobacterial Harmful Algal Blooms for Potential Prevention of Disease Outbreak",
+ "authors": "Chintan B. Maniyar, Abhishek Kumar, Deepak R. Mishra",
+ "journal": "CDCâ€™s Place And Health Conference, November 2021",
+ "link":"https://www.essoar.org/pdfjs/10.1002/essoar.10509678.1",
+ "image":"https://www.dlr.de/en/images/2020/3/copernicus-sentinel-3-in-space-artists-impression/@@images/image-1920-72abb314657721abab4d05ed65ed82ef.jpeg",
+ "type":"conference-presentations",
+ "year":"2021"
+},
+
+
+{
+  "type":"conference-presentations",
+"title": "Web-based Interactive Approach for Continuous Monitoring of Indian Inland and Estuarine Waters for Harmful Algal Blooms",
+"authors": "Chintan B. Maniyar, Abhishek Kumar, Deepak R. Mishra",
+"journal": "National Symposium Environment Monitoring and Climate Change Assessment, India, December 2020",
+"link": "https://docs.google.com/presentation/d/e/2PACX-1vRzNRdN3CaPqQWcqUMCaXBnOFrNhtOLpzJ7pbtXakcQAqR-ERdyg2l2GYhi8J8bpw/pub?start=false&loop=false&delayms=10000",
+  "image":"https://ars.els-cdn.com/content/image/1-s2.0-S1568988321001906-gr5.jpg",
+  "year":"2020"  
+} 
+,{   
+      "type":"media-highlights",
+      "caption":"Toxic Algae Detection",
+      "link": "https://news.uga.edu/new-system-detects-toxic-algae/?fbclid=IwAR3ePCRKURbo9KDIVl4z3to7hqGiRF0pJqqj41Nt4B0t3HNnxWhAIsI3h50",
+      "image":"https://news.uga.edu/wp-content/uploads/2020/07/20170429_170122-scaled.jpg",
+      "year":"2020"
+
+    },
+    {
+      "type":"media-highlights",
+      "caption":"Toxic Algae Surveillance",
+      "link":"https://landsat.gsfc.nasa.gov/article/satellites-on-toxic-algae-patrol/",
+      "image":"https://landsat.gsfc.nasa.gov/wp-content/uploads/2018/10/20181011_nu1.png",
+      "year":"2018"
+    },
+  
+    {
+      "type":"media-highlights",
+      "caption":"CyanoKhoj",
+      "link":"https://india.mongabay.com/2022/02/new-tool-enables-early-detection-of-cyanobacterial-blooms-in-indias-waterbodies/",
+      "year":"2022",
+      "image":"data:image/jpeg;base64,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"
+    },  
+    {
+      
+      "type":"media-highlights",
+      "caption":"Lake Oglethorpe Testing",
+      "link": "https://research.uga.edu/news/cyanotracker-tests-the-waters-at-lake-oglethorpe/",
+      "image":"https://research.uga.edu/news/wp-content/uploads/sites/19/2020/09/cyanotracker.jpg",
+      "year":"2020"
+    },
+    {
+      "type":"media-highlights",
+      "caption":"Chowan River Bloom",
+      "link": "https://paerllab.web.unc.edu/2020/07/07/chowan-river-bloom/",
+      "image":"https://paerllab.web.unc.edu/wp-content/uploads/sites/17493/2020/07/image002-rotated.jpg",
+      "year":"2020"
+    },
+    {
+
+      "type":"media-highlights",
+      "caption":"Lake Erie Algae Growth",
+      "link": "https://www.mlive.com/weather/2019/07/lake-erie-turning-green-as-toxic-algae-bloom-expands.html",
+      "image":"https://www.mlive.com/resizer/v2/https%3A%2F%2Farc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com%2Fpublic%2FBZQLFS2SYVDEJFBL2ASTUM6LLY.jpeg?auth=e10e52922462c614c44b21f74d960d9b9bb24e60bef7b7e41fadb48534a1f6b8&width=1280&quality=90",
+      "year":"2019"
+    },
+
+    {
+
+      "type":"media-highlights",
+      "caption":"Coloring Lake Pontchartrain",
+      "link": "https://earthobservatory.nasa.gov/images/91977/coloring-lake-pontchartrain",
+    "image":"https://eoimages.gsfc.nasa.gov/images/imagerecords/91000/91977/pontchartrain_oli_2018062_detail.jpg",
+    "year":"2018"
+        },
+
+    {
+
+      "type":"media-highlights",
+      "caption":"Lake Mendota Algae",
+      "link": "http://www.friendslakeshorepreserve.com/cyanobacteria.html",
+      "image":"mendota_lake.jpg",
+      "year":"2018"
+        }
+        ,{
+          "type":"media-highlights",
+          "caption":"Western Algae Blooms",
+          "link":"https://deeply.thenewhumanitarian.org/water/articles/2018/07/30/hot-weather-land-abuses-fueling-algal-blooms-in-western-waters",
+          "image":"https://newsdeeply-app.s3.amazonaws.com/20180727081751/PintoLakeAlum1.jpg?w=640&fit=max&q=60&dpr=2",
+          "year":"2018"
+        },
+        {
+          "type":"media-highlights",
+          "caption":"Eutrophication along NC",
+          "link":"https://paerllab.web.unc.edu/2022/03/29/current-state-of-water-quality-based-on-modmon-ferrymon-and-other-state-monitoring-programs-as-well-as-nutrient-bioassay-experiments/",
+          "image":"https://paerllab.web.unc.edu/wp-content/uploads/sites/17493/2022/03/Paerl-Eutrophication-along-NC-Continuum-Page-1-1024x768.jpg",
+          "year":"2022"
+        },
+        {
+          "type":"media-highlights",
+          "caption":"Toxic Algae Blooms Facts",
+          "link":"https://www.ewg.org/news-insights/news/toxic-algae-blooms-what-you-should-know",
+          "image":"https://www.ewg.org/sites/default/files/styles/wide_standard_xl/public/blog/AlgalKickoffBlog.jpg?h=2e181f1f&itok=YGj_bCT4",
+          "year":"2019"
+        },
+        {
+          "type":"media-highlights",
+          "caption":" Utah Lake Warning",
+          "link":"https://ksltv.com/396627/warning-issued-dangerous-algae-discovered-utah-lake/",
+          "image":"https://ksltv.com/wp-content/uploads/2018/06/ALGAE_warning-sign-620x349.jpg",
+          "year":"2018"
+        },{
+          "type":"media-highlights",
+          "caption":"CYANOCOST",
+          "link":"https://cyanocost.wordpress.com/wp-content/uploads/2018/10/cyanonews-issue-10-sep-oct-2018.pdf",
+          "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlD3r5WViH8_ds37k2NZIvPnsUlpHFXhYvXSH6eGbWmgU3GEwyHN_yX97wjn-28UrJ8Hk&usqp=CAU",
+          "year":"2018"
+        },{
+          "type":"media-highlights",
+          "caption":"Satellites on Toxic Algae",
+          "link":"https://landsat.gsfc.nasa.gov/wp-content/uploads/2019/02/Water_Case-Studies2018.pdf",
+          "image":"data:image/jpeg;base64,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",
+          "year":"2018"
+        }
+  ]

@@ -3,29 +3,38 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px;
-    
+    margin-bottom: 10px;
+    margin-top: 0px;
 }
-
 
 .video-container iframe {
     position: relative;
-    top: 0;
-    left: 0;
-    width: 400px;
-    height: 270px;
-    
+    bottom: 80px;
+    width: 800px;
+    height: 400px;
 }
 
 .video-description {
     margin-top: 20px;
     margin-bottom: 20px;
+}
 
+@media (max-width: 1372px) and (min-width: 773px) {
+    .video-container iframe {
+        width: 600px;
+    }
 }
 
 @media (max-width: 768px) {
     .youtube-video {
         margin-bottom: 10px;
+    }
+
+    .video-container iframe {
+     
+        left:100px;
+       width:300px;
+       height:200px;
     }
 
     .video-description {

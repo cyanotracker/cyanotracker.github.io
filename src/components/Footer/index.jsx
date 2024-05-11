@@ -48,8 +48,14 @@ const Footer = () => {
           </div>
           <span className="contact-info">
             <p>Contact us:</p>
+           
             <a href="mailto:cyanotracker@gmail.com">cyanotracker@gmail.com</a>&nbsp; &nbsp; &nbsp;
             <a href="mailto:dmishra@uga.edu">dmishra@uga.edu</a>
+
+            <p id="follow-us">Follow us:</p>
+            <a rel="noopener" href="https://twitter.com/cyanotracker" style={{'textDecoration':'none'}}><i className="ri-twitter-x-fill"></i></a> &nbsp;
+           
+           <a rel="noopener" href=" https://www.facebook.com/cyanotracker/" style={{'textDecoration':'none'}}><i className="ri-facebook-circle-fill"></i></a>
           </span>
         </div>
       </div>

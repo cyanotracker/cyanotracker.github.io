@@ -12,12 +12,90 @@ body, html {
   font-family: 'Arial', sans-serif; /* Optional: Set a default font */
 }
 
+#title-heading{
+  margin-bottom: 200px; 
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+}
+#project-overview-container {
+  display: flex;
+  align-items: flex-start;
+ 
+}
 
+
+#video {
+  flex: 1 1;
+  padding: 1rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #project-overview-container {
+    flex-direction: column;
+  }
+
+  #video {
+    margin-top: 10px; /* Adjust margin as needed */
+  }
+
+}
+.text-content {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+
+
+@media (max-width: 767px) {
+
+  #video {
+    width:100px;
+    height:100px;
+   
+  }
+}
+
+
+
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  #text-content {
+    padding: 10px; /* Adjust padding for smaller devices */
+  }
+
+  #text-content p {
+    font-size: 14px; /* Decrease font size for smaller devices */
+  }
+}
+
+#project-overview-content{
+
+border:0px;
+  padding-top: 0px;
+  margin-top: 0px;
+  font-family:  sans-serif;
+  
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+#tweet-news-division{
+  display: flex;
+  flex-direction: row;
+}
+#tweet-news-division > * {
+  flex: 1;
+}
+@media (max-width: 800px) {
+  #tweet-news-division {
+    flex-direction: column;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -47,3 +125,4 @@ body, html {
     transform: rotate(360deg);
   }
 }
+

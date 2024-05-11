@@ -33,8 +33,12 @@
   
   .navbar-nav li {
     margin: 0 1rem;
+   
   }
-  
+  .navbar-nav li  a{
+    font-size: 20px;
+   
+  }
   
   .hamburger {
     display: none;
@@ -71,6 +75,20 @@
   
     .navbar-nav.open {
       display: flex;
+    }
+    .navbar-nav.open{
+    
+     /* margin:auto; */
+     white-space: nowrap;
+     display: inline;
+    }
+
+    .navbar-nav.open li a{
+      float:left;
+      align-items: left;
+      position: relative;
+      right:36%;
+     padding:2px;
     }
   
     .hamburger.open .line:nth-child(1) {

@@ -3,6 +3,7 @@ import CardImageSection from '../components/CardImageSection';
 import cyano2 from '../assets/cyano_2.png';
 import graph1 from '../assets/graph-1.png';
 import graph2 from '../assets/graph-2.png';
+import poster from '../assets/Poster.jpg';
 
 const Cyanosense2 = () => {
   const sections = [
@@ -48,12 +49,15 @@ const Cyanosense2 = () => {
       imagePlacement: 'left', // Specify the image placement
     },
     // Add more sections as needed
+   
   ];
 
     return (
     <div>
+       
      
-      <CardImageSection heading="Cyano2.0 - Next Generation Cyanosense" sections={sections} />
+      <CardImageSection heading={<a href=" https://docs.google.com/presentation/d/e/2PACX-1vQ7LYzqtoA65Rp1M516fLmyI8xQlR8ftpOZuWrp7uqPEwtB9Ie4fMWnnkHTWbeRHw/pub?start=false&loop=true&delayms=3000" style={{color:"#fff",textDecoration: 'none'}} target='_blank' >CyanoSense 2.0 - Next Generation Cyanosense</a>}
+     sections={sections} />
     </div>
   );
 };

@@ -1,28 +1,142 @@
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
+import TabList from '@mui/lab/TabList';
+import Tab from '@mui/material/Tab';
+import TabPanel from '@mui/lab/TabPanel';
+import TabContext from '@mui/lab/TabContext';
 import PublicationCard from '../components/PublicationCard';
+import publicationsData from '../assets/publications.json';
 
-const Publications =() => {
-    return (
-        <div>
-            
-            <div style={{ marginTop: '90px'}}></div>
-            <PublicationCard title="Continuous and synoptic assessment of Indian inland waters for harmful algae blooms." authors="Maniyar, Chintan B., Abhishek Kumar, and Deepak R. Mishra" journal="Harmful Algae" year="2022" volume="111" link="https://doi.org/10.1016/j.hal.2021.102160"></PublicationCard>
-            <PublicationCard title="CyanoTRACKER: A cloud-based integrated multi-platform architecture for global observation of cyanobacterial harmful algal blooms" authors="Mishra, Deepak R., et al. " journal="Harmful algae" year="2020" volume="96"  link="https://doi.org/10.1016/j.hal.2020.101828"></PublicationCard>
-            <PublicationCard title="Landsat 8 virtual orange band for mapping cyanobacterial blooms." authors="Kumar, Abhishek, Deepak R. Mishra, and Nirav Ilango. " journal="Remote Sensing" year="2020" volume="12.5" link="https://doi.org/10.3390/rs12050868"></PublicationCard>
-            <PublicationCard title="A multi-cloud cyber infrastructure for monitoring global proliferation of cyanobacterial harmful algal blooms" authors="Mishra, Deepak, et al." journal="IGARSS, 2018-2018 IEEE International Geoscience and Remote Sensing Symposium. IEEE" year="2018" link="https://doi.org/10.1109/IGARSS.2018.8519144"></PublicationCard>
-            <PublicationCard title="A novel cross-satellite based assessment of the spatio-temporal development of a cyanobacterial harmful algal bloom." authors="Page, Benjamin P., Abhishek Kumar, and Deepak R. Mishra" journal="International journal of applied earth observation and geoinformation 66" year="2018" volume="66" link="https://doi.org/10.1016/j.jag.2017.11.003"></PublicationCard>
-            <PublicationCard title="CyanoSense: a wireless remote sensor system using raspberry-pi and arduino with application to algal bloom." authors="Boddula, Vinay, Lakshmish Ramaswamy, and Deepak Mishra" journal="2017 IEEE International Conference on AI & Mobile Services (AIMS). IEEE" year="2017" link="https://doi.org/10.1109/AIMS.2017.19"></PublicationCard>
-            <PublicationCard title="A spatio-temporal mining approach for enhancing satellite data availability: a case study on blue green algae." authors="Boddula, Vinay, Lakshmish Ramaswamy, and Deepak Mishra" journal="2017 IEEE International Congress on Big Data (BigData Congress). IEEE" year="2017" link=" https://doi.org/10.1109/BigDataCongress.2017.37"></PublicationCard>
-           
-          
-            <PublicationCard title="Data driven analysis of Algal Bloom activity for effective Water Sustainability." authors="Boddula, Vinay, et al." journal="2016 IEEE International Conferences on Big Data and Cloud Computing (BDCloud), Social Computing and Networking (SocialCom), Sustainable Computing and Communications (SustainCom)(BDCloud-SocialCom-SustainCom). IEEE" year="2016" link=" https://doi.org/10.1109/BDCloud-SocialCom-SustainCom.2016.69"></PublicationCard>
-            <PublicationCard title="Harnessing social media for environmental sustainability: a measurement study on harmful algal blooms." authors="Boddula, Vinay, et al." journal="2015 IEEE Conference on Collaboration and Internet Computing (CIC). IEEE" year="2015" link="https://doi.org/10.1109/CIC.2015.31"></PublicationCard>
-            
+const groupPublicationsByYear = (publications) => {
+  const groupedPublications = {};
+  publications.forEach((publication) => {
+    if (!groupedPublications[publication.year]) {
+      groupedPublications[publication.year] = [];
+    }
+    groupedPublications[publication.year].push(publication);
+  });
 
-            
-            
-        </div>
-    );
-}
+  // Sort the keys in reverse order (descending)
+  const sortedYears = Object.keys(groupedPublications).sort((a, b) => b - a);
+
+  return sortedYears.map((year) => ({
+    year,
+    publications: groupedPublications[year],
+  }));
+};
+
+const Publications = () => {
+  const [value, setValue] = useState('journalArticles');
+
+  const journalArticles = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'journal'));
+  const conferenceProceedings = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'conference-proceedings'));
+  const conferencePresentations = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'conference-presentations'));
+  const mediaHighlights = publicationsData.filter((publication) => publication.type === 'media-highlights').sort((a,b) => b.year-a.year)
+  const [activeTab, setActiveTab] = useState('journalArticles');
+console.log("mediaHighlights...............",mediaHighlights);
+  const handleTabChange = (newValue) => {
+    setActiveTab(newValue);
+  };
+  return (
+    <div id="tab-container" style={{ marginTop: '122px' }}>
+      <TabContext value={value}>
+         <TabList
+    onChange={(e, newValue) => setValue(newValue)}
+    variant="scrollable"
+    scrollButtons
+    allowScrollButtonsMobile
+    sx={{
+      flexDirection: 'row',
+      flexWrap: 'nowrap', // Ensure tabs stay in one line
+      overflowX: 'auto', // Enable horizontal scrolling
+      //".MuiTabs-flexContainer":{position:'fixed',top:'122px',zIndex:'20000',width:'100%',backgroundColor:'#333', '@media (max-width: 600px)':{width:'60%'},'@media (max-width: 375px)':{width:'100%'}},
+         
+      "& button.MuiButtonBase-root": { color: '#fff' },
+      "& button.Mui-selected:nth-child(1)": { color: '#8FC1DA' },
+      "& button.Mui-selected:nth-child(2)": { color: '#E0AED0' },
+      "& button.Mui-selected:nth-child(3)": { color: '#FEFFaC' },
+      "& button.Mui-selected:nth-child(4)": { color: 'orange' },
+      '@media (max-width: 600px)': {
+        width: '100%', // Adjust width for smaller devices
+      },
+      '@media (max-width: 375px)': {
+        width: '60%', // Adjust width for even smaller devices
+      },
+    }}
+  >
+        
+          <Tab sx={{}}
+        label={<span style={{ 'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' }}>Journal Articles</span>}
+        value="journalArticles"
+        activeStyle={{ color: 'pink' }}
+        onChange={handleTabChange}
+      />
+      <Tab
+        label={<span style={{ 'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' }}>Conference Proceedings</span>}
+        value="conferenceProceedings"
+        activeStyle={{ color:'white' }}
+        onChange={handleTabChange}
+
+      />
+      <Tab
+        label={<span style={{ 'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' }}>Conference Presentations</span>}
+        value="conferencePresentations"
+        activeStyle={{ color: 'orange' }}
+        onChange={handleTabChange}
+      />
+      <Tab
+        label={<span style={{  'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' ,}}>Media Highlights</span>}
+        value="mediaHighlights"
+        activeStyle={{ color: 'pink' }}
+        onChange={handleTabChange}
+      />
+  </TabList>
+
+        <TabPanel value="journalArticles">
+          {journalArticles.map(({ year, publications }) => (
+            <div key={year}>
+              <h2 className="year-heading">{year}</h2>
+              <hr style={{ border: '4px solid #8FC1DA' }}></hr>
+              {publications.map((publication, index) => (
+                <PublicationCard key={index} {...publication} />
+              ))}
+            </div>
+          ))}
+        </TabPanel>
+
+        <TabPanel value="conferenceProceedings">
+          {conferenceProceedings.map(({ year, publications }) => (
+            <div key={year}>
+              <h2 className="year-heading">{year}</h2>
+              <hr style={{ border: '4px solid #E0AED0' }}></hr>
+              {publications.map((publication, index) => (
+                <PublicationCard key={index} {...publication} />
+              ))}
+            </div>
+          ))}
+        </TabPanel>
+
+        <TabPanel value="conferencePresentations">
+          {conferencePresentations.map(({ year, publications }) => (
+            <div key={year}>
+              <h2 className="year-heading">{year}</h2>
+              <hr style={{ border: '4px solid #FEFFaC' }}></hr>
+              {publications.map((publication, index) => (
+                <PublicationCard key={index} {...publication} />
+              ))}
+            </div>
+          ))}
+        </TabPanel>
+
+        <TabPanel value="mediaHighlights">
+          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {mediaHighlights.map((publication, index) => (
+              <PublicationCard key={index} {...publication} />
+            ))}
+          </div>
+        </TabPanel>
+      </TabContext>
+    </div>
+  );
+};
 
 export default Publications;

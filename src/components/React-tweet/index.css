@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* This makes the container take at least the full height of the viewport */
-    padding: 20px;
+    min-height: 40vh; /* This makes the container take at least the full height of the viewport */
+    padding: 2px;
   }
   
   /* Optional: Set a max-width for individual tweets */
@@ -12,4 +12,21 @@
     max-width: 600px; /* Adjust as needed */
     width: 100%;
     margin-bottom: 20px; /* Space between tweets */
+    margin-top: 0px;
+  }
+  .tweet-heading{
+    margin-top: 40px;
+    
+  }
+  @media (max-width: 918px) {
+    .tweet {
+      min-height: 30vh;
+    }
+
+  }
+  @media (max-width: 1024px) {
+    .tweet {
+      min-height: 20vh;
+    }
+
   }

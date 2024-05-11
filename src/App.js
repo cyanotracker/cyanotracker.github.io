@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState,useEffect } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import VideoSection from './components/VideoSection';
@@ -6,6 +7,8 @@ import TextImageSection from './components/TextImageSection';
 import src from './assets/algae2.mp4';
 import imgurl1 from './assets/img1.jpg';
 import imgurl2 from './assets/img2.jpg';
+import ourapproach from './assets/our_approach.png'
+import overview_img from './assets/project_overview.png';
 import Footer from './components/Footer';
 import YouTubeVideo from './components/YouTubeVideo';
 import './App.css';
@@ -14,38 +17,91 @@ import Faq from './pages/Faq.jsx';
 import Reacttweet from './components/React-tweet';
 import Publications from './pages/Publications.jsx';
 import Cyanosense2 from "./pages/Cyanosense2.jsx";
-
-
+import Teams from "./pages/Teams.jsx";
+import Form from "./pages/Form.jsx";
+import NewsFeed from './components/NewsFeed/index.jsx';
+import MapComponent from './components/MapComponent';
 function MainContent() {
+  const [tweets, setTweets] = useState([]);
   const contents = [
     {
       title: "Project Overview",
-      text: "The dazzling and innocuous colors of cyanobacteria blooms do not fully reveal just how toxic they can be. Sometimes, a full-scale problem may not be visually noticeable. Droughts and extreme agricultural run-off can lead to an explosive growth of toxic cyanobacteria, forming a blanket of scum that prevents light from reaching deeper into the water column and degrading aquatic habitats, and creating low or depleted oxygen in a water body. The global proliferation of CyanoHABs have presented a major risk to the public and wildlife, and ecosystem and economic services provided by inland water resources (Image source: Dr.Susan Wilde, UGA)",
-      imageUrl: imgurl2
+      text: (
+        <div id="project-overview-container">
+          
+          <div id="text-content">
+          <p>
+            The dazzling and innocuous colors of cyanobacteria blooms do not fully reveal just how toxic they can be. Sometimes, a full-scale problem may not be visually noticeable. Droughts and extreme agricultural run-off can lead to an explosive growth of toxic cyanobacteria, forming a blanket of scum that prevents light from reaching deeper into the water column and degrading aquatic habitats, and creating low or depleted oxygen in a water body. The global proliferation of CyanoHABs have presented a major risk to the public and wildlife, and ecosystem and economic services provided by inland water resources.
+          </p>
+          </div>
+          <div id="video">
+          <YouTubeVideo videoId="q-mtCnw6Yro" />
+          </div>
+        </div>
+      ),
     },
     {
       title: "Our Approach",
-      text: "Accurate, cost-effective, and targeted monitoring of these events is pivotal as the frequency and magnitude of CyanoHABs have grown, particularly in the summer months. A group of researchers  from diverse disciplines at The University of Georgia, Athens, developed a framework called CyanoTRACKER that seamlessly integrates community observations (Social Cloud), remote sensing measurements (Sesnor Cloud), and advanced multimedia analytics (Computational Cloud) for effective CyanoHABs monitoring. All components of CyanoTRACKER provided important data related to CyanoHABs assessments in global inland water bodies. Reports and data received via the social cloud, including platforms such as  X (formerly Twitter), Facebook, and CyanoTRACKER website, help identify the geographic locations of CyanoHABs affected water bodies for tracking, mapping, and disseminating CyanoHABs information to the community. To learn more about the technical details, please refer:",
-      url: "https://doi.org/10.1016/j.hal.2020.101828 ",
-      imageUrl: imgurl1,
-
+      text: "Accurate, cost-effective, and targeted monitoring of these events is pivotal as the frequency and magnitude of CyanoHABs have grown, particularly in the summer months. A group of researchers from diverse disciplines at The University of Georgia, Athens, developed a framework called CyanoTRACKER that seamlessly integrates community observations (Social Cloud), remote sensing measurements (Sensor Cloud), and advanced multimedia analytics (Computational Cloud) for effective CyanoHABs monitoring. All components of CyanoTRACKER provided important data related to CyanoHABs assessments in global inland water bodies. Reports and data received via the social cloud, including platforms such as X (formerly Twitter), Facebook, and CyanoTRACKER website, help identify the geographic locations of CyanoHABs affected water bodies for tracking, mapping, and disseminating CyanoHABs information to the community. To learn more about the technical details, please refer:",
+      url: "https://doi.org/10.1016/j.hal.2020.101828",
+      imageUrl: ourapproach,
     },
     // Add more content objects as needed
   ];
+ 
+  // useEffect(() => {
+  //   fetch('https://gist.githubusercontent.com/cyanotracker/4dbfcf97bed630ee55cefb6ced2fc181/raw/b67913eade08cd5c2acfd64b87fe057663534f0d/Cyano_Twitter_IDs.txt')
+  //     .then(response => response.text())
+  //     .then(data => {
+  //       console.log('Fetched data:', data); // Log fetched data
+  //       const tweetsArray = data.split('\n');
+  //       console.log('Parsed tweets:', tweetsArray); // Log parsed tweets array
+  //       setTweets(tweetsArray); // Set tweets state
+  //     })
+  //     .catch(error => {
+  //       console.error('Fetch error:', error);
+  //     });
+  // }, []);
+  // console.log(tweets);
+  const [forceRerender, setForceRerender] = useState(false);
 
-  const tweets = [ '1744937196849668348', '1715933527596814433']
+  useEffect(() => {
+    fetch('https://gist.githubusercontent.com/cyanotracker/c474d742c2f7c8325fef0c901505a525/raw/8daf6cfbd2c3ad135a6ed89645fcc1926d954ec3/cyano_twitter.txt')
+      .then(response => response.text())
+      .then(data => {
+        const tweetsArray = data.split('\n');
+        console.log('Fetched tweets:', tweetsArray); // Debug log fetched tweets
+        setTweets(tweetsArray);
+        setForceRerender(prevState => !prevState); // Toggle forceRerender state to force rerender
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+  }, []);
+  
+
+  // const tweets = [ '1744937196849668348', '1715933527596814433']
 
   return (
+ 
+
     <>
       <VideoSection videoSrc={src} overlayText={<><h1>CyanoTRACKER</h1><h3>CyanoTRACKER employs a multi-cloud framework for early detection and dissemination of cyanobacterial harmful algal blooms (CyanoHABs) in inland waters worldwide</h3></>}></VideoSection>
       <TextImageSection content={contents} />
       {/* <PlayOnScrollVideo videoSrc={src} overlayText="dkjcdhvdjvhb"></PlayOnScrollVideo> */}
-      <h2>Watch the CyanoTRACKER Video</h2>
+      {/* <h2>Watch the CyanoTRACKER Video</h2>
       <YouTubeVideo
         videoId="q-mtCnw6Yro"
         description="Watch the cyanotracker video below on how you can provide vital information during your next trip to the lake."
       />
+      &nbsp; */}
+      <div id="tweet-news-division">
+      {/* {forceRerender && <Reacttweet key={Date.now()} tweets={tweets} />} */}
       <Reacttweet tweets={tweets}></Reacttweet>
+      <NewsFeed></NewsFeed>
+      </div>
+
+
       {/* 
       <iframe
   width="600"
@@ -77,6 +133,9 @@ function App() {
           <Route path="/Publications" element={<Publications/>} />
           <Route path="/Cyanosense2" element={<Cyanosense2/>} />
           <Route path='/Faq' element={<Faq/>}/>
+          <Route path='/Teams' element={<Teams/>}/>
+          <Route path='/Form' element={<Form/>}/> 
+          <Route path='/Map' element={<MapComponent/>}/>
         </Routes>
       </Router>
       <Footer></Footer>   

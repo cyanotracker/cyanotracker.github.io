@@ -1,0 +1,18 @@
+#news_feed_img{
+    width:100px;
+    height:90px;
+    margin-right: 75%;
+    margin-top: 0px;
+
+}
+ul > li{
+    text-align: left;
+    padding: 10px;
+}
+.NewsFeedOuter-container{
+    margin-top: 35px;
+}
+#news_feed_content li a{
+   color:#fff;
+
+}

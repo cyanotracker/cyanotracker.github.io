@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
 const TextImageSection = ({ content }) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <div className="text-image-section">
       {content.map((item, index) => (
-        <div key={index} className={`row ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+        <div
+          key={index}
+          className={`row ${index % 2 === 0 ? 'text-left' : 'text-right'}`}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           <div className="text-content">
             <h2>{item.title}</h2>
             <p>
@@ -23,7 +30,23 @@ const TextImageSection = ({ content }) => {
           </div>
           {item.imageUrl && (
             <div className="image-content">
-              <img src={".." + item.imageUrl} alt={item.title} />
+              <img 
+                src={".." + item.imageUrl} 
+                alt={item.title} 
+              />
+              {hoveredIndex === index && (
+                <div className="hover-text">
+                  {index === 0 ? 
+                    "Image credit: Environmental Working Group. Click " :
+                    "Image credit: Boddula Ramaswamy & Mishra, 2017; doi: "
+                  }
+
+                  <a  style={{'color':'inherit'}} href={index === 0 ? "https://www.ewg.org/interactive-maps/2019_microcystin/map/" : "https://doi.org/10.1109/AIMS.2017.19"} target="_blank" rel="noopener noreferrer">
+                    {index === 0 ? "here" : "https://doi.org/10.1109/AIMS.2017.19"}
+                  </a>
+                  {index === 0 ? " for their interactive map." : ""}
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -1,50 +1,173 @@
-/* PublicationCard.css */
-
 .publications-card {
-    background-color: #434343;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 40px;
-    text-align: left;
-    transition: transform 0.3s ease-in-out;
+  background-color: #434343;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border:30px;
+  position: relative;
+  margin-bottom: 30px;
   
-  }
   
-  .publications-card:hover {
-    transform: translateY(-5px);
-    transform: scale(1.04);
-  
-  }
+}
+.year-heading{
+  font-size: 1.5rem;
+  margin-top: 5px;
+ text-align: left;
+ margin-left: 10px;
+  padding-top: 5px;
+}
 
-  .publications-title {
-    font-size: 1.8em;
-    color:#E69A8DFF;
-    margin-bottom: 10px;
-  }
-  
+.publications-card:hover {
+  transform: translateY(-5px);
+  transform: scale(1.04);
+}
 
-  
-  .authors {
+.publication-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: calc(100% - 150px); /* Adjust the width according to your requirement */
+}
+.media-year{
+  text-decoration: none;
+  color:#fff;
+  margin-bottom: 0px;
+}
+
+.media-caption{
+  /* text-align: left;
+  margin-left:50px;
+  text-wrap: pretty; */
+  position: relative;
+    left: 70px;
+    max-width: calc(100% - 150px);
     font-style: italic;
-    color:var(--color5);
-    margin-bottom: 8px;
+    text-align: inherit;
+    white-space: normal;
+    word-spacing: 0;
+  
+}
+.publication-content {
+  flex: 1;
+  margin-bottom:20px;
+  position:relative;
+  bottom:25px;
+}
+
+
+.publications-title {
+  font-size: 1.6em;
+  color: #E69A8DFF;
+  margin-bottom: 10px;
+}
+
+.authors {
+  font-style: italic;
+  color: var(--color5);
+  margin-bottom: 8px;
+}
+
+.journal {
+  color: var(--color4);
+}
+
+.volume {
+  color: var(--color4);
+}
+
+.year {
+  position: absolute;
+  margin-top:30px;
+  top: -55px; /* Adjust the top position to move the year subheading above the card */
+  left: 20px; /* Adjust the left position to align the year subheading to the left */
+  font-size: 1.2em;
+  color:#fff;
+}
+
+.publication-image {
+  width: 150px; /* Adjust the width according to your design */
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px; /* Adjust spacing between image and content */
+}
+
+.publications-link {
+  
+  padding: 10px 15px;
+  background-color: #4E9F3D;
+  color: var(--color3);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+
+.media-item{
+  flex-direction: row;
+  width: calc(25% - 20px); 
+  margin: 5px 10px; 
+}
+.media-caption{
+  color:white;
+}
+
+.media-link{
+  text-decoration: none;
+}
+.media-logo{
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  border: 2px solid #ccc; 
+  transition: transform 0.4s ease-in-out; 
+
+}
+
+@media (max-width: 768px) {
+  .media-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  .journal {
-    color:var(--color4);
+
+  .media-item {
+    flex: 0 0 calc(50% - 20px); /* Adjust the width for smaller screens */
+    margin: 10px;
+  }
+
+  .media-link {
+    padding: 8px 12px; /* Adjust padding for smaller screens */
+  }
+
+  .media-logo {
+    width: 80px; /* Adjust image size for smaller screens */
+    height: 80px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .publications-card {
+    margin: 20px; /* Reduce margin for smaller screens */
   }
   
-  .publications-link {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color:#4E9F3D ;
-    color: var(--color3);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
+  .publication-info {
+    flex-direction: column; /* Stack items vertically */
   }
-  
-  .publications-link:hover {
-    background-color: var(--color4);
+
+  .publication-image {
+    width: 100%; /* Make image full width for smaller screens */
+    margin-right: 0; /* Remove right margin for smaller screens */
+    margin-bottom: 20px; /* Add bottom margin for spacing */
   }
-  
+  .year{
+    top:-50px;
+  }
+}
