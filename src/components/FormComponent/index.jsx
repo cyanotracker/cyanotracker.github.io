@@ -3,7 +3,7 @@ import axios from 'axios';
 import './index.css';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import emailjs from 'emailjs-com';
-
+import { format } from 'date-fns';
 const FormComponent = () => {
   const [images, setImages] = useState([]);
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '', city: '', address: '' });
@@ -74,6 +74,20 @@ const FormComponent = () => {
     longitude:''
   });
 
+
+  const formatDate = (dateString) => {
+    if (!dateString) {
+      return ''; // or return a default value or an error message
+    }
+  
+    try {
+      return format(new Date(dateString), 'MMMM do yyyy');
+    } catch (error) {
+      console.error('Invalid date:', error);
+      return ''; // or return a default value or an error message
+    }
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log('handleChange:', name, value);
@@ -91,48 +105,47 @@ const FormComponent = () => {
       }));
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form Data:', formData);
-
+  
     try {
+      const toEmails = 'ak0801288017@gmail.com,chintanmaniyar.iitb@gmail.com'; 
       await emailjs.send('service_4vfby48', 'template_0yg505d', {
-        to_name: 'CyanoTracker', // Update with recipient's name
+        to_name: 'CyanoTracker',
+        to_email: toEmails,
         email_from: formData.email,
         name: formData.name,
         phoneNumber: formData.phoneNumber,
         user_email: formData.email,
         address: formData.address,
-        city: userLocation.city,
-        latitude: userLocation.latitude,
-        longitude: userLocation.longitude,
+        bloomDate: formatDate(formData.bloomDate) || 'No date provided' // Handle the case where bloomDate is empty or invalid
+       
       }, 'a1whV3G1MFF03V7Gg');
-
+  
       alert('Form Submitted Successfully!');
       // Reset form data
       setFormData({
-        name:'',
-        phoneNumber:'',
-        email:'',
-        address:'',
-        city:'',
-        latitude:'',
-        longitude:''
+        name: '',
+        phoneNumber: '',
+        email: '',
+        address: '',
+        bloomDate: ''
       });
     } catch (error) {
       console.error('Error:', error);
       alert('An error occurred. Please try again later.');
     }
   };
+  
 
-  useEffect(() => {
-    const autoComplete = new window.google.maps.places.Autocomplete(autoCompleteRef.current, { types: ['address'] });
-    autoComplete.addListener('place_changed', () => {
-      const place = autoComplete.getPlace();
-      handleSelect(place.formatted_address);
-    });
-  }, []);
+  // useEffect(() => {
+  //   const autoComplete = new window.google.maps.places.Autocomplete(autoCompleteRef.current, { types: ['address'] });
+  //   autoComplete.addListener('place_changed', () => {
+  //     const place = autoComplete.getPlace();
+  //     handleSelect(place.formatted_address);
+  //   });
+  // }, []);
 
   return (
     <>
@@ -140,14 +153,14 @@ const FormComponent = () => {
 
       <div className="form-container">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Enter Name  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}  required />
+          <label htmlFor="name">Enter Name * <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}  required />
           </label>
           
-          <label htmlFor="phoneNumber">Enter Phone Number <input type="text" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required /></label>
+          <label htmlFor="phoneNumber">Enter Phone Number <input type="text" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange}/></label>
           
-          <label htmlFor="email">Enter Email id<input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required /></label>
+          <label htmlFor="email">Enter Email id *<input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required /></label>
           
-          <label htmlFor="address">Enter Address <input
+          <label htmlFor="address"> Enter Location/Waterbody where Bloom was observed *<input
             type="text"
             id="address"
             name="address"
@@ -156,17 +169,16 @@ const FormComponent = () => {
               handleAddressChange(e.target.value);
               handleChange(e);
             }}
-            ref={autoCompleteRef}
+           
             required
           /></label>
-          
-          <label htmlFor="city">Current Location <input type="text" id="city" name="city" value={userLocation.city} onChange={handleChange} readOnly /></label>
-          
-          {/* <input type="hidden" id="laitude" name="latitude" value={userLocation.latitude} onChange={handleChange} />
-          <input type="hidden" id="longitude" name="longitude" value={userLocation.longitude} onChange={handleChange} />
-          */}
+          <label for="blooomDate">Enter Date when Bloom was observed</label>
+          <input type="date" id="bloomDate" name="bloomDate" onChange={handleChange} />
           <button id="form-submit" type="submit">Submit</button>
         </form>
+
+
+        {/* <form><label for="name">Enter Name * </label> <input type="text" id="name" name="name" required="" value=""><label for="phoneNumber">Enter Phone Number </label> <input type="text" id="phoneNumber" name="phoneNumber" value=""><label for="email">Enter Email id *</label> <input type="email" id="email" name="email" required="" value=""><label for="address"> Enter Location/Waterbody where Bloom was observed *</label> <input type="text" id="address" name="address" required="" value=""><label for="blooomDate">Enter Date when Bloom was observed</label><input type="date" id="bloomDate" name="bloomDate"><button id="form-submit" type="submit">Submit</button></form> */}
       </div>
     </>
   );

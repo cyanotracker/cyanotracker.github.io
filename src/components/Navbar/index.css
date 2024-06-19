@@ -56,6 +56,22 @@
     display: flex;
   }
 
+
+.navbar-logo {
+    height: 40px;
+    margin-right: 10px;
+    position: relative;
+    width: auto;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  left: 140px;
+  margin-bottom: 6px;
+  position: absolute;
+}
+
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   

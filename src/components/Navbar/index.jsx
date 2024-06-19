@@ -15,6 +15,10 @@ const Navbar = () => {
       <Link to="/" className="navbar-brand">
         <img src={logo} alt="logo" className="navbar-logo" />
       </Link>
+      <div className="social-icons">
+        <a rel="noopener" href="https://twitter.com/cyanotracker" style={{'textDecoration':'none'}}><i class="ri-twitter-x-fill" style={{fontSize: '15px'}}></i></a>
+        <a rel="noopener" href="https://www.facebook.com/cyanotracker/" style={{'textDecoration':'none'}}><i class="ri-facebook-circle-fill" style={{fontSize: '18px'}}></i></a>
+      </div>
       <div className="hamburger" onClick={toggleMenu}>
         <div className="line"></div>
         <div className="line"></div>

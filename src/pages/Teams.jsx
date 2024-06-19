@@ -6,6 +6,7 @@ import pic3 from '../assets/Deepak_Mishra.jpg';
 import pic4 from '../assets/Chintan.jpg';
 import pic5 from '../assets/Ranganadh.jpg';
 import pic6 from '../assets/Abhishek_C.jpg';
+import pic7 from '../assets/Keshav_new.jpeg';
 
 const teamMembers = [
     {
@@ -38,11 +39,18 @@ const teamMembers = [
                 description: "MS Student"
             },
             {
+                name:"Keshav Raviprakash",
+                imgUrl:pic7,
+                linkedinUrl:'https://www.linkedin.com/in/keshav-raviprakash/',
+                description:'MS Student'
+            },
+            {
                 name:'Abhishek Cherukuru',
                 imgUrl: pic6,
                 linkedinUrl: 'https://www.linkedin.com/in/abhishek-cherukuru/',
                 description: "Web Developer"
             },
+        
             {
                 name: 'Ranganadh Srivilli',
                 imgUrl: pic5,

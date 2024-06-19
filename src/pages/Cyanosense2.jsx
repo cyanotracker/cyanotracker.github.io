@@ -4,7 +4,8 @@ import cyano2 from '../assets/cyano_2.png';
 import graph1 from '../assets/graph-1.png';
 import graph2 from '../assets/graph-2.png';
 import poster from '../assets/Poster.jpg';
-
+import pic2 from '../assets/cyanosense_20_housing_design.png';
+import pic3 from '../assets/cyanosense_20_rrs.png';
 const Cyanosense2 = () => {
   const sections = [
     {
@@ -21,7 +22,7 @@ const Cyanosense2 = () => {
       ],
     },
     {
-      image: graph1,
+      image: pic2,
       cards: [
         {
           title: 'Future Development',
@@ -35,7 +36,7 @@ const Cyanosense2 = () => {
       imagePlacement: 'right', 
     },
     {
-      image: graph2,
+      image: pic3,
       cards: [
         {
           title:'Efficient Data Transmission',

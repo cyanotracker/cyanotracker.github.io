@@ -21,38 +21,12 @@
 .form-container form {
   width: 80%; /* Ensure form takes full width of container */
 }
-/* #phoneNumber{
-  width:40%;
-
-}
-
-.form-container input[type="text"],input[type="email"]{
-  width: calc(60% - 30px); */
-  /* width:30%;
-  width:100%;
-  max-width: 40%;
-  padding: 5px;
-  margin-left: 80px;
-
-  
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  outline: none;
-  box-sizing: border-box; 
-  font-size: 20px;
-  transition: border-color 0.3s ease; 
-.form-container button {
-  width: 50%; 
-  max-width: 800px; 
-  margin:5px 0px 10px 220px;
+.form-container form input {
+  margin-bottom: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  margin-top: 5px;
 }
-#email{
-  width: calc(60% - 30px);
-} */
+
 label {
   display: block;
   margin-bottom: 20px;
@@ -64,20 +38,32 @@ input[type="text"], input[type="email"] {
 }
 
 #form-submit {
-  margin-top: 20px;
-  width:30%;
+  border-radius: 10px;
   display: block;
-  margin: auto;
+  margin: 20px auto 10px;
+  width: 30%
 }
 
+
 .form-container label{
-  text-align: left;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 5px;
   margin-right: 20px;
- 
-    margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 3px;
+  text-align: left;
     
    
+}
+input[type=date], input[type=email], input[type=text], textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 20px;
+  outline: none;
+  padding: 5px;
+  transition: border-color .3s ease;
+  width: calc(100% - 30px);
 }
 
 @media (max-width: 1200px) {
@@ -120,7 +106,9 @@ input[type="text"], input[type="email"] {
   }
 }
 
-
+#report-bloom-heading{
+  font-size: 30px;
+}
 #report{
   text-align: center;
   margin-bottom: 20px;
@@ -134,20 +122,14 @@ input[type="text"], input[type="email"] {
 }
 
 
-.form-container input[type="text"]:focus,
-.form-container input[type="email"]:focus,
-.form-container input[type="file"]:focus {
-  border-color: #6dabe4;
-}
-
 .form-container button[type="submit"] {
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #099509;
   border: none;
-  background-color:rgb(3, 194, 3);
+  border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 15px;
+  transition: background-color .3s ease
 }
 
 .form-container button[type="submit"]:hover {
