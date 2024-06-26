@@ -48,28 +48,17 @@ function MainContent() {
     },
     // Add more content objects as needed
   ];
- 
-  // useEffect(() => {
-  //   fetch('https://gist.githubusercontent.com/cyanotracker/4dbfcf97bed630ee55cefb6ced2fc181/raw/b67913eade08cd5c2acfd64b87fe057663534f0d/Cyano_Twitter_IDs.txt')
-  //     .then(response => response.text())
-  //     .then(data => {
-  //       console.log('Fetched data:', data); // Log fetched data
-  //       const tweetsArray = data.split('\n');
-  //       console.log('Parsed tweets:', tweetsArray); // Log parsed tweets array
-  //       setTweets(tweetsArray); // Set tweets state
-  //     })
-  //     .catch(error => {
-  //       console.error('Fetch error:', error);
-  //     });
-  // }, []);
-  // console.log(tweets);
+
   const [forceRerender, setForceRerender] = useState(false);
 
-  useEffect(() => {
-    fetch('https://gist.githubusercontent.com/cyanotracker/c474d742c2f7c8325fef0c901505a525/raw/8daf6cfbd2c3ad135a6ed89645fcc1926d954ec3/cyano_twitter.txt')
+useEffect(() => {
+  const fetchTweets = () => {
+    fetch(`https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/cyano_tweet_ids.txt?${new Date().getTime()}`, {
+      cache: 'no-cache',
+    })
       .then(response => response.text())
       .then(data => {
-        const tweetsArray = data.split('\n');
+        const tweetsArray = data.split('\n').filter(tweet => tweet.trim() !== '');
         console.log('Fetched tweets:', tweetsArray); // Debug log fetched tweets
         setTweets(tweetsArray);
         setForceRerender(prevState => !prevState); // Toggle forceRerender state to force rerender
@@ -77,8 +66,11 @@ function MainContent() {
       .catch(error => {
         console.error('Fetch error:', error);
       });
-  }, []);
-  
+  };
+
+  fetchTweets();
+}, []);
+
 
   // const tweets = [ '1744937196849668348', '1715933527596814433']
 

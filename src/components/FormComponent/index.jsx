@@ -9,69 +9,67 @@ const FormComponent = () => {
   const [userLocation, setUserLocation] = useState({ latitude: '', longitude: '', city: '', address: '' });
   const autoCompleteRef = useRef(null);
 
-  useEffect(() => {
-    const getLocation = async () => {
-      try {
-        if ('geolocation' in navigator) {
-          navigator.geolocation.getCurrentPosition(
-            async (position) => {
-              const { latitude, longitude } = position.coords;
-              setUserLocation({ latitude, longitude });
-              fetchLocationCity(latitude, longitude);
-            },
-            (error) => {
-              console.error('Error fetching location:', error.message);
-            }
-          );
-        } else {
-          console.error('Geolocation is not supported by this browser.');
-        }
-      } catch (error) {
-        console.error('Error fetching location:', error.message);
-      }
-    };
+  // useEffect(() => {
+  //   const getLocation = async () => {
+  //     try {
+  //       if ('geolocation' in navigator) {
+  //         navigator.geolocation.getCurrentPosition(
+  //           async (position) => {
+  //             const { latitude, longitude } = position.coords;
+  //             setUserLocation({ latitude, longitude });
+  //             fetchLocationCity(latitude, longitude);
+  //           },
+  //           (error) => {
+  //             console.error('Error fetching location:', error.message);
+  //           }
+  //         );
+  //       } else {
+  //         console.error('Geolocation is not supported by this browser.');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching location:', error.message);
+  //     }
+  //   };
 
-    getLocation();
-  }, []);
+  //   getLocation();
+  // }, []);
 
-  const fetchLocationCity = async (latitude, longitude) => {
-    try {
-      const apiKey = '585c52d7644c7ac51c29b2dd22d49b58';
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`);
-      const city = response.data.name;
-      setUserLocation((prevLocation) => ({ ...prevLocation, city }));
-    } catch (error) {
-      console.error('Error fetching city:', error.message);
-    }
-  };
+  // const fetchLocationCity = async (latitude, longitude) => {
+  //   try {
+  //     const apiKey = '585c52d7644c7ac51c29b2dd22d49b58';
+  //     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`);
+  //     const city = response.data.name;
+  //     setUserLocation((prevLocation) => ({ ...prevLocation, city }));
+  //   } catch (error) {
+  //     console.error('Error fetching city:', error.message);
+  //   }
+  // };
 
   const handleAddressChange = (address) => {
     setUserLocation({ ...userLocation, address });
   };
 
-  const handleSelect = async (address) => {
-    try {
-      const results = await geocodeByAddress(address);
-      const latLng = await getLatLng(results[0]);
-      setUserLocation({
-        ...userLocation,
-        address,
-        latitude: latLng.lat,
-        longitude: latLng.lng,
-      });
-    } catch (error) {
-      console.error('Error selecting address:', error.message);
-    }
-  };
+  // const handleSelect = async (address) => {
+  //   try {
+  //     const results = await geocodeByAddress(address);
+  //     const latLng = await getLatLng(results[0]);
+  //     setUserLocation({
+  //       ...userLocation,
+  //       address,
+  //       latitude: latLng.lat,
+  //       longitude: latLng.lng,
+  //     });
+  //   } catch (error) {
+  //     console.error('Error selecting address:', error.message);
+  //   }
+  // };
 
   const [formData, setFormData] = useState({
     name:'',
     phoneNumber:'',
     email:'',
     address:'',
-    city:'',
-    latitude:'',
-    longitude:''
+    bloomDate:'',
   });
 
 
@@ -131,6 +129,8 @@ const FormComponent = () => {
         email: '',
         address: '',
         bloomDate: ''
+    
+  
       });
     } catch (error) {
       console.error('Error:', error);
@@ -156,7 +156,7 @@ const FormComponent = () => {
           <label htmlFor="name">Enter Name * <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}  required />
           </label>
           
-          <label htmlFor="phoneNumber">Enter Phone Number <input type="text" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange}/></label>
+          <label htmlFor="phoneNumber">Enter Phone Number <input type="text" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} /></label>
           
           <label htmlFor="email">Enter Email id *<input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required /></label>
           
@@ -178,7 +178,7 @@ const FormComponent = () => {
         </form>
 
 
-        {/* <form><label for="name">Enter Name * </label> <input type="text" id="name" name="name" required="" value=""><label for="phoneNumber">Enter Phone Number </label> <input type="text" id="phoneNumber" name="phoneNumber" value=""><label for="email">Enter Email id *</label> <input type="email" id="email" name="email" required="" value=""><label for="address"> Enter Location/Waterbody where Bloom was observed *</label> <input type="text" id="address" name="address" required="" value=""><label for="blooomDate">Enter Date when Bloom was observed</label><input type="date" id="bloomDate" name="bloomDate"><button id="form-submit" type="submit">Submit</button></form> */}
+    
       </div>
     </>
   );

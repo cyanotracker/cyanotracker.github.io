@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import PublicationCard from '../components/PublicationCard';
-import publicationsData from '../assets/publications.json';
 
 const groupPublicationsByYear = (publications) => {
   const groupedPublications = {};
@@ -15,7 +14,6 @@ const groupPublicationsByYear = (publications) => {
     groupedPublications[publication.year].push(publication);
   });
 
-  // Sort the keys in reverse order (descending)
   const sortedYears = Object.keys(groupedPublications).sort((a, b) => b - a);
 
   return sortedYears.map((year) => ({
@@ -26,70 +24,95 @@ const groupPublicationsByYear = (publications) => {
 
 const Publications = () => {
   const [value, setValue] = useState('journalArticles');
+  const [publicationsData, setPublicationsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPublications = async () => {
+      try {
+        console.log('Fetching publications data...');
+        const response = await fetch('https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/publications.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Fetched publications data:', data);
+        setPublicationsData(data);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError(error.message || 'Unknown error occurred');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPublications();
+  }, []);
 
   const journalArticles = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'journal'));
   const conferenceProceedings = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'conference-proceedings'));
   const conferencePresentations = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'conference-presentations'));
-  const mediaHighlights = publicationsData.filter((publication) => publication.type === 'media-highlights').sort((a,b) => b.year-a.year)
-  const [activeTab, setActiveTab] = useState('journalArticles');
-console.log("mediaHighlights...............",mediaHighlights);
-  const handleTabChange = (newValue) => {
-    setActiveTab(newValue);
+  const mediaHighlights = publicationsData.filter((publication) => publication.type === 'media-highlights').sort((a, b) => b.year - a.year);
+
+  const handleTabChange = (e, newValue) => {
+    setValue(newValue);
   };
+
+  if (loading) {
+    return <div>Loading th publications...</div>;
+  }
+
+  if (error) {
+    return <div>Error fetching data: {error}</div>;
+  }
+
+  if (publicationsData.length === 0) {
+    return <div>No publications available</div>;
+  }
+
   return (
     <div id="tab-container" style={{ marginTop: '122px' }}>
       <TabContext value={value}>
-         <TabList
-    onChange={(e, newValue) => setValue(newValue)}
-    variant="scrollable"
-    scrollButtons
-    allowScrollButtonsMobile
-    sx={{
-      flexDirection: 'row',
-      flexWrap: 'nowrap', // Ensure tabs stay in one line
-      overflowX: 'auto', // Enable horizontal scrolling
-      //".MuiTabs-flexContainer":{position:'fixed',top:'122px',zIndex:'20000',width:'100%',backgroundColor:'#333', '@media (max-width: 600px)':{width:'60%'},'@media (max-width: 375px)':{width:'100%'}},
-         
-      "& button.MuiButtonBase-root": { color: '#fff' },
-      "& button.Mui-selected:nth-child(1)": { color: '#8FC1DA' },
-      "& button.Mui-selected:nth-child(2)": { color: '#E0AED0' },
-      "& button.Mui-selected:nth-child(3)": { color: '#FEFFaC' },
-      "& button.Mui-selected:nth-child(4)": { color: 'orange' },
-      '@media (max-width: 600px)': {
-        width: '100%', // Adjust width for smaller devices
-      },
-      '@media (max-width: 375px)': {
-        width: '60%', // Adjust width for even smaller devices
-      },
-    }}
-  >
-        
-          <Tab sx={{}}
-        label={<span style={{ 'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' }}>Journal Articles</span>}
-        value="journalArticles"
-        activeStyle={{ color: 'pink' }}
-        onChange={handleTabChange}
-      />
-      <Tab
-        label={<span style={{ 'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' }}>Conference Proceedings</span>}
-        value="conferenceProceedings"
-        activeStyle={{ color:'white' }}
-        onChange={handleTabChange}
-
-      />
-      <Tab
-        label={<span style={{ 'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' }}>Conference Presentations</span>}
-        value="conferencePresentations"
-        activeStyle={{ color: 'orange' }}
-        onChange={handleTabChange}
-      />
-      <Tab
-        label={<span style={{  'fontFamily': 'Arial,sans-serif', 'fontSize': '20px', 'fontWeight': 'bold' ,}}>Media Highlights</span>}
-        value="mediaHighlights"
-        activeStyle={{ color: 'pink' }}
-        onChange={handleTabChange}
-      />
-  </TabList>
+        <TabList
+          onChange={handleTabChange}
+          variant="scrollable"
+          scrollButtons
+          allowScrollButtonsMobile
+          sx={{
+            flexDirection: 'row',
+            flexWrap: 'nowrap',
+            overflowX: 'auto',
+            "& button.MuiButtonBase-root": { color: '#fff' },
+            "& button.Mui-selected:nth-child(1)": { color: '#8FC1DA' },
+            "& button.Mui-selected:nth-child(2)": { color: '#E0AED0' },
+            "& button.Mui-selected:nth-child(3)": { color: '#FEFFaC' },
+            "& button.Mui-selected:nth-child(4)": { color: 'orange' },
+            '@media (max-width: 600px)': {
+              width: '100%',
+            },
+            '@media (max-width: 375px)': {
+              width: '60%',
+            },
+          }}
+        >
+          <Tab
+            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Journal Articles</span>}
+            value="journalArticles"
+          />
+          <Tab
+            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Conference Proceedings</span>}
+            value="conferenceProceedings"
+          />
+          <Tab
+            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Conference Presentations</span>}
+            value="conferencePresentations"
+          />
+          <Tab
+            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Media Highlights</span>}
+            value="mediaHighlights"
+          />
+        </TabList>
 
         <TabPanel value="journalArticles">
           {journalArticles.map(({ year, publications }) => (
