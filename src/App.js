@@ -21,6 +21,12 @@ import Teams from "./pages/Teams.jsx";
 import Form from "./pages/Form.jsx";
 import NewsFeed from './components/NewsFeed/index.jsx';
 import MapComponent from './components/MapComponent';
+import BlogComponent from './components/BlogComponent/index.jsx';
+import Gallery from './pages/Gallery.jsx';
+// In your index.js or App.js
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import logo from "../src/assets/UGA_Cyano.png";
+
 function MainContent() {
   const [tweets, setTweets] = useState([]);
   const contents = [
@@ -78,7 +84,9 @@ useEffect(() => {
  
 
     <>
-      <VideoSection videoSrc={src} overlayText={<><h1>CyanoTRACKER</h1><h3>CyanoTRACKER employs a multi-cloud framework for early detection and dissemination of cyanobacterial harmful algal blooms (CyanoHABs) in inland waters worldwide</h3></>}></VideoSection>
+      <VideoSection videoSrc={src} overlayText={<>
+      <img src={logo} id="logo" />
+      <h3 id="cyano-heading">CyanoTRACKER employs a multi-cloud framework for early detection and dissemination of cyanobacterial harmful algal blooms (CyanoHABs) in inland waters worldwide</h3></>}></VideoSection>
       <TextImageSection content={contents} />
       {/* <PlayOnScrollVideo videoSrc={src} overlayText="dkjcdhvdjvhb"></PlayOnScrollVideo> */}
       {/* <h2>Watch the CyanoTRACKER Video</h2>
@@ -92,20 +100,6 @@ useEffect(() => {
       <Reacttweet tweets={tweets}></Reacttweet>
       <NewsFeed></NewsFeed>
       </div>
-
-
-      {/* 
-      <iframe
-  width="600"
-  height="450"
-  style={{ border: 0 }}
-  loading="lazy"
-  allowFullScreen
-  referrerPolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA">
-</iframe>
-  */}
-
       
     </>
   );
@@ -128,6 +122,7 @@ function App() {
           <Route path='/Teams' element={<Teams/>}/>
           <Route path='/Form' element={<Form/>}/> 
           <Route path='/Map' element={<MapComponent/>}/>
+          <Route path="/Gallery" element={<Gallery/>}/>
         </Routes>
       </Router>
       <Footer></Footer>   

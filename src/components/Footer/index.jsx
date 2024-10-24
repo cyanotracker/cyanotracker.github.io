@@ -5,6 +5,7 @@ import uga from './uga.png';
 import SponsorDisplay from '../SponsorDisplay'; // Import the SponsorDisplay component
 import nsf from '../../assets/nsf.png';
 import nasa from '../../assets/nasa.png';
+import VisitorCount from '../VisitorCount';
 
 const sponsors = [
   {
@@ -51,7 +52,7 @@ const Footer = () => {
            
             <a href="mailto:cyanotracker@gmail.com">cyanotracker@gmail.com</a>&nbsp; &nbsp; &nbsp;
             <a href="mailto:dmishra@uga.edu">dmishra@uga.edu</a>
-
+            <VisitorCount/>
             {/* <p id="follow-us">Follow us:</p>
             <a rel="noopener" href="https://twitter.com/cyanotracker" style={{'textDecoration':'none'}}><i className="ri-twitter-x-fill"></i></a> &nbsp;
            
@@ -59,6 +60,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
+   
       {/* Other footer content if any */}
     </footer>
   );

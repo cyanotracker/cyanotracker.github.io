@@ -21,9 +21,6 @@ const ReactTweet = ({tweets}) => {
     <div>
        <h2 className="tweet-heading">Recent Tweets</h2>
     <div className="tweet">
-      {/* Other components or content can go here */}
-    
-      {/* Additional content or components */}
       {tweets.length > 0 && (
         <Tweet key={tweets[currentTweetindex]} id={tweets[currentTweetindex]} />
       )}

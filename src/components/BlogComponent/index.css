@@ -1,0 +1,126 @@
+.cayno-blog-container {
+  max-width: 100%; /* Use full width of the viewport */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#blog-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #e69a8dff;
+  margin-bottom: 50px;
+}
+
+.blog-gallery {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(3, 1fr); 4 equal columns */
+  gap: 15px; /* Space between grid items */
+}
+
+.blog-item {
+  background: #535559;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 5px 10px #212020;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+  height:70%;
+  margin: 10px; 
+
+}
+.custom-lightbox-zoom-out{
+  bottom:-30px;
+}
+
+.custom-lightbox-zoom-in{
+  bottom:-30px;
+}
+
+
+.custom-lightbox-caption {
+  
+  word-wrap: break-word; /* Wrap long words to the next line */
+  white-space: normal; /* Ensure that text can break onto the next line */
+}
+
+.image-container {
+  width: 100%;
+  height: 100%; /* Fixed height for all images */
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+  display: block;
+  border-radius: 8px;
+}
+
+.small-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.image-container:hover .small-caption {
+  opacity: 1; /* Show caption on hover */
+}
+
+.blog-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .blog-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust columns for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-gallery {
+    grid-template-columns: 1fr; /* Single column for small screens */
+  }
+}
+
+@media(min-width:774px) and (max-width:1228px)
+{
+
+  #blog-heading{
+      margin-top: 40px;
+  }
+}
+/* @media(min-width:370px)
+{
+  #blog-heading{
+  font-size: 20px;
+  }
+} */
+
+
+ @media(max-width:580px)
+{
+  #blog-heading{
+  font-size: 20px;
+  }
+} 
+
+#team_gallery,#cyano_gallery{
+  font-size: 20px;
+font-family: 'Arial',sans-serif;
+font-weight:800;
+  color: #fff;
+}

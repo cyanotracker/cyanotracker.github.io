@@ -1,86 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TeamsComponent from '../components/TeamsComponent';
-import pic1 from '../assets/Abhishek_Kumar.png';
-import pic2 from '../assets/Isabella.jpg';
-import pic3 from '../assets/Deepak_Mishra.jpg';
-import pic4 from '../assets/Chintan.jpg';
-import pic5 from '../assets/Ranganadh.jpg';
-import pic6 from '../assets/Abhishek_C.jpg';
-import pic7 from '../assets/Keshav_new.jpeg';
 
-const teamMembers = [
-    {
-        role: 'Project PI',
-        name: 'Dr. Deepak R. Mishra',
-        imgUrl: pic3,
-        linkedinUrl: 'https://geography.uga.edu/directory/people/deepak-r-mishra',
-        description: "Dr. Deepak Mishra is a professor and the Associate Head of Geography at UGA, leading the Small Satellite Research Lab. He's an expert in remote sensing, applying his knowledge to studying water resources, wetlands, and environmental issues. Combining field-based and satellite techniques with AI, Dr. Mishra is at the forefront of using innovative technologies to understand our planet."
-    },
-    {
-        role: 'Current Team Members',   // Adding the Current Team Members
-        members: [
-            {
-                name: 'Abhishek Kumar',
-                imgUrl: pic1,
-                linkedinUrl: 'https://www.linkedin.com/in/abhishek-kumar-49348b143/',
-                description: "Postdoctoral Associate"
-            },
-           
-            {
-                name:'Chintan B. Maniyar',
-                imgUrl: pic4,
-                linkedinUrl: 'https://chintan2108.github.io/',
-                description: "PhD Student"
-            },
-            {
-                name: 'Isabella Fiorentino',
-                imgUrl: pic2,
-                linkedinUrl: 'https://www.linkedin.com/in/isabella-fiorentino-113049188/',
-                description: "MS Student"
-            },
-            {
-                name:"Keshav Raviprakash",
-                imgUrl:pic7,
-                linkedinUrl:'https://www.linkedin.com/in/keshav-raviprakash/',
-                description:'MS Student'
-            },
-            {
-                name:'Abhishek Cherukuru',
-                imgUrl: pic6,
-                linkedinUrl: 'https://www.linkedin.com/in/abhishek-cherukuru/',
-                description: "Web Developer"
-            },
-        
-            {
-                name: 'Ranganadh Srivilli',
-                imgUrl: pic5,
-                linkedinUrl: 'https://www.linkedin.com/in/ranganadhsrivilli/',
-                description: "Web Developer" 
-            }
-            
+const Teams = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-        ]
-    },
-    {
-        role: 'Past Team Members',    // Add past team members here
-        members: [
-            'Dr. Lakshmish Ramaswamy',
-            'Dr. Michael Scott',
-            'Dr. Vinay Boddula',
-            'Samual Weber',
-            'Ben Page'
-        ]
-    }
-];
+  useEffect(() => {
+    const fetchTeamMembers = async () => {
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/TeamMembers.json', {
+          cache: 'no-store' // Disabling the cache storage...
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
 
+        // No need to reformat data as it should match the expected structure
+        setTeamMembers(data);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError(error.message || 'Unknown error occurred');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-const Teams=()=>
-{
+    fetchTeamMembers();
+  }, []);
 
-    return <>
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
     <div style={{ marginTop: '90px' }}>
-        <TeamsComponent teamMembers={teamMembers}/>
+      <TeamsComponent teamMembers={teamMembers} />
     </div>
-    </>
-}
+  );
+};
+
 export default Teams;

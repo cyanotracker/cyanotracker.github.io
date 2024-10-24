@@ -10,18 +10,20 @@
   margin-top: 8rem;
 }
 #past-box {
-  display: flex;
+  display:flex;
+  flex:1 1;
   justify-content: center;
   align-items: center;
   margin: 10px; /* Add margin for spacing between boxes */
-  min-width: 40%; /* Set minimum width */
-  min-height: 30px; /* Set minimum height */
+  min-width: 13%; /* Set minimum width */
+  min-height: 50px; /* Set minimum height */
   padding: 10px; /* Add padding for visual appeal */
 }
 
 #past-box h3 {
   text-align: center;
   margin: 0;
+  line-height: 1.2;
 }
 
 /* Media queries for responsive design */

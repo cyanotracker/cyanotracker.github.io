@@ -10,7 +10,9 @@ ul > li{
     padding: 10px;
 }
 .NewsFeedOuter-container{
-    margin-top: 35px;
+    margin-top: 25px;
+    max-height: 600px;
+    overflow-y: auto;
 }
 #news_feed_content li a{
    color:#fff;
