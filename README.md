@@ -61,11 +61,11 @@ This project uses Supabase, an open-source Firebase alternative that provides ba
 
 
  ### Database:
-              A scalable and fully-managed PostgreSQL database for structured and unstructured data, supporting real-time subscriptions.
+ A scalable and fully-managed PostgreSQL database for structured and unstructured data, supporting real-time subscriptions.
  ### Storage:
-             Flexible file storage with support for large files and media, easily accessible through public or private URLs.
+ Flexible file storage with support for large files and media, easily accessible through public or private URLs.
 ### API: 
-            Integrated APIs with REST and real-time capabilities to interact with the database.
+Integrated APIs with REST and real-time capabilities to interact with the database.
 
 ### For this project, Supabase handles:
 
