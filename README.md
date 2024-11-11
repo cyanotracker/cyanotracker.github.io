@@ -55,20 +55,26 @@ Instructions for deploying the project on gh-pages.
 - main: The main branch contains the React project source code.
 - gh-pages: This is the production branch, hosting the built version of the project.
 
-## Services Used
-# SupaBase:
+# Services Used
+## SupaBase:
 This project uses Supabase, an open-source Firebase alternative that provides backend infrastructure on PostgreSQL.
 
 
- Database: A scalable and fully-managed PostgreSQL database for structured and unstructured data, supporting real-time subscriptions.
- Storage: Flexible file storage with support for large files and media, easily accessible through public or private URLs.
-API: Auto-generated APIs with REST and real-time capabilities to interact with the database.
+ ### Database:
+              A scalable and fully-managed PostgreSQL database for structured and unstructured data, supporting real-time subscriptions.
+ ### Storage:
+             Flexible file storage with support for large files and media, easily accessible through public or private URLs.
+### API: 
+            Integrated APIs with REST and real-time capabilities to interact with the database.
 
 ### For this project, Supabase handles:
 
-Data Storage: User-submitted form data and image uploads are stored securely in Supabase’s database and file storage.
-Data Retrieval: Data is retrieved seamlessly in real-time for display and analysis.
-File Storage: Image files uploaded by users are stored in Supabase’s Storage Bucket, providing secure, public access as needed.
+### Data Storage:  
+User-submitted form data and image uploads are stored securely in Supabase’s database and file storage.
+### Data Retrieval:
+Data is retrieved seamlessly in real-time for display and analysis.
+### File Storage:
+Image files uploaded by users are stored in Supabase’s Storage Bucket, providing secure, public access as needed.
 
 # Getting Started with Create React App
 
