@@ -55,14 +55,14 @@ Instructions for deploying the project on gh-pages.
 - main: The main branch contains the React project source code.
 - gh-pages: This is the production branch, hosting the built version of the project.
 
-# Services Used
-## SupaBase:
+## Services Used
+### SupaBase:
 This project uses Supabase, an open-source Firebase alternative that provides backend infrastructure on PostgreSQL.
+(https://supabase.com/)
 
-
- ### Database:
+### Database:
  A scalable and fully-managed PostgreSQL database for structured and unstructured data, supporting real-time subscriptions.
- ### Storage:
+### Storage:
  Flexible file storage with support for large files and media, easily accessible through public or private URLs.
 ### API: 
 Integrated APIs with REST and real-time capabilities to interact with the database.
