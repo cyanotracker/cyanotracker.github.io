@@ -1,15 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardImageSection from '../components/CardImageSection';
-import cyano2 from '../assets/cyano_2.png';
-import graph1 from '../assets/graph-1.png';
-import graph2 from '../assets/graph-2.png';
-import poster from '../assets/Poster.jpg';
-import pic2 from '../assets/cyanosense_20_housing_design.png';
-import pic3 from '../assets/cyanosense_20_rrs.png';
+
 const Cyanosense2 = () => {
+  const [images, setImages] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    const fetchImages = async () => {
+      const noCacheUrl = `https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/CyanoSense2.0_Images/images.json?timestamp=${new Date().getTime()}`;
+
+      try {
+        const response = await fetch(noCacheUrl, { method: 'GET', cache: 'no-store' });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setImages(data);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError(error.message || 'Unknown error occurred');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   const sections = [
     {
-      image: cyano2,
+      image: images.cyano2, // Use the key from the JSON file
       cards: [
         {
           title: 'Accurate Detection',
@@ -22,7 +53,7 @@ const Cyanosense2 = () => {
       ],
     },
     {
-      image: pic2,
+      image: images.cyanosenseHousingDesign,
       cards: [
         {
           title: 'Future Development',
@@ -33,32 +64,39 @@ const Cyanosense2 = () => {
           description: 'The waterproof housing is broken up into two parts, a sensor housing and electronics housing. The sensor housing contains two spectrometer sensors with 3D printed mounts and FOV adaptors. The wires to the sensors run through a 2ft long PVC pipe to the electronics housing. The electronics housing contains the microcontroller, photorelay, Iridium satellite modem, and battery.',
         },
       ],
-      imagePlacement: 'right', 
+      imagePlacement: 'right',
     },
     {
-      image: pic3,
+      image: images.cyanosenseRRS,
       cards: [
         {
-          title:'Efficient Data Transmission',
-          description:"Spectrum readings are taken every 24 hours at 11am. The data is stored on the microcontroller where it will then be compressed into binary messages. Once compressed, the data will be sent through the Iridium satellites and then decompressed once it arrives at the lab.",
-       },
-       {
-        title:'Cost Effective Solution',
-        description:"    To save battery, the microcontroller can turn off the sensors using the photorelay, put the satellite modem to sleep, and can enter deep sleep itself. The overall sensor system costs around $1300 which is significantly cheaper than other industrial spectrometers which cost $4500 on average.",
-      }
+          title: 'Efficient Data Transmission',
+          description: 'Spectrum readings are taken every 24 hours at 11am. The data is stored on the microcontroller where it will then be compressed into binary messages. Once compressed, the data will be sent through the Iridium satellites and then decompressed once it arrives at the lab.',
+        },
+        {
+          title: 'Cost Effective Solution',
+          description: 'To save battery, the microcontroller can turn off the sensors using the photorelay, put the satellite modem to sleep, and can enter deep sleep itself. The overall sensor system costs around $1300 which is significantly cheaper than other industrial spectrometers which cost $4500 on average.',
+        },
       ],
-      imagePlacement: 'left', // Specify the image placement
+      imagePlacement: 'left',
     },
-    // Add more sections as needed
-   
   ];
 
-    return (
+  return (
     <div>
-       
-     
-      <CardImageSection heading={<a href=" https://docs.google.com/presentation/d/e/2PACX-1vQ7LYzqtoA65Rp1M516fLmyI8xQlR8ftpOZuWrp7uqPEwtB9Ie4fMWnnkHTWbeRHw/pub?start=false&loop=true&delayms=3000" style={{color:"#fff",textDecoration: 'none'}} target='_blank' >CyanoSense 2.0 - Next Generation Cyanosense</a>}
-     sections={sections} />
+      <CardImageSection
+        heading={
+          <a
+            href="https://docs.google.com/presentation/d/e/2PACX-1vQ7LYzqtoA65Rp1M516fLmyI8xQlR8ftpOZuWrp7uqPEwtB9Ie4fMWnnkHTWbeRHw/pub?start=false&loop=true&delayms=3000"
+            style={{ color: '#fff', textDecoration: 'none' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CyanoSense 2.0 - Next Generation Cyanosense
+          </a>
+        }
+        sections={sections}
+      />
     </div>
   );
 };

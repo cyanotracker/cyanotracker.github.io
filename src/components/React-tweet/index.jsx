@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react';
 import { Tweet } from 'react-tweet';
 
 const ReactTweet = ({tweets}) => {
-  tweets=tweets.slice(0,3); // Slicing the Top 3 tweets
+  tweets=tweets.slice(0,3); // Slicing or Extracting the Top 3 tweets
   const [currentTweetindex,setTweetindex]=useState(0);
   useEffect(() => {
     const interval = setInterval(() => {

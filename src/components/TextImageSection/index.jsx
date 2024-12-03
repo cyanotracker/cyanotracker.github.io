@@ -17,34 +17,37 @@ const TextImageSection = ({ content }) => {
             <h2>{item.title}</h2>
             <p>
               {item.text}
-              {/* Inline URL with the text */}
-              {item.url && 
-                <span> 
-                  {' '} 
+              {item.url && (
+                <span>
+                  {' '}
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.urlText || 'Learn More'}
                   </a>
                 </span>
-              }
+              )}
             </p>
           </div>
           {item.imageUrl && (
             <div className="image-content">
-              <img 
-                src={".." + item.imageUrl} 
-                alt={item.title} 
-              />
+              <img src={item.imageUrl} alt={item.title} />
               {hoveredIndex === index && (
                 <div className="hover-text">
-                  {index === 0 ? 
-                    "Image credit: Environmental Working Group. Click " :
-                    "Image credit: Boddula Ramaswamy & Mishra, 2017; doi: "
-                  }
-
-                  <a  style={{'color':'inherit'}} href={index === 0 ? "https://www.ewg.org/interactive-maps/2019_microcystin/map/" : "https://doi.org/10.1109/AIMS.2017.19"} target="_blank" rel="noopener noreferrer">
-                    {index === 0 ? "here" : "https://doi.org/10.1109/AIMS.2017.19"}
+                  {index === 0
+                    ? `Image credit: Environmental Working Group. Click `
+                    : `Image credit: Boddula Ramaswamy & Mishra, 2017; doi: `}
+                  <a
+                    href={
+                      index === 0
+                        ? 'https://www.ewg.org/interactive-maps/2019_microcystin/map/'
+                        : 'https://doi.org/10.1109/AIMS.2017.19'
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'inherit' }}
+                  >
+                    {index === 0 ? 'here' : 'https://doi.org/10.1109/AIMS.2017.19'}
                   </a>
-                  {index === 0 ? " for their interactive map." : ""}
+                  {index === 0 ? ' for their interactive map.' : ''}
                 </div>
               )}
             </div>

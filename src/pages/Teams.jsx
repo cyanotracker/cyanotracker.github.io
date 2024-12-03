@@ -17,7 +17,7 @@ const Teams = () => {
         }
         const data = await response.json();
 
-        // No need to reformat data as it should match the expected structure
+       
         setTeamMembers(data);
       } catch (error) {
         console.error('Fetch error:', error);
