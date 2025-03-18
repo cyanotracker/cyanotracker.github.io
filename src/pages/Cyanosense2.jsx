@@ -4,6 +4,7 @@ import CardImageSection from '../components/CardImageSection';
 const Cyanosense2 = () => {
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(true);
+  const [captions, setCaptions] = useState({});
   const [error, setError] = useState(null);
   
   useEffect(() => {
@@ -18,7 +19,8 @@ const Cyanosense2 = () => {
         }
 
         const data = await response.json();
-        setImages(data);
+        setImages(data.images);
+        setCaptions(data.captions);
       } catch (error) {
         console.error('Fetch error:', error);
         setError(error.message || 'Unknown error occurred');
@@ -41,6 +43,7 @@ const Cyanosense2 = () => {
   const sections = [
     {
       image: images.cyano2, // Use the key from the JSON file
+      caption: captions.cyano2, // Fetch the caption dynamically
       cards: [
         {
           title: 'Accurate Detection',
@@ -54,6 +57,7 @@ const Cyanosense2 = () => {
     },
     {
       image: images.cyanosenseHousingDesign,
+      caption: captions.cyanosenseHousingDesign,
       cards: [
         {
           title: 'Future Development',
@@ -68,6 +72,7 @@ const Cyanosense2 = () => {
     },
     {
       image: images.cyanosenseRRS,
+      caption: captions.cyanosenseRRS,
       cards: [
         {
           title: 'Efficient Data Transmission',

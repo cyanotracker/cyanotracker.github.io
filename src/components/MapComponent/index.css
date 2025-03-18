@@ -28,9 +28,7 @@
 
  
   }
-
-  
-  .map-box{
+.map-box{
     flex: 1 1 30%; 
     width:100%;
     padding: 10px;
@@ -54,6 +52,12 @@
     margin-top: 10px;
   }
 
+
+  
+  
+  /* Responsive Design: Stack elements vertically on smaller screens */
+
+
   @media (max-width: 768px) {
    
   
@@ -61,6 +65,7 @@
       width: 300px;
       height: 300px;
     }
+  
 }
 
 @media(max-width:555px)
@@ -75,8 +80,54 @@
     font-size: 18px;
   }
 }
+/* @media(max-width:499px){ */
+@media(orientation: portrait){
+  .map-container
+  {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .request-form-section {
+    margin-top: 50px;
+    height: 70%;
+    width: 90%;
+    margin:30px;
+    
+    background-color: #535559;
+    padding: 30px;
+    border:2px solid rgb(62, 57, 57);
+    color:#fff;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    box-shadow: 5px 10px #212020;
+    
+  }
+}
+
+/* @media (min-width:500px) and (max-width:700px){ */
+
+@media(orientation: portrait){
+  .map-container
+  {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .request-form-section {
+    margin-top: 50px !important;
+    height: 70% !important;
+    width: 85% !important;
+    margin: 30px !important;
+    background-color: #535559 !important;
+    padding: 30px !important;
+    border: 2px solid rgb(62, 57, 57) !important;
+    color: #fff !important;
+    border-radius: 15px !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 5px 10px #212020 !important;
+}
+}
 @media (max-width: 470px) {
-   
+
   
     .map-box img {  
       width: 200px;
@@ -87,7 +138,9 @@
     margin-top: 10px;
     font-size: 20px;
   }
-  .request-form-section {
+
+@media (min-width:701px)
+{  .request-form-section {
     margin-top: 50px;
     height: 70%;
     width: 30%;
@@ -102,6 +155,7 @@
     box-shadow: 5px 10px #212020;
     
   }
+}
 
   .note-text{
     margin:10px;
@@ -189,3 +243,57 @@
     border-color: #007bff; /* Change border color on focus */
     box-shadow: 2px 2px 4px rgba(0, 123, 255, 0.5); /* Add a subtle shadow on focus */
   }
+  
+
+  @media (max-width: 412px) and  (max-width: 768px){
+    .map-section {
+      width: 70%; 
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+  
+   
+    }
+    .request-form-section {
+      margin-top: 50px;
+      height: 70%;
+      width: 100%;
+      margin-right: 10px;
+      
+      background-color: #535559;
+      padding: 30px;
+      border:2px solid rgb(62, 57, 57);
+      color:#fff;
+      border-radius: 15px;
+      transition: all 0.4s ease;
+      box-shadow: 5px 10px #212020;
+      
+    }
+    #map-section{
+      width:150%;
+    }
+    .footer{
+      width: 150%;
+    }
+    #request-map-heading{
+      text-align: center;
+    }
+  
+
+  }
+
+
+  .world-map-container{
+    width:100%;
+  
+  }
+  .leaflet-container{
+    width: 100%;
+  }
+
+
+
+
+

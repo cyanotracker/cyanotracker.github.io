@@ -131,29 +131,7 @@ const MapComponent = () => {
       alert('An error occurred. Please try again later.');
     }
   };
-  // const insertLocation = async (location) => {
-  //   try {
-  //     const { data, error } = await supabase
-  //       .from('locations')
-  //       .insert(location);
-  //     if (error) throw error;
-  //   } catch (error) {
-  //     console.error('Error inserting location:', error);
-  //   }
-  // };
 
-  // const insertLocation = async (location) => {
-  //   try {
-  //     // Use upsert to either insert or update the location if it already exists
-  //     const { data, error } = await supabase
-  //       .from('locations')
-  //       .upsert(location, { onConflict: ['latitude', 'longitude'] }); // Specify the conflict columns
-      
-  //     if (error) throw error;
-  //   } catch (error) {
-  //     console.error('Error inserting/updating location:', error);
-  //   }
-  // };
   const insertLocation = async (location) => {
     const { data, error } = await supabase
       .from('locations')
@@ -213,12 +191,15 @@ const MapComponent = () => {
 
   return (
     <>
-      <h1 id="request-map-heading">CyanoMap Archive</h1>
+    <h1 id="request-map-heading">CyanoMap Archive</h1>
+      
+    <div className='container'>
       
       {/* Static Map Images Section */}
 
       <div className="map-container">
       <div className="map-section">
+        
         <div className='map-box' onClick={() => handleMapSelect(map1)}>
         <img src={map1} alt="Map 1" />
         <div className="map-caption">Spatial progression of an ongoing CyanoHAB in Lake Pyramid</div>
@@ -310,7 +291,8 @@ We also plan to produce CCD maps, as well as Phycocyanin concentration maps in t
 
       
       {/* Dynamic World Map Section */}
-      <h3 id="map-heading">Map of HAB Map Requests Serviced Globally</h3>
+      <div id='map-section'>
+      <h3 id="map-heading">HAB Map Requests Serviced Globally</h3>
 
 
       <div className="world-map-container" style={{ marginTop: '20px' }}>
@@ -339,6 +321,10 @@ We also plan to produce CCD maps, as well as Phycocyanin concentration maps in t
             )
           ))}
         </MapContainer>
+        </div>
+
+
+        </div>
         </div>
       
     

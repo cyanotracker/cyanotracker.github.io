@@ -36,6 +36,9 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
           <button className="overlay-button" onClick={handleButtonClick} >
             Tweet about CyanoHAB
           </button>
+          <a href="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india" target="_blank" rel="noopener noreferrer">
+            <button className="overlay-button">GEE Dashboard</button>
+          </a>
         </div>
       </div>
     </div>

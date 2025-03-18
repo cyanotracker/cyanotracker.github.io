@@ -3,8 +3,10 @@ import BlogComponent from "../components/BlogComponent";
 function Gallery()
 {
   return(
+    <div>
     <div style={{ marginTop: '90px' }}>
     <BlogComponent/>
+</div>
 </div>
   );
 

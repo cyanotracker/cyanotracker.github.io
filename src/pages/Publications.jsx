@@ -72,6 +72,7 @@ const Publications = () => {
   }
 
   return (
+    <div>
     <div id="tab-container" style={{ marginTop: '122px' }}>
       <TabContext value={value}>
         <TabList
@@ -158,6 +159,7 @@ const Publications = () => {
           </div>
         </TabPanel>
       </TabContext>
+    </div>
     </div>
   );
 };

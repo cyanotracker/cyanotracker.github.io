@@ -60,6 +60,17 @@
     width: auto;
 }
 
+.earth-engine {
+  height: 45px;
+  width: auto;
+  position: fixed; 
+  left:230px;
+  top:30px;
+  border-radius: 10%;
+  z-index: 1000; 
+}
+
+
 .social-icons {
   display: inline;
   position:absolute;
@@ -75,38 +86,21 @@
 .social-icons a{
 margin: 5px;
 }
-/* Adjustments for smaller screens */
-@media (max-width: 358px) {
-  
-  .social-icons a{
-    font-size: 5px;
-    margin: 2px;
-  }
-  #follow-us{
-    font-size: 16px;
-  }
-}
-@media (min-width:769px) and (max-width:1171px) { 
-  
-  .social-icons{
-    display: inline;
-      position: absolute;
-      left: 140px;
-      bottom: 60px
-  }
-}
-@media (min-width:1172px) and (max-width:1363px) { 
-  
-  .social-icons{
-    display: inline;
-      position: absolute;
-      left: 140px;
-      bottom: 50px
-  }
-}
+
+/* Smaller and Medium Screen Styles... */
 
 
-@media (max-width: 768px) {
+@media (min-width: 250px) and (max-width:1485px) {
+  .navbar-open > div {
+    margin-top: 550px;
+  }  
+  .earth-engine {
+
+    top:20px;
+
+  }
+  
+ 
   .navbar-nav {
     display: none;
     position: absolute;
@@ -118,6 +112,7 @@ margin: 5px;
     align-items: flex-start;
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1000px;
   }
 
   .navbar-nav.open {
@@ -137,6 +132,7 @@ margin: 5px;
   .hamburger {
     display: block;
     margin:5px;
+  
   }
 
   .social-icons {

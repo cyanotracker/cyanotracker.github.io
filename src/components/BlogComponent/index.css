@@ -46,7 +46,7 @@
   white-space: normal; /* Ensure that text can break onto the next line */
 }
 
-.image-container {
+.image-container-blog {
   width: 100%;
   height: 100%; /* Fixed height for all images */
   overflow: hidden;
@@ -74,7 +74,7 @@
   transition: opacity 0.3s ease; /* Smooth transition */
 }
 
-.image-container:hover .small-caption {
+.image-container-blog:hover .small-caption {
   opacity: 1; /* Show caption on hover */
 }
 

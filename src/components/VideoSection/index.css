@@ -43,26 +43,74 @@ html, body {
     text-align: center;
   }
   
-  /* Add this to your existing CSS styles */
-/* Add this to your existing CSS styles */
+
+/* Adjust the text overlay */
 .overlay-text {
   position: absolute;
-  top: 50%; /* Vertically center the text */
-  left: 50%; /* Horizontally center the text */
+  top: 50%; /* Adjusted for better centering */
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   line-height: 3cap;
   width: 60%;
+  font-size: 1.3rem;
 }
 
+/* Adjust the button container */
 .overlay-button-container {
   position: absolute;
-  top: 75%; /* Adjust the top position as needed */
-  left: 50%; /* Horizontally center the button */
+  top: 70%; /* Adjusted position for better visibility */
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
   width: 100%;
 }
+
+/* Add spacing between buttons */
+.overlay-button-container button {
+  margin: 8px 6px; /* Increased margin for better spacing */
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding-inline: 20px;
+}
+
+@media  (max-width:414px) {
+
+  .video-section{
+    width:150%;
+  }
+}
+
+@media screen and (max-width: 1150px){
+  .overlay-text {
+
+    font-size: 1rem; /* Reduce font size */
+  }
+
+}
+/* Responsive styles for small screens */
+@media screen and (max-width: 487px) {
+  .overlay-text {
+    top: 40%; /* Move text slightly higher */
+    width: 100%; /* Allow more space */
+    font-size: 1rem; /* Reduce font size */
+  }
+
+  .overlay-button-container {
+  
+    top: 65%; /* Move buttons up for better placement */
+    margin-top: 50px;
+
+  }
+
+  .overlay-button-container button {
+    display: block; /* Stack buttons vertically */
+    width: 60%; /* Make buttons full width */
+    margin: 8px auto; /* Center align */
+  }
+}
+
 
 .overlay-button {
   background-color: #ddd; /* Button background color */

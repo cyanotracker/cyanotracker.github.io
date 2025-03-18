@@ -73,7 +73,7 @@ const BlogComponent = () => {
       >
         
         <Tab id="cyano_gallery" label="Cyano Map Gallery" value="cyano_gallery" />
-        <Tab id="team_gallery" label="Field Trip Gallery" value="team_gallery" />
+        <Tab id="team_gallery" label="Team Pictures Gallery" value="team_gallery" />
       </Tabs>
 
       <div className="blog-gallery">
@@ -85,7 +85,7 @@ const BlogComponent = () => {
               onClick={() => setIndex(idx)}
               data-test-id="grid-gallery-item"
             >
-              <div className="image-container">
+              <div className="image-container-blog">
                 <img
                   src={img.src}
                   alt={img.bigCaption}

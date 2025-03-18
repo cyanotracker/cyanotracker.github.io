@@ -39,8 +39,10 @@ const Teams = () => {
   }
 
   return (
+    <div>
     <div style={{ marginTop: '90px' }}>
       <TeamsComponent teamMembers={teamMembers} />
+    </div>
     </div>
   );
 };

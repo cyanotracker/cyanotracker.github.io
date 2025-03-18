@@ -8,72 +8,104 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
 
 const VisitorCount = () => {
   const [visits, setVisits] = useState(0);
+  const [monthlyVisits, setMonthlyVisits] = useState(0);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchVisitorData = async () => {
       try {
         // Fetch IP address
-        let ip;
-        try {
-          const ipResponse = await axios.get('https://ipinfo.io/json?token=425691027acbe5');
-          ip = ipResponse.data.ip;
-          console.log('Visitor IP:', ip);
-        } catch (ipError) {
-          console.error('Error fetching IP:', ipError);
-          setError('Failed to fetch visitor IP');
-          return; // Early return if IP fetch fails
-        }
+        const ipResponse = await axios.get('https://ipinfo.io/json?token=425691027acbe5');
+        const ip = ipResponse.data.ip;
 
         // Fetching user agent
         const userAgent = navigator.userAgent;
-        console.log('User Agent:', userAgent);
 
-        // Create a unique key based on IP and user agent
+        // Create a unique visitor key
         const visitorKey = `${ip}_${userAgent}`;
-        console.log('Visitor Key:', visitorKey);
 
-        // Check if the visitor already exists in Supabase
-        const { data: existingVisitor, error: fetchError } = await supabase
+        // Get the current year and month
+        const currentDate = new Date();
+        const yearMonth = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+
+        // Check if the visitor already exists
+        const { data: existingVisitor, error: visitorError } = await supabase
           .from('visitor_info')
           .select('id')
           .eq('visitor_key', visitorKey);
 
-        if (fetchError) {
-          console.error('Error fetching visitor data from Supabase:', fetchError);
-          setError('Failed to fetch visitor data');
-          return;
+        if (visitorError) {
+          throw new Error('Failed to fetch visitor data.');
         }
 
-        // If visitor doesn't exist, insert new entry
         if (existingVisitor.length === 0) {
-          const { data, error: insertError } = await supabase
+          // Insert new visitor
+          const { error: insertVisitorError } = await supabase
             .from('visitor_info')
             .insert([{ ip_addr: ip, user_agent: userAgent, visitor_key: visitorKey }]);
 
-          if (insertError) {
-            console.error('Error inserting visitor data into Supabase:', insertError);
-            setError('Failed to store visitor data');
-            return;
+          if (insertVisitorError) {
+            throw new Error('Failed to insert visitor data.');
+          }
+
+          // Update the monthly visitor count
+          const { data: monthlyData, error: fetchMonthlyError } = await supabase
+            .from('monthly_visitor_count')
+            .select('id, count')
+            .eq('year_month', yearMonth);
+
+          if (fetchMonthlyError) {
+            throw new Error('Failed to fetch monthly visitor data.');
+          }
+
+          if (monthlyData.length === 0) {
+            // Insert a new row for the current month if not exists
+            const { error: insertMonthlyError } = await supabase
+              .from('monthly_visitor_count')
+              .insert([{ year_month: yearMonth, count: 1 }]);
+
+            if (insertMonthlyError) {
+              throw new Error('Failed to insert monthly visitor data.');
+            }
           } else {
-            console.log('Visitor data stored in Supabase:', data);
+            // Increment the count for the current month
+            const { error: updateMonthlyError } = await supabase
+              .from('monthly_visitor_count')
+              .update({ count: monthlyData[0].count + 1 })
+              .eq('year_month', yearMonth);
+
+            if (updateMonthlyError) {
+              throw new Error('Failed to update monthly visitor data.');
+            }
           }
         }
 
-        // Fetch the total number of visitors from Supabase
-        const { data: totalVisitors, error: countError } = await supabase
+        // Fetch the total number of visitors
+        const { data: totalVisitors, error: totalError } = await supabase
           .from('visitor_info')
           .select('*');
 
-        if (countError) {
-          console.error('Error fetching total visitors:', countError);
-          setError('Failed to fetch total visitor count');
-        } else {
-          setVisits(totalVisitors.length);
+        if (totalError) {
+          throw new Error('Failed to fetch total visitor count.');
+        }
+        setVisits(totalVisitors.length);
+
+        // Fetch the count for the current month
+        const { data: currentMonthData, error: currentMonthError } = await supabase
+          .from('monthly_visitor_count')
+          .select('count')
+          .eq('year_month', yearMonth);
+
+        if (currentMonthError) {
+          throw new Error('Failed to fetch monthly visitor count.');
+        }
+
+        if (currentMonthData.length > 0) {
+          setMonthlyVisits(currentMonthData[0].count);
         }
       } catch (err) {
-        console.error('Unexpected error:', err);
-        setError('An unexpected error occurred');
+        console.error(err.message);
+        setError(err.message);
       }
     };
 
@@ -82,8 +114,8 @@ const VisitorCount = () => {
 
   return (
     <footer>
-      {/* {error && <p>Error: {error}</p>} */}
-      <p>Visitor Count: {visits}</p>
+      {error && <p>Error: {error}</p>}
+      <p>Total Visitor Count: {visits}</p>
     </footer>
   );
 };
