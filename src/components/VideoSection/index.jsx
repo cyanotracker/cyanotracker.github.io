@@ -1,7 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import './index.css';
+import androidScanner from "../../assets/android.png";
+import iphoneScanner from "../../assets/android.png";
 
 const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
+  const [showModal, setShowModal] = useState(false);
   // Define a new function to handle the button click
   const handleButtonClick = () => {
     // Define the text to be shared on Twitter
@@ -39,7 +43,35 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
           <a href="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india" target="_blank" rel="noopener noreferrer">
             <button className="overlay-button">GEE Dashboard</button>
           </a>
+          <button className='mobileapp' onClick={() => setShowModal(true)}>Mobile App</button>
         </div>
+            {/* Modal */}
+          {showModal && (
+            <div className="modal-overlay" onClick={() => setShowModal(false)}>
+              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <h2>
+                  We’re excited to announce the launch of the CyanoTRACKER mobile app,
+                  now available on both iOS and Android!
+                </h2>
+                <p>
+                  Download the app to quickly report cyanobacterial harmful algal
+                  blooms (CyanoHABs) wherever you are. <br />
+                  Scan the QR codes below to get started.
+                </p>
+
+                <div className="qr-section">
+                  <div className="qr-block">
+                    <p><strong>Android</strong></p>
+                    <img src={androidScanner} alt="Android QR" />
+                  </div>
+                  <div className="qr-block">
+                    <p><strong>iOS</strong></p>
+                    <img src={iphoneScanner} alt="iOS QR" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
       </div>
     </div>
   );
