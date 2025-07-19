@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import './index.css';
-import androidScanner from "../../assets/android.png";
-import iphoneScanner from "../../assets/android.png";
+import iphoneScanner from "../../assets/ios_scanner.png";
+import appstoreicon from "../../assets/AppStoreIcon.png"
 
 const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
   const [showModal, setShowModal] = useState(false);
@@ -11,7 +11,7 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
     // Define the text to be shared on Twitter
     const text = "Report Toxic Algae #toxic #algae #cyanobacteria #cyanoHAB #UGA @cyanotracker!";
 
-    // Encode the text for URL
+    // Encode the text for URLs
     const encodedText = encodeURIComponent(text);
 
     // Construct the Twitter share URL with the encoded text
@@ -50,23 +50,33 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
             <div className="modal-overlay" onClick={() => setShowModal(false)}>
               <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <h2>
-                  We’re excited to announce the launch of the CyanoTRACKER mobile app,
-                  now available on both iOS and Android!
+                  New App Launch: HAB Reporter in iOS
                 </h2>
                 <p>
-                  Download the app to quickly report cyanobacterial harmful algal
-                  blooms (CyanoHABs) wherever you are. <br />
-                  Scan the QR codes below to get started.
+                Quickly report harmful algal blooms from anywhere - whether you're at home or out enjoying a lake. 
+                Every report makes helps the community stay safe!
+      
                 </p>
 
                 <div className="qr-section">
-                  <div className="qr-block">
+                  {/* <div className="qr-block">
                     <p><strong>Android</strong></p>
                     <img src={androidScanner} alt="Android QR" />
-                  </div>
+                  </div> */}
                   <div className="qr-block">
                     <p><strong>iOS</strong></p>
-                    <img src={iphoneScanner} alt="iOS QR" />
+                    <img class= "qr-image"src={iphoneScanner} alt="iOS QR" />
+                    <a
+                      href="https://apps.apple.com/us/app/hab-reporter/id6747082399"
+                      target="_blank"
+                      rel="noop=ener noreferrer"
+                    >
+                      <img
+                        src={appstoreicon} // or your actual image path
+                        alt="Download on the App Store"
+                        className="app-store-badge"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
