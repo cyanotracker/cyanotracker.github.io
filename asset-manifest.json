@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a48205ef.css",
-    "main.js": "/static/js/main.35d92b5a.js",
+    "main.css": "/static/css/main.8e87475a.css",
+    "main.js": "/static/js/main.107a5561.js",
     "static/js/289.6eece8a5.chunk.js": "/static/js/289.6eece8a5.chunk.js",
     "static/js/787.c73cc71e.chunk.js": "/static/js/787.c73cc71e.chunk.js",
     "static/media/algae2.mp4": "/static/media/algae2.9efd07b7af88f6c29107.mp4",
@@ -18,6 +18,7 @@
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
     "static/media/our_approach.png": "/static/media/our_approach.d83bcb01ebdd5bf2c923.png",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/ios_scanner.png": "/static/media/ios_scanner.929e88c8c40c9c8fab43.png",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
     "static/media/nsf.png": "/static/media/nsf.aaeb36799e518dccaa66.png",
     "static/media/earth-engine.png": "/static/media/earth-engine.08b86b1e4cf2c23bab40.png",
@@ -29,13 +30,13 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/index.html",
-    "main.a48205ef.css.map": "/static/css/main.a48205ef.css.map",
-    "main.35d92b5a.js.map": "/static/js/main.35d92b5a.js.map",
+    "main.8e87475a.css.map": "/static/css/main.8e87475a.css.map",
+    "main.107a5561.js.map": "/static/js/main.107a5561.js.map",
     "289.6eece8a5.chunk.js.map": "/static/js/289.6eece8a5.chunk.js.map",
     "787.c73cc71e.chunk.js.map": "/static/js/787.c73cc71e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a48205ef.css",
-    "static/js/main.35d92b5a.js"
+    "static/css/main.8e87475a.css",
+    "static/js/main.107a5561.js"
   ]
 }
