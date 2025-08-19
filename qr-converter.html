@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting to App Store...</title>
+    <script>
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      const isAndroid = /android/i.test(userAgent);
+      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+      if (isAndroid) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.chintan.cynaotrackerorg";
+      } else if (isIOS) {
+        window.location.href = "https://apps.apple.com/us/app/hab-reporter/id6747082399";
+      } else {
+        window.location.href = "https://apps.apple.com/us/app/hab-reporter/id6747082399";
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
