@@ -132,3 +132,106 @@ html, body {
 
 }
 
+.mobileapp{
+  background-color: #ddd; /* Button background color */
+  color: #333; /* Button text color */
+  border: solid; 
+  border-width: 0.15cap; 
+  padding: 20px 30px; /* Adjust padding as needed */
+  font-size: 120%; /* Adjust font size as needed */
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 15px; /* Add rounded corners */
+  transition: background-color 0.3s; /* Add a smooth transition effect on hover */
+}
+.mobileapp:hover{
+  background-color: #444; /* Change background color on hover */
+  color: #ddd;
+  border: none;
+}
+.homepage-button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #d4f5e0;
+  padding: 2rem;
+  width: 50%;
+  height: 475px;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  overflow-y: auto;
+}
+.modal-content h2,
+.modal-content p {
+  color: #1a1a1a; /* Very dark navy/black */
+}
+/* .qr-section {
+  display:flex;
+  justify-content:space-between;
+  margin-top: 2rem;
+} */
+
+.qr-block {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 12px; /* optional spacing between QR and badge */
+}
+.app-store-badge {
+  width: 120px;
+  height: 40px;
+  margin-top: 16px; /* ✅ Custom spacing between QR and badge */
+  object-fit: contain;
+}
+.play-store-badge {
+  width: 130px;
+  height: 40px;
+  padding-left: 10px;
+  margin-top: 16px; /* ✅ Custom spacing between QR and badge */
+  object-fit: contain;
+}
+@media (max-width: 450px) {
+  .modal-overlay {
+  height: 100%;
+  width: 100%;
+  }
+  .modal-content {
+    margin-bottom: 40px; /* pushes it upward */
+  }
+
+}
+
+
+
+
