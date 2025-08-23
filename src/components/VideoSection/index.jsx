@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import './index.css';
-import iphoneScanner from "../../assets/ios_scanner.png";
-import appstoreicon from "../../assets/AppStoreIcon.png"
+import iphoneScanner from "../../assets/ios:android-scanner.png";
+import playstoreicon from "../../assets/PlayStoreIcon.png";
+import appstoreicon from "../../assets/AppStoreIcon.png";
 
 const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
   const [showModal, setShowModal] = useState(false);
@@ -64,19 +65,33 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
                     <img src={androidScanner} alt="Android QR" />
                   </div> */}
                   <div className="qr-block">
-                    <p><strong>iOS</strong></p>
+                    <p><strong>iOS / Android</strong></p>
                     <img class= "qr-image"src={iphoneScanner} alt="iOS QR" />
+                    <div style={{ display: "flex", gap: "10px" }}>
+                      <a
+                        href="https://apps.apple.com/us/app/hab-reporter/id6747082399"
+                        target="_blank"
+                        rel="noop=ener noreferrer"
+                      >
+                        <img
+                          src={appstoreicon} // or your actual image path
+                          alt="Download on the App Store"
+                          className="app-store-badge"
+                        />
+
+                      </a>
                     <a
-                      href="https://apps.apple.com/us/app/hab-reporter/id6747082399"
-                      target="_blank"
-                      rel="noop=ener noreferrer"
-                    >
+                        href="https://play.google.com/store/apps/details?id=com.chintan.cynaotrackerorg"
+                        target="_blank"
+                        rel="noop=ener noreferrer"
+                      >
                       <img
-                        src={appstoreicon} // or your actual image path
-                        alt="Download on the App Store"
-                        className="app-store-badge"
+                        src={playstoreicon} // or your actual image path
+                        alt="Download on the Play Store"
+                        className="play-store-badge"
                       />
                     </a>
+                    </div>
                   </div>
                 </div>
               </div>
