@@ -6,7 +6,8 @@ const TextImageSection = ({ content }) => {
 
   return (
     <div className="text-image-section">
-      {content.map((item, index) => (
+       <div className="scroll-wrapper">
+      {[...content, ...content].map((item, index) => (
         <div
           key={index}
           className={`row ${index % 2 === 0 ? 'text-left' : 'text-right'}`}
@@ -54,6 +55,7 @@ const TextImageSection = ({ content }) => {
           )}
         </div>
       ))}
+      </div>
     </div>
   );
 };

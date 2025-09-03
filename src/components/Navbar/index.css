@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222;
+  background-color: #000;
   z-index: 200;
   width: 100%;
   padding: 1rem 0rem;
@@ -107,11 +107,11 @@ margin: 5px;
     top: 60px;
     left: 0;
     width: 100%;
-    background-color: #242020;
+    background-color: #000;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0);
     margin-bottom: 1000px;
   }
 

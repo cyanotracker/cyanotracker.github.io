@@ -6,6 +6,7 @@ import SponsorDisplay from '../SponsorDisplay'; // Import the SponsorDisplay com
 import nsf from '../../assets/nsf.png';
 import nasa from '../../assets/nasa.png';
 import VisitorCount from '../VisitorCount';
+import SocialBar from '../Socials/SocialBar.jsx'
 
 const sponsors = [
   {
@@ -57,6 +58,7 @@ const Footer = () => {
             <a rel="noopener" href="https://twitter.com/cyanotracker" style={{'textDecoration':'none'}}><i className="ri-twitter-x-fill"></i></a> &nbsp;
            
            <a rel="noopener" href=" https://www.facebook.com/cyanotracker/" style={{'textDecoration':'none'}}><i className="ri-facebook-circle-fill"></i></a> */}
+           <SocialBar></SocialBar>
           </span>
         </div>
       </div>

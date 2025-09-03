@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import SocialBar from '../Socials/SocialBar';
 
 const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
   // Define a new function to handle the button click
@@ -24,6 +25,7 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
 
   return (
     <div className="video-section">
+      <SocialBar></SocialBar>
       <video autoPlay loop muted className="background-video">
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.

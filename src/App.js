@@ -23,6 +23,7 @@ import NewsFeed from './components/NewsFeed/index.jsx';
 import MapComponent from './components/MapComponent';
 import BlogComponent from './components/BlogComponent/index.jsx';
 import Gallery from './pages/Gallery.jsx';
+import SocialBar from './components/Socials/SocialBar.jsx';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import logo from "../src/assets/UGA_Cyano.png";

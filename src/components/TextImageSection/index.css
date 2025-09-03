@@ -1,6 +1,11 @@
+
+/* In index.css */
+body, html {
+  overflow-x: hidden;
+}
 /* Dark theme for the section */
 .text-image-section {
-  background-color: #333; /* Dark background for the section */
+  background-color: #000000; /* Dark background for the section */
   color: #fff; /* Light color for text */
   
 }
@@ -14,7 +19,8 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); /* Box shadow for depth */
   border-radius: 10px; /* Rounded corners */
   overflow: hidden;
-  background-color: #444; /* Slightly lighter than the section background */
+  background-color: #1e1d1d; /* Slightly lighter than the section background */
+
   
 }
 
@@ -46,7 +52,7 @@
 @media (min-width: 768px) {
   .text-image-section .row {
     flex-direction: row; /* Side by side layout on larger screens */
-    margin: 5rem 6rem; /* Increased margin */
+    margin: 2rem 1rem; /* Increased margin */
   }
 
   .text-image-section .row.text-right {
@@ -59,4 +65,20 @@
 .text-image-section{
   width: 150%;
 }
+}
+
+.scroll-wrapper {
+  display: flex;
+  /* ensure no wrapping */
+  flex-wrap: nowrap;
+  /* smoothly scroll left */
+  animation: scroll-left 20s linear infinite alternate;
+}
+
+.scroll-wrapper .row { flex: 0 0 100%; }
+
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
