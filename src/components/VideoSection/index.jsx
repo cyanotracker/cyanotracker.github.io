@@ -20,7 +20,7 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
 
     // Open the URL in a new tab
     window.open(twitterUrl, "_blank");
-    
+
     // Call the original onButtonClick if it's provided
     if (onButtonClick) {
       onButtonClick();
@@ -46,57 +46,57 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
           </a>
           <button className='mobileapp' onClick={() => setShowModal(true)}>Mobile App</button>
         </div>
-            {/* Modal */}
-          {showModal && (
-            <div className="modal-overlay" onClick={() => setShowModal(false)}>
-              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <h2>
-                  New App Launch: HAB Reporter in iOS
-                </h2>
-                <p>
-                Quickly report harmful algal blooms from anywhere - whether you're at home or out enjoying a lake. 
+        {/* Modal */}
+        {showModal && (
+          <div className="modal-overlay" onClick={() => setShowModal(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h2>
+                New App Launch: HAB Reporter in iOS/Android
+              </h2>
+              <p>
+                Quickly report harmful algal blooms from anywhere - whether you're at home or out enjoying a lake.
                 Every report makes helps the community stay safe!
-      
-                </p>
 
-                <div className="qr-section">
-                  {/* <div className="qr-block">
+              </p>
+
+              <div className="qr-section">
+                {/* <div className="qr-block">
                     <p><strong>Android</strong></p>
                     <img src={androidScanner} alt="Android QR" />
                   </div> */}
-                  <div className="qr-block">
-                    <p><strong>iOS / Android</strong></p>
-                    <img class= "qr-image"src={iphoneScanner} alt="iOS QR" />
-                    <div style={{ display: "flex", gap: "10px" }}>
-                      <a
-                        href="https://apps.apple.com/us/app/hab-reporter/id6747082399"
-                        target="_blank"
-                        rel="noop=ener noreferrer"
-                      >
-                        <img
-                          src={appstoreicon} // or your actual image path
-                          alt="Download on the App Store"
-                          className="app-store-badge"
-                        />
-
-                      </a>
+                <div className="qr-block">
+                  <p><strong>iOS / Android</strong></p>
+                  <img class="qr-image" src={iphoneScanner} alt="iOS QR" />
+                  <div style={{ display: "flex", gap: "10px" }}>
                     <a
-                        href="https://play.google.com/store/apps/details?id=com.chintan.cynaotrackerorg"
-                        target="_blank"
-                        rel="noop=ener noreferrer"
-                      >
+                      href="https://apps.apple.com/us/app/hab-reporter/id6747082399"
+                      target="_blank"
+                      rel="noop=ener noreferrer"
+                    >
+                      <img
+                        src={appstoreicon} // or your actual image path
+                        alt="Download on the App Store"
+                        className="app-store-badge"
+                      />
+
+                    </a>
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.chintan.cynaotrackerorg"
+                      target="_blank"
+                      rel="noop=ener noreferrer"
+                    >
                       <img
                         src={playstoreicon} // or your actual image path
                         alt="Download on the Play Store"
                         className="play-store-badge"
                       />
                     </a>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          )}
+          </div>
+        )}
       </div>
     </div>
   );

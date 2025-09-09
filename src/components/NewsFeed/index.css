@@ -1,20 +1,140 @@
-#news_feed_img{
-    width:100px;
-    height:90px;
-    margin-right: 75%;
-    margin-top: 0px;
+#news_feed_img {
+  width: 100px;
+  height: 90px;
+  margin-right: 75%;
+  margin-top: 0px;
 
 }
-ul > li{
-    text-align: left;
-    padding: 10px;
-}
-.NewsFeedOuter-container{
-    margin-top: 25px;
-    max-height: 600px;
-    overflow-y: auto;
-}
-#news_feed_content li a{
-   color:#fff;
 
+ul>li {
+  text-align: left;
+  padding: 10px;
+}
+
+.NewsFeedOuter-container {
+  margin-top: 25px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+#news_feed_content li a {
+  color: #fff;
+
+}
+
+.newsfeed-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+#news_feed_img {
+  width: 50px;
+  height: 50px;
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.carousel-window {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+.news-card {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-top: 10vh;
+  padding-right: 6vh;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-top: 50 px;
+}
+
+.news-img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 8px;
+
+  /* cover the box, cropping as needed, and center the subject */
+  object-fit: contain;
+  object-position: center;
+
+  /* keep those rounded corners */
+  border-radius: 8px;
+
+  /* prevent the image from ever shrinking the flex container */
+  flex-shrink: 0;
+}
+
+.news-body {
+  color: #e6ebe9;
+}
+
+.news-date {
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.news-text a {
+  color: #fff;
+  text-decoration: underline;
+  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: justify;
+
+}
+
+.nav {
+  position: absolute;
+  top: 5t0%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  border-radius: 6px;
+}
+
+.nav.prev {
+  left: 0px;
+  top: 17vh;
+}
+
+.nav.next {
+  top: 17vh;
+  right: 5vh;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #888;
+  border: none;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #fff;
 }
