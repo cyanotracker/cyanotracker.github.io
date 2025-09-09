@@ -1,35 +1,44 @@
 /* Dark theme for the section */
 .text-image-section {
-  background-color: #333; /* Dark background for the section */
-  color: #fff; /* Light color for text */
-  
+  background-color: #151414;
+  /* Dark background for the section */
+  color: #fff;
+  /* Light color for text */
+
 }
 
 /* Styling for each row */
 .text-image-section .row {
   display: flex;
-  flex-direction: column; /* Stack vertically by default on smaller screens */
+  flex-direction: column;
+  /* Stack vertically by default on smaller screens */
   align-items: center;
-  margin: 2rem 1rem; /* Margin on all sides */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); /* Box shadow for depth */
-  border-radius: 10px; /* Rounded corners */
+  margin: 2rem 1rem;
+  /* Margin on all sides */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  /* Box shadow for depth */
+  border-radius: 10px;
+  /* Rounded corners */
   overflow: hidden;
-  background-color: #444; /* Slightly lighter than the section background */
-  
+  background-color: #444;
+  /* Slightly lighter than the section background */
+
 }
 
 /* Styling for text content */
 .text-content {
-  flex: 2; /* More space allocated to text */
+  flex: 2;
+  /* More space allocated to text */
   text-align: left;
   padding: 1rem;
   line-height: 3cap;
-  
+
 }
 
 /* Styling for image content */
 .image-content {
-  flex: 2; /* Less space allocated to image */
+  flex: 2;
+  /* Less space allocated to image */
   padding: 1rem;
   border-radius: 10%;
 }
@@ -45,18 +54,21 @@
 /* Media query for larger screens */
 @media (min-width: 768px) {
   .text-image-section .row {
-    flex-direction: row; /* Side by side layout on larger screens */
-    margin: 5rem 6rem; /* Increased margin */
+    flex-direction: row;
+    /* Side by side layout on larger screens */
+    margin: 5rem 6rem;
+    /* Increased margin */
   }
 
   .text-image-section .row.text-right {
-    flex-direction: row-reverse; /* Reverse layout for alternate rows */
+    flex-direction: row-reverse;
+    /* Reverse layout for alternate rows */
   }
 }
 
-@media  (max-width:414px) {
+@media (max-width:414px) {
 
-.text-image-section{
-  width: 150%;
-}
+  .text-image-section {
+    width: 150%;
+  }
 }

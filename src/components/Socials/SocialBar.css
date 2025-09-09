@@ -1,0 +1,66 @@
+/* scientific palette */
+:root {
+  --bg: #0b1020;
+  /* deep navy */
+  --chip: #121a2b;
+  /* card */
+  --border: #23324d;
+  /* subtle border */
+  --ink: #e6edf3;
+  /* text */
+  --muted: #9fb3c8;
+  /* secondary */
+  --accent: #2fb1ff;
+  /* accent */
+}
+
+/* container: single horizontal row with scroll */
+.social-bar {
+  display: flex;
+  gap: 12px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  background: transparent;
+  border-radius: 12px;
+}
+
+/* hide scrollbar (keeps accessibility) */
+.social-bar::-webkit-scrollbar {
+  height: 0;
+}
+
+.social-bar {
+  scrollbar-width: none;
+}
+
+/* chip style */
+.social-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background: var(--chip);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-size: 14px;
+  scroll-snap-align: start;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.social-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(47, 177, 255, .15);
+}
+
+.social-chip img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: grayscale(10%);
+  opacity: .95;
+}

@@ -110,12 +110,14 @@ ul>li {
 }
 
 .nav.prev {
+  color: #f0e9e9;
   left: 0px;
-  top: 17vh;
+  top: 20vh;
 }
 
 .nav.next {
-  top: 17vh;
+  color: #f0e9e9;
+  top: 20vh;
   right: 5vh;
 }
 

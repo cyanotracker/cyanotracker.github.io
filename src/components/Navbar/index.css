@@ -1,11 +1,11 @@
 .navbar {
   position: fixed;
   top: 0;
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222;
+  background-color: #000;
   z-index: 200;
   width: 100%;
   padding: 1rem 0rem;
@@ -14,93 +14,98 @@
 .navbar a {
   color: rgb(223, 223, 223);
   text-decoration: none;
-  font-size: 1.1rem; 
-  font-weight: 600; 
-  margin: 0 10px; /* Spacing between menu items */
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 10px;
+  /* Spacing between menu items */
 }
 
 
 
-  
-  .navbar-nav {
-    list-style: none;
-    display: flex;
-  }
-  
-  .navbar-nav li {
-    margin: 0 0.8rem;
-   
-  }
-  .navbar-nav li  a{
-    font-size: 20px;
-   
-  }
-  
-  .hamburger {
-    display: none;
-    cursor: pointer;
-  }
-  
-  .hamburger .line {
-    width: 30px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px;
-  }
-  
-  .navbar-nav {
-    display: flex;
-  }
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-nav li {
+  margin: 0 0.8rem;
+
+}
+
+.navbar-nav li a {
+  font-size: 20px;
+
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px;
+}
+
+.navbar-nav {
+  display: flex;
+}
 
 
 .navbar-logo {
-    height: 45px;
-    margin-right: 10px;
-    position: relative;
-    width: auto;
+  height: 45px;
+  margin-right: 10px;
+  position: relative;
+  width: auto;
 }
 
 .earth-engine {
   height: 45px;
   width: auto;
-  position: fixed; 
-  left:230px;
-  top:30px;
+  position: fixed;
+  left: 230px;
+  top: 30px;
   border-radius: 10%;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 
 .social-icons {
   display: inline;
-  position:absolute;
-  left:140px;
-  bottom:35px;
+  position: absolute;
+  left: 140px;
+  bottom: 35px;
 }
-#follow-us{
+
+#follow-us {
   margin-bottom: 2px;
-  font-family: 'Roboto', sans-serif; 
-  
+  font-family: 'Roboto', sans-serif;
+
 
 }
-.social-icons a{
-margin: 5px;
+
+.social-icons a {
+  margin: 5px;
 }
 
 /* Smaller and Medium Screen Styles... */
 
 
 @media (min-width: 250px) and (max-width:1485px) {
-  .navbar-open > div {
+  .navbar-open>div {
     margin-top: 550px;
-  }  
+  }
+
   .earth-engine {
 
-    top:20px;
+    top: 20px;
 
   }
-  
- 
+
+
   .navbar-nav {
     display: none;
     position: absolute;
@@ -131,8 +136,8 @@ margin: 5px;
 
   .hamburger {
     display: block;
-    margin:5px;
-  
+    margin: 5px;
+
   }
 
   .social-icons {
@@ -141,4 +146,3 @@ margin: 5px;
     bottom: 20px;
   }
 }
- 

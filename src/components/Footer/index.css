@@ -1,13 +1,17 @@
-
 .footer-top {
   text-align: center;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px;
+  /* Adjust as needed */
 }
 
-.sponsor-display-container { /* Assuming this is the class for your SponsorDisplay component */
-  border-right: 1px solid #ddd; /* Adds a vertical line */
-  padding-right: 20px; /* Adds spacing to the right of the content */
-  margin-right: 20px; /* Adds spacing between the border and the next element */
+.sponsor-display-container {
+  /* Assuming this is the class for your SponsorDisplay component */
+  border-right: 1px solid #ddd;
+  /* Adds a vertical line */
+  padding-right: 20px;
+  /* Adds spacing to the right of the content */
+  margin-right: 20px;
+  /* Adds spacing between the border and the next element */
 }
 
 .footer-upper {
@@ -24,12 +28,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 20px; 
+  padding-left: 20px;
 }
 
 
 .footer {
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -62,20 +66,22 @@
 .social-links a {
   margin: 0 10px;
   color: #fff;
-  font-size: 24px; /* Adjust icon size as needed */
+  font-size: 24px;
+  /* Adjust icon size as needed */
 }
 
 .social-links a:hover {
   color: #ddd;
 }
 
-.contact-info a{
+.contact-info a {
   color: white;
 }
-.ri-twitter-x-fill{
+
+.ri-twitter-x-fill {
   font-size: 20px;
 }
 
-.ri-facebook-circle-fill{
+.ri-facebook-circle-fill {
   font-size: 25px;
 }
