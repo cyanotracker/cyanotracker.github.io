@@ -15,7 +15,7 @@ const NewsFeed = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch('https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/news_feed_test.json', { cache: 'no-store' });
+        const response = await fetch('https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/news_feed.json', { cache: 'no-store' });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -74,7 +74,7 @@ const NewsFeed = () => {
                     <a target="_blank" rel="noopener noreferrer" href={item.link}>
                       {item.conference}
                     </a>
-                    =, {item.location}.
+                    , {item.location}.
                   </p>
                 </div>
               </article>

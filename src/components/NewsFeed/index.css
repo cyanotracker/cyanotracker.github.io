@@ -56,7 +56,7 @@ ul>li {
   display: flex;
   gap: 14px;
   align-items: flex-start;
-  padding-top: 50 px;
+  padding-top: 50px;
 }
 
 .news-img {
@@ -98,7 +98,7 @@ ul>li {
 
 .nav {
   position: absolute;
-  top: 5t0%;
+  top: 50%;
   transform: translateY(-50%);
   border: none;
   background: rgba(0, 0, 0, 0.4);
@@ -112,12 +112,12 @@ ul>li {
 .nav.prev {
   color: #f0e9e9;
   left: 0px;
-  top: 20vh;
+  top: 18vh;
 }
 
 .nav.next {
   color: #f0e9e9;
-  top: 20vh;
+  top: 18vh;
   right: 5vh;
 }
 

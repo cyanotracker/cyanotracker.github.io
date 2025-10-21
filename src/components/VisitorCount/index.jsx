@@ -81,14 +81,14 @@ const VisitorCount = () => {
         }
 
         // Fetch the total number of visitors
-        const { data: totalVisitors, error: totalError } = await supabase
+        const { count: totalVisitors, error: totalError } = await supabase
           .from('visitor_info')
-          .select('*');
+          .select('*', { count: 'exact', head: true });
 
         if (totalError) {
           throw new Error('Failed to fetch total visitor count.');
         }
-        setVisits(totalVisitors.length);
+        setVisits(totalVisitors);
 
         // Fetch the count for the current month
         const { data: currentMonthData, error: currentMonthError } = await supabase
