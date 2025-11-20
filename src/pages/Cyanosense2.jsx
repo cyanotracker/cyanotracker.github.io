@@ -89,20 +89,37 @@ const Cyanosense2 = () => {
 
   return (
     <div>
-      <CardImageSection
-        heading={
-          <a
-            href="https://docs.google.com/presentation/d/e/2PACX-1vQ7LYzqtoA65Rp1M516fLmyI8xQlR8ftpOZuWrp7uqPEwtB9Ie4fMWnnkHTWbeRHw/pub?start=false&loop=true&delayms=3000"
-            style={{ color: '#fff', textDecoration: 'none' }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            CyanoSense 2.0 - Next Generation Cyanosense
-          </a>
-        }
-        sections={sections}
-      />
-    </div>
+    <CardImageSection
+      heading={
+        <a
+          href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00301"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: '#fff',
+            textDecoration: 'none',
+            fontWeight: '600',
+            fontSize: '2.3rem',
+            transition: 'color 0.3s ease, text-shadow 0.3s ease',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={(e) => {    // Rose Pink Color: #E69A8DFF
+            e.target.style.color = '#66d9ff';
+            e.target.style.textShadow = '0 0 6px #00bfff';
+            e.target.style.textDecoration = 'underline';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.color = '#fff';
+            e.target.style.textShadow = 'none';
+            e.target.style.textDecoration = 'none';
+          }}
+        >
+          CyanoSense 2.0 - Next Generation Cyanosense
+        </a>
+      }
+      sections={sections}
+    />
+  </div>
   );
 };
 

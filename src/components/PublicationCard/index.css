@@ -171,3 +171,13 @@
     top:-50px;
   }
 }
+
+#pdf-icon{
+  color: rgb(229, 40, 40);
+  font-size: 35px;
+  cursor: pointer;
+  position: relative;
+  top: 13px; 
+  margin-left: 2px;
+
+}

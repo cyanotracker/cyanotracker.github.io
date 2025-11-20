@@ -32,7 +32,7 @@ const Publications = () => {
     const fetchPublications = async () => {
       try {
         console.log('Fetching publications data...');
-        const response = await fetch('https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/publications.json');
+        const response = await fetch('https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/publications.json', { cache: "no-cache" });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

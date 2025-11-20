@@ -145,6 +145,7 @@ const FormComponent = () => {
         address: formData.address,
         bloomDate: formatDate(formData.bloomDate) || 'No date provided',
         images: formattedImageUrls,
+        subject: `Report a Bloom Request from ${formData.email} - [Website Request]`  // Website Subject Line..
       }, 'a1whV3G1MFF03V7Gg');
 
       alert('Form Submitted Successfully!');
