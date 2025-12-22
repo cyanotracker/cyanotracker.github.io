@@ -41,9 +41,26 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
           <button className="overlay-button" onClick={handleButtonClick} >
             Tweet about CyanoHAB
           </button>
-          <a href="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india" target="_blank" rel="noopener noreferrer">
             <button className="overlay-button">GEE Dashboard</button>
-          </a>
+          </a> */}
+         <select
+            className="overlay-dropdown"
+            onChange={(e) => {
+              if (e.target.value) {
+                window.open(e.target.value, "_blank", "noopener,noreferrer");
+              }
+            }}
+          >
+            <option value=""> GEE Dashboards</option>
+            <option value="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india">
+            CyanoKhoj
+            </option>
+            <option value="https://ee-chintanmaniyar.projects.earthengine.app/view/nps-habdashboard">
+            NPS Atlanta
+            </option>
+          </select>
+
           <button className='mobileapp' onClick={() => setShowModal(true)}>Mobile App</button>
         </div>
         {/* Modal */}

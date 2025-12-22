@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 
 .CardImageOuter-container {
@@ -5,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  background-color: #333;
+  background-color: #252222;
   margin-top: 20px;
 }
 
@@ -13,7 +14,8 @@
   order: 2; /* Adjust the order to move text container to the right */
 }
 .section {  
-  background-color: #3c3b3b;
+
+  background-color: #151414;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -72,6 +74,8 @@ p {
 .mainHeading{
   margin-top: 50px;
   padding: 20px;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 @media (max-width: 768px) {

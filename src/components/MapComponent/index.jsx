@@ -292,7 +292,15 @@ We also plan to produce CCD maps, as well as Phycocyanin concentration maps in t
       
       {/* Dynamic World Map Section */}
       <div id='map-section'>
-      <h3 id="map-heading">HAB Map Requests Serviced Globally</h3>
+      
+      <h3 id="map-heading">
+      <span id="map-locations-count">
+          {locations.length }
+          &nbsp; 
+        </span>
+        HAB Map Requests Serviced Globally
+        
+      </h3>
 
 
       <div className="world-map-container" style={{ marginTop: '20px' }}>

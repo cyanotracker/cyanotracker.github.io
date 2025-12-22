@@ -88,7 +88,7 @@ const Cyanosense2 = () => {
   ];
 
   return (
-    <div>
+    <div style={{}}>
     <CardImageSection
       heading={
         <a
@@ -104,9 +104,9 @@ const Cyanosense2 = () => {
             cursor: 'pointer',
           }}
           onMouseEnter={(e) => {    // Rose Pink Color: #E69A8DFF
-            e.target.style.color = '#66d9ff';
-            e.target.style.textShadow = '0 0 6px #00bfff';
-            e.target.style.textDecoration = 'underline';
+            // e.target.style.color = ' #38BDF8';
+            e.target.style.textShadow = '0 0 10px #FACC15';
+            e.target.style.textDecoration = 'none';
           }}
           onMouseLeave={(e) => {
             e.target.style.color = '#fff';

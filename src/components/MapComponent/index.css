@@ -12,6 +12,13 @@
   padding-bottom: 0%;
   text-align: center;
 }
+#map-locations-count{
+  color:#e69a8dff;
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  margin-left: 10px;
+
+}
 .map-container {
    
     display: flex;
