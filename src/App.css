@@ -77,9 +77,12 @@ html {
   }
 }
 
+.logo {
+  height: clamp(60px, 12vw, 120px);
+}
 
 
-@media (max-width:632px) {
+/* @media (max-width:632px) {
   #logo {
     height: 80px;
   }

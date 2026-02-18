@@ -44,7 +44,7 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
           {/* <a href="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india" target="_blank" rel="noopener noreferrer">
             <button className="overlay-button">GEE Dashboard</button>
           </a> */}
-         <select
+         {/* <select
             className="overlay-dropdown"
             onChange={(e) => {
               if (e.target.value) {
@@ -59,7 +59,40 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
             <option value="https://ee-chintanmaniyar.projects.earthengine.app/view/nps-habdashboard">
             NPS Atlanta
             </option>
-          </select>
+          </select> */}
+          <div className="dropdown">
+              <button className="dropdown-btn">
+                GEE Dashboards
+              </button>
+
+              <div className="dropdown-menu">
+                <div
+                  className="dropdown-item"
+                  onClick={() =>
+                    window.open(
+                      "https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                >
+                  CyanoKhoj
+                </div>
+
+                <div
+                  className="dropdown-item"
+                  onClick={() =>
+                    window.open(
+                      "https://ee-chintanmaniyar.projects.earthengine.app/view/nps-habdashboard",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                >
+                  NPS Atlanta
+                </div>
+              </div>
+            </div>
 
           <button className='mobileapp' onClick={() => setShowModal(true)}>Mobile App</button>
         </div>

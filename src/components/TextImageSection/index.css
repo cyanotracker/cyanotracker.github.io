@@ -11,6 +11,8 @@
 .text-image-section .row {
   display: flex;
   flex-direction: column;
+  gap: 3rem;
+  padding: 4rem 6vw;
   /* Stack vertically by default on smaller screens */
   align-items: center;
   margin: 2rem 1rem;
@@ -27,8 +29,9 @@
 
 /* Styling for text content */
 .text-content {
-  flex: 2;
-  /* More space allocated to text */
+  font-family: 'Inter', system-ui, sans-serif;
+  text-wrap: pretty;
+  flex: 2; /* More space allocated to text */
   text-align: left;
   padding: 1rem;
   line-height: 3cap;

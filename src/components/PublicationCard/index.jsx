@@ -39,6 +39,9 @@ const PublicationCard = ({
       case "conference-presentations":
         color = "#FEFFAC";
         break;
+      case "github":
+        color = "#A3D9B1";
+        break;
       default:
         color = "#fff";
         break;
@@ -56,15 +59,25 @@ const PublicationCard = ({
             <p className="authors">{authors}</p>
             <p className="journal">{journal}</p>
             {volume && <p className="volume">Volume: {volume}</p>}
-
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="publications-link"
-            >
-              Read Publication
-            </a>
+            { type === "github" ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="publications-link"
+              >
+                Explore more
+              </a>
+            ) : (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="publications-link"
+              >
+                Read Publication
+              </a>
+            )}
 
             {/* PDF icon (dynamic) */}
             {pdf && (

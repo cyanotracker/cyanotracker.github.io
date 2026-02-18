@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import PublicationCard from '../components/PublicationCard';
+import { use } from 'react';
 
 const groupPublicationsByYear = (publications) => {
   const groupedPublications = {};
@@ -22,11 +23,27 @@ const groupPublicationsByYear = (publications) => {
   }));
 };
 
+const repoToPublicationCard = (repo) => ({
+  title: repo.name,                        // repo name
+  authors: repo.description,               // GitHub username
+  journal: "GitHub Repository",             // constant label
+  year: new Date(repo.created_at).getFullYear(),
+  volume: "",                              // not applicable
+  link: repo.html_url,                     // repo URL
+  image: repo.owner.avatar_url,            // profile image
+  type: "github",                          // your custom type
+  caption: repo.description,               // repo description
+  pdf: null                                // not applicable
+});
+
+
 const Publications = () => {
   const [value, setValue] = useState('journalArticles');
   const [publicationsData, setPublicationsData] = useState([]);
+  const [gitReposData , setReposData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const USERNAME = "madhusudhanreddychencharapu";
 
   useEffect(() => {
     const fetchPublications = async () => {
@@ -48,6 +65,27 @@ const Publications = () => {
     };
 
     fetchPublications();
+  }, []);
+
+  useEffect(() => {
+    const gitRepos = async () => {
+      try{
+        console.log('Fetching Git Repositories data');
+        const response = await fetch('https://api.github.com/users/cyanotracker/repos');
+        if (!response.ok) {
+          throw new Error(`Git hub API error HTTP error! status: ${response.status}`);
+        }
+        const gitData = await response.json();
+        console.log('Fetched Git Repsos',gitData);
+        setReposData(gitData);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError(error.message || 'Unknown error occurred');
+      } finally {
+        setLoading(false);
+      }
+      };
+    gitRepos();
   }, []);
 
   const journalArticles = groupPublicationsByYear(publicationsData.filter((publication) => publication.type === 'journal'));
@@ -113,6 +151,10 @@ const Publications = () => {
             label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Media Highlights</span>}
             value="mediaHighlights"
           />
+          <Tab
+            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Git Repositories</span>}
+            value="gitRepositories"
+          />
         </TabList>
 
         <TabPanel value="journalArticles">
@@ -155,6 +197,14 @@ const Publications = () => {
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             {mediaHighlights.map((publication, index) => (
               <PublicationCard key={index} {...publication} />
+            ))}
+          </div>
+        </TabPanel>
+
+        <TabPanel value='gitRepositories'>
+          <div>
+            {gitReposData.map((repo, index) => (
+              <PublicationCard key={index} {...repoToPublicationCard(repo)} />
             ))}
           </div>
         </TabPanel>

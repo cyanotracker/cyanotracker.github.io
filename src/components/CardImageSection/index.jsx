@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import {FaGithub} from "react-icons/fa";
 
 const CardImageSection = ({ heading, sections }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -35,6 +36,17 @@ const CardImageSection = ({ heading, sections }) => {
           </div>
         ))}
       </div>
+      <div >  
+            <a 
+              href = "https://github.com/cyanotracker/Cyanosense-2.0"
+              target = "_blank"
+              rel="noopener noreferrer"
+              className= "repo-header"
+            >
+              <FaGithub className="github-icon" />
+              <span className="repo-title">CynaoSense2.0</span>
+            </a>
+          </div>
     </>
   );
 };
