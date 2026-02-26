@@ -36,17 +36,6 @@ const CardImageSection = ({ heading, sections }) => {
           </div>
         ))}
       </div>
-      <div >  
-            <a 
-              href = "https://github.com/cyanotracker/Cyanosense-2.0"
-              target = "_blank"
-              rel="noopener noreferrer"
-              className= "repo-header"
-            >
-              <FaGithub className="github-icon" />
-              <span className="repo-title">CynaoSense2.0</span>
-            </a>
-          </div>
     </>
   );
 };

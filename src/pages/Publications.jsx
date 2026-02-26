@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import PublicationCard from '../components/PublicationCard';
+import GitRepoCard from '../components/GitRepoCard';
 import { use } from 'react';
 
 const groupPublicationsByYear = (publications) => {
@@ -22,20 +23,6 @@ const groupPublicationsByYear = (publications) => {
     publications: groupedPublications[year],
   }));
 };
-
-const repoToPublicationCard = (repo) => ({
-  title: repo.name,                        // repo name
-  authors: repo.description,               // GitHub username
-  journal: "GitHub Repository",             // constant label
-  year: new Date(repo.created_at).getFullYear(),
-  volume: "",                              // not applicable
-  link: repo.html_url,                     // repo URL
-  image: repo.owner.avatar_url,            // profile image
-  type: "github",                          // your custom type
-  caption: repo.description,               // repo description
-  pdf: null                                // not applicable
-});
-
 
 const Publications = () => {
   const [value, setValue] = useState('journalArticles');
@@ -127,6 +114,7 @@ const Publications = () => {
             "& button.Mui-selected:nth-child(2)": { color: '#E0AED0' },
             "& button.Mui-selected:nth-child(3)": { color: '#FEFFaC' },
             "& button.Mui-selected:nth-child(4)": { color: 'orange' },
+            "& button.Mui-selected:nth-child(5)": { color: 'lightgreen' },
             '@media (max-width: 600px)': {
               width: '100%',
             },
@@ -152,7 +140,7 @@ const Publications = () => {
             value="mediaHighlights"
           />
           <Tab
-            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Git Repositories</span>}
+            label={<span style={{ fontFamily: 'Arial,sans-serif', fontSize: '20px', fontWeight: 'bold' }}>Code</span>}
             value="gitRepositories"
           />
         </TabList>
@@ -202,9 +190,9 @@ const Publications = () => {
         </TabPanel>
 
         <TabPanel value='gitRepositories'>
-          <div>
-            {gitReposData.map((repo, index) => (
-              <PublicationCard key={index} {...repoToPublicationCard(repo)} />
+          <div className="git-grid">
+            {gitReposData.map((repo) => (
+              <GitRepoCard key={repo.id} repo={repo} />
             ))}
           </div>
         </TabPanel>
