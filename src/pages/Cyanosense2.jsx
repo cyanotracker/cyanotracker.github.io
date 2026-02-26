@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CardImageSection from '../components/CardImageSection';
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const Cyanosense2 = () => {
   const [images, setImages] = useState({});
@@ -90,33 +91,48 @@ const Cyanosense2 = () => {
   return (
     <div style={{}}>
     <CardImageSection
-      heading={
+     heading={
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '14px',
+          flexWrap: 'wrap'
+        }}
+      >
+        <span
+          style={{
+            color: '#fff',
+            fontWeight: '600',
+            fontSize: '2.3rem',
+          }}
+        >
+          CyanoSense 2.0 – Next Generation Cyanosense&nbsp;
+        </span>
+    
+        {/* Paper Link */}
         <a
           href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00301"
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontWeight: '600',
-            fontSize: '2.3rem',
-            transition: 'color 0.3s ease, text-shadow 0.3s ease',
-            cursor: 'pointer',
-          }}
-          onMouseEnter={(e) => {    // Rose Pink Color: #E69A8DFF
-            // e.target.style.color = ' #38BDF8';
-            e.target.style.textShadow = '0 0 10px #FACC15';
-            e.target.style.textDecoration = 'none';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.color = '#fff';
-            e.target.style.textShadow = 'none';
-            e.target.style.textDecoration = 'none';
-          }}
+          style={{ color: '#FACC15', fontSize: '2rem' }}
         >
-          CyanoSense 2.0 - Next Generation Cyanosense
+          <FaExternalLinkAlt />
         </a>
-      }
+    
+        {/* GitHub Link */}
+        <a
+          href="https://github.com/cyanotracker/Cyanosense-2.0"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#fff', fontSize: '2.5rem' }}
+        >
+          <FaGithub />
+        </a>
+      </div>
+    }
+    
       sections={sections}
     />
   </div>

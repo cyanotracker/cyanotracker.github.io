@@ -18,11 +18,9 @@ html {
 }
 
 #logo {
-  height: 120px;
-  margin-right: 10px;
-  margin-left: 50px;
-  position: relative;
-  width: auto;
+  height: clamp(80px, 10vw, 120px);
+  display: block;
+  margin: 0 auto;
 }
 
 #cyano-heading {

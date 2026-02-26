@@ -281,6 +281,8 @@ html, body {
 
   /* container: stacked centered column */
   .overlay-button-container {
+    max-height: 45vh;
+    overflow-y: auto;
     position: absolute;       /* keep same positioning behavior */
     left: 50%;
     transform: translateX(-50%);
@@ -440,9 +442,9 @@ html, body {
   z-index: 100;
 }
 
-.dropdown:hover .dropdown-menu {
+/* .dropdown:hover .dropdown-menu {
   display: block;
-}
+} */
 
 .dropdown-item {
   padding: 0.5em 0.75em;

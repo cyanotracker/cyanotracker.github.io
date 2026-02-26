@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #9333ea;
+  --accent-color: #f43f5e;
+  --background-color: #cd1010c3;
+  --text-color: #fff;
+}
+
+
 /* Box sizing */
 *,
 *::before,
@@ -18,7 +27,7 @@ html{
 }
 
 body {
-  background-color: #151414;
+  background-color : var(--background-color);
   color:#fff;
   font-family: 'Inter', system-ui, sans-serif;
   line-height:1.6;
@@ -36,7 +45,6 @@ a:hover {
 
 img,video,svg,canvas {
   max-width: 100%;
-  display: block;
 }
 
 button,input,select,textarea {
