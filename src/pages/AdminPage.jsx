@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AdminPortalPage from '../components/AdminPortalPage/index';
 
 export default function AdminPage() {
   const [isAllowed, setIsAllowed] = useState(null);
+  const navigate = useNavigate();   // 👈 add this
 
   useEffect(() => {
     const alreadyAuthenticated = sessionStorage.getItem('isAdminAuthenticated');
@@ -10,13 +12,8 @@ export default function AdminPage() {
   }, []);
 
   const handleLogin = (username, password) => {
-
-    // fetching the username password form the environmental variables....
-
-    const adminUsername=process.env.REACT_APP_ADMIN_USERNAME;
-    const adminPassWord=process.env.REACT_APP_ADMIN_PASSWORD;
-
-
+    const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
+    const adminPassWord = process.env.REACT_APP_ADMIN_PASSWORD;
 
     if (username === adminUsername && password === adminPassWord) {
       sessionStorage.setItem('isAdminAuthenticated', 'true');
@@ -29,15 +26,11 @@ export default function AdminPage() {
   const handleLogout = () => {
     sessionStorage.removeItem('isAdminAuthenticated');
     setIsAllowed(false);
-    window.location.hash = '#/';
+    navigate('/');  // Redirecting to the home page..
   };
 
   if (isAllowed === null) {
-    return (
-      <div className="checking-access">
-        Checking access...
-      </div>
-    );
+    return <div className="checking-access">Checking access...</div>;
   }
 
   return isAllowed ? (
