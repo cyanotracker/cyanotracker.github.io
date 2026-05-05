@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import './index.css';
 import iphoneScanner from "../../assets/ios:android-scanner.png";
 import playstoreicon from "../../assets/PlayStoreIcon.png";
@@ -7,6 +7,27 @@ import appstoreicon from "../../assets/AppStoreIcon.png";
 
 const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
   const [showModal, setShowModal] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);  // Defining a useref Hook for the dropdown menu
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
+
+
   // Define a new function to handle the button click
   const handleButtonClick = () => {
     // Define the text to be shared on Twitter
@@ -41,61 +62,52 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
           <button className="overlay-button" onClick={handleButtonClick} >
             Tweet about CyanoHAB
           </button>
-          {/* <a href="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india" target="_blank" rel="noopener noreferrer">
-            <button className="overlay-button">GEE Dashboard</button>
-          </a> */}
-         {/* <select
-            className="overlay-dropdown"
-            onChange={(e) => {
-              if (e.target.value) {
-                window.open(e.target.value, "_blank", "noopener,noreferrer");
-              }
-            }}
-          >
-            <option value=""> GEE Dashboards</option>
-            <option value="https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india">
-            CyanoKhoj
-            </option>
-            <option value="https://ee-chintanmaniyar.projects.earthengine.app/view/nps-habdashboard">
-            NPS Atlanta
-            </option>
-          </select> */}
-          <div className="dropdown">
-              <button className="dropdown-btn">
-                GEE Dashboards
-              </button>
+      
+            <div className="dropdown" ref={dropdownRef}>
+            <button
+              className="dropdown-btn"
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+            >
+              GEE Dashboards
+            </button>
 
+            {isDropdownOpen && (
               <div className="dropdown-menu">
                 <div
                   className="dropdown-item"
-                  onClick={() =>
+                  onClick={() => {
+                    setIsDropdownOpen(false);
                     window.open(
                       "https://chintanmaniyar.users.earthengine.app/view/cyanokhoj-india",
                       "_blank",
                       "noopener,noreferrer"
-                    )
-                  }
+                    );
+                  }}
                 >
                   CyanoKhoj
                 </div>
 
                 <div
                   className="dropdown-item"
-                  onClick={() =>
+                  onClick={() => {
+                    setIsDropdownOpen(false);
                     window.open(
                       "https://ee-chintanmaniyar.projects.earthengine.app/view/nps-habdashboard",
                       "_blank",
                       "noopener,noreferrer"
-                    )
-                  }
+                    );
+                  }}
                 >
                   NPS Atlanta
                 </div>
               </div>
-            </div>
+            )}
+          </div>
 
           <button className='mobileapp' onClick={() => setShowModal(true)}>Mobile App</button>
         </div>
+
+        
         {/* Modal */}
         {showModal && (
           <div className="modal-overlay" onClick={() => setShowModal(false)}>
@@ -110,10 +122,7 @@ const VideoSection = ({ videoSrc, overlayText, onButtonClick }) => {
               </p>
 
               <div className="qr-section">
-                {/* <div className="qr-block">
-                    <p><strong>Android</strong></p>
-                    <img src={androidScanner} alt="Android QR" />
-                  </div> */}
+              
                 <div className="qr-block">
                   <p><strong>iOS / Android</strong></p>
                   <img class="qr-image" src={iphoneScanner} alt="iOS QR" />

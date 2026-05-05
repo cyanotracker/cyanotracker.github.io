@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <script>
-    sessionStorage.redirect = location.href;
-    location.href = '/';
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>CyanoTRACKER</title>
+    <script>
+      sessionStorage.redirect = location.pathname + location.search + location.hash;
+      location.replace("/");
+    </script>
+  </head>
+  <body></body>
 </html>

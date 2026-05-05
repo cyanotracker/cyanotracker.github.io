@@ -1,0 +1,133 @@
+.publications-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  #tab-container {
+    margin-top: 122px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  #tab-container .publications-tab-list .MuiTab-root {
+    text-transform: uppercase !important;
+  }
+  /* MUI Tab scroll container */
+  #tab-container .MuiTabs-root {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  #tab-container .MuiTabs-scroller {
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+  
+  #tab-container .MuiTabs-flexContainer {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  /* Individual tabs */
+  #tab-container .MuiTab-root {
+    color: #ffffff;
+    min-width: max-content;
+    padding: 12px 18px;
+    text-transform: none;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Selected tab colors */
+  #tab-container .MuiTab-root.Mui-selected:nth-of-type(1) {
+    color: #8fc1da;
+  }
+  
+  #tab-container .MuiTab-root.Mui-selected:nth-of-type(2) {
+    color: #e0aed0;
+  }
+  
+  #tab-container .MuiTab-root.Mui-selected:nth-of-type(3) {
+    color: #feffac;
+  }
+  
+  #tab-container .MuiTab-root.Mui-selected:nth-of-type(4) {
+    color: orange;
+  }
+  
+  #tab-container .MuiTab-root.Mui-selected:nth-of-type(5) {
+    color: lightgreen;
+  }
+  
+  /* Tab panels */
+  #tab-container .MuiTabPanel-root {
+    padding: 24px;
+  }
+  
+  /* Lines */
+  .journal-line {
+    border: 4px solid #8fc1da;
+  }
+  
+  .proceedings-line {
+    border: 4px solid #e0aed0;
+  }
+  
+  .presentations-line {
+    border: 4px solid #feffac;
+  }
+  
+  /* Media highlights */
+  .media-highlights-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Tablet screens */
+  @media screen and (max-width: 900px) {
+    #tab-container .MuiTab-root {
+      font-size: 16px;
+      padding: 10px 14px;
+    }
+  
+    #tab-container .MuiTabPanel-root {
+      padding: 18px;
+    }
+  }
+  
+  /* Mobile screens */
+  @media screen and (max-width: 600px) {
+    #tab-container {
+      margin-top: 100px;
+    }
+  
+    #tab-container .MuiTab-root {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    #tab-container .MuiTabPanel-root {
+      padding: 14px;
+    }
+  }
+  
+  /* Very small screens */
+  @media screen and (max-width: 375px) {
+    #tab-container {
+      margin-top: 90px;
+    }
+  
+    #tab-container .MuiTab-root {
+      font-size: 13px;
+      padding: 8px 10px;
+    }
+  
+    #tab-container .MuiTabPanel-root {
+      padding: 10px;
+    }
+  }

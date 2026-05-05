@@ -6,9 +6,21 @@
 
 #blog-heading {
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(0.95rem, 6vw, 2rem);
   color: #e69a8dff;
   margin-bottom: 50px;
+  line-height: 1.2;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+/* 200px to 500px screens */
+@media (min-width: 200px) and (max-width: 500px) {
+  #blog-heading {
+    font-size: clamp(0.8rem, 5.2vw, 1.4rem);
+    margin-bottom: 24px;
+    white-space: nowrap;
+  }
 }
 
 .blog-gallery {
@@ -103,24 +115,70 @@
       margin-top: 40px;
   }
 }
-/* @media(min-width:370px)
-{
-  #blog-heading{
-  font-size: 20px;
-  }
-} */
 
 
- @media(max-width:580px)
-{
-  #blog-heading{
-  font-size: 20px;
-  }
-} 
+
+
 
 #team_gallery,#cyano_gallery{
   font-size: 20px;
 font-family: 'Arial',sans-serif;
 font-weight:800;
   color: #fff;
+}
+
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+
+
+  .MuiTabs-flexContainer {
+    justify-content: flex-start;
+  }
+
+  .MuiTabs-scroller {
+    overflow-x: auto !important;
+  }
+
+  #cyano_gallery,
+  #team_gallery {
+    font-size: 0.95rem;
+    padding: 9px 14px;
+  }
+}
+/* Normal / medium screens: keep tabs centered */
+.cayno-blog-container .MuiTabs-flexContainer {
+  justify-content: center;
+}
+
+/* Very small screens: allow arrow scroll */
+@media (max-width: 380px) {
+  .cayno-blog-container .MuiTabs-root {
+    width: 100%;
+  }
+
+  .cayno-blog-container .MuiTabs-scroller {
+    overflow-x: auto !important;
+  }
+
+  .cayno-blog-container .MuiTabs-flexContainer {
+    justify-content: flex-start !important;
+    flex-wrap: nowrap;
+  }
+
+  .cayno-blog-container .MuiTabs-scrollButtons {
+    display: flex !important;
+  }
+
+  .cayno-blog-container .MuiTabs-scrollButtons.Mui-disabled {
+    opacity: 0.3;
+  }
+
+  #team_gallery,
+  #cyano_gallery {
+    min-width: max-content;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
 }

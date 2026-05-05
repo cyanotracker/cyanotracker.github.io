@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './index.css';
-import {FaGithub} from "react-icons/fa";
 
 const CardImageSection = ({ heading, sections }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);

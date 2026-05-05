@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardImageSection from '../components/CardImageSection';
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import './Cyanosense2.css';
 
 const Cyanosense2 = () => {
   const [images, setImages] = useState({});
@@ -89,50 +90,35 @@ const Cyanosense2 = () => {
   ];
 
   return (
-    <div style={{}}>
+    <div>
     <CardImageSection
-     heading={
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '14px',
-          flexWrap: 'wrap'
-        }}
-      >
-        <span
-          style={{
-            color: '#fff',
-            fontWeight: '600',
-            fontSize: '2.3rem',
-          }}
-        >
-          CyanoSense 2.0 – Next Generation Cyanosense&nbsp;
-        </span>
-    
-        {/* Paper Link */}
-        <a
-          href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00301"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: '#FACC15', fontSize: '2rem' }}
-        >
-          <FaExternalLinkAlt />
-        </a>
-    
-        {/* GitHub Link */}
-        <a
-          href="https://github.com/cyanotracker/Cyanosense-2.0"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: '#fff', fontSize: '2.5rem' }}
-        >
-          <FaGithub />
-        </a>
-      </div>
-    }
-    
+      heading={
+        <div className="cyanosense-heading-wrapper">
+          <span className="cyanosense-heading-text">
+            CyanoSense 2.0 – Next Generation Cyanosense
+          </span>
+
+          <div className="cyanosense-heading-icons">
+            <a
+              href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00301"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cyanosense-paper-icon"
+            >
+              <FaExternalLinkAlt />
+            </a>
+
+            <a
+              href="https://github.com/cyanotracker/Cyanosense-2.0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cyanosense-github-icon"
+            >
+              <FaGithub />
+            </a>
+          </div>
+        </div>
+      }
       sections={sections}
     />
   </div>

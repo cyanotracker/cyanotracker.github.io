@@ -1,0 +1,73 @@
+.cyanosense-heading-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .cyanosense-heading-text {
+    color: #fff;
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2.5vw, 2.3rem);
+    line-height: 1.3;
+    word-break: break-word;
+  }
+  
+  .cyanosense-heading-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  
+  .cyanosense-paper-icon {
+    color: #facc15;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    display: flex;
+    align-items: center;
+  }
+  
+  .cyanosense-github-icon {
+    color: #fff;
+    font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+    display: flex;
+    align-items: center;
+  }
+  
+  .cyanosense-paper-icon:hover,
+  .cyanosense-github-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Medium screens */
+  @media screen and (max-width: 768px) {
+    .cyanosense-heading-wrapper {
+      gap: 10px;
+      padding: 0 12px;
+    }
+  
+    .cyanosense-heading-icons {
+      gap: 12px;
+    }
+  }
+  
+  /* Small screens */
+  @media screen and (max-width: 480px) {
+    .cyanosense-heading-wrapper {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .cyanosense-heading-text {
+      font-size: 1.3rem;
+      
+    }
+  
+    .cyanosense-heading-icons {
+      gap: 16px;
+    }
+  }

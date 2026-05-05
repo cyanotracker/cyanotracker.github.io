@@ -68,7 +68,9 @@ const BlogComponent = () => {
       <Tabs 
         value={galleryType} 
         onChange={handleTabChange} 
-        className="MuiTabs-root css-yxfy8p-MuiTabs-root"
+        variant="scrollable"
+        scrollButtons="auto"
+        allowScrollButtonsMobile
         centered
       >
         

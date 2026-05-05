@@ -40,7 +40,7 @@ const Teams = () => {
 
   return (
     <div>
-    <div style={{ marginTop: '90px' }}>
+    <div style={{ marginTop: '1px' }}>
       <TeamsComponent teamMembers={teamMembers} />
     </div>
     </div>
