@@ -1,13 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.2db4d658.css",
-    "main.js": "/static/js/main.49cbe153.js",
+    "main.css": "/static/css/main.d9cc97d5.css",
+    "main.js": "/static/js/main.a44a76dc.js",
     "static/js/289.6eece8a5.chunk.js": "/static/js/289.6eece8a5.chunk.js",
     "static/js/787.c73cc71e.chunk.js": "/static/js/787.c73cc71e.chunk.js",
     "static/media/algae2.mp4": "/static/media/algae2.9efd07b7af88f6c29107.mp4",
-    "static/media/img2.jpg": "/static/media/img2.8c7b9b25612e4ab1f919.jpg",
+    "static/media/404.png": "/static/media/404.c60faba2a1302bda9a52.png",
     "static/media/canadian_lakes.jpg": "/static/media/canadian_lakes.75df689714366f5207cd.jpg",
-    "static/media/project_overview.png": "/static/media/project_overview.fa278b4c52d0d24e37be.png",
     "static/media/nasa.png": "/static/media/nasa.c58c2bab33b0a92f1b04.png",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/UGA_Cyano.png": "/static/media/UGA_Cyano.01a7fe01f3c0ed2d1396.png",
@@ -23,7 +22,6 @@
     "static/media/nsf.png": "/static/media/nsf.aaeb36799e518dccaa66.png",
     "static/media/earth-engine.png": "/static/media/earth-engine.08b86b1e4cf2c23bab40.png",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
-    "static/media/img1.jpg": "/static/media/img1.4efac379d8dbea63c773.jpg",
     "static/media/uga.png": "/static/media/uga.3175a21d7055788c105c.png",
     "static/media/instagram_icon.png": "/static/media/instagram_icon.dbdffe2ad8183a004726.png",
     "static/media/news_feed.png": "/static/media/news_feed.bebd6f3623a45f7259a4.png",
@@ -35,13 +33,13 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/index.html",
-    "main.2db4d658.css.map": "/static/css/main.2db4d658.css.map",
-    "main.49cbe153.js.map": "/static/js/main.49cbe153.js.map",
+    "main.d9cc97d5.css.map": "/static/css/main.d9cc97d5.css.map",
+    "main.a44a76dc.js.map": "/static/js/main.a44a76dc.js.map",
     "289.6eece8a5.chunk.js.map": "/static/js/289.6eece8a5.chunk.js.map",
     "787.c73cc71e.chunk.js.map": "/static/js/787.c73cc71e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2db4d658.css",
-    "static/js/main.49cbe153.js"
+    "static/css/main.d9cc97d5.css",
+    "static/js/main.a44a76dc.js"
   ]
 }
