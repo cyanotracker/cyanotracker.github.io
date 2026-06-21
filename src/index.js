@@ -5,6 +5,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const initialParameters = new URLSearchParams(window.location.search);
+if (initialParameters.get('reset-password') === '1') {
+  initialParameters.delete('reset-password');
+  const search = initialParameters.toString();
+  window.history.replaceState(
+    null,
+    '',
+    `/reset-password${search ? `?${search}` : ''}${window.location.hash}`
+  );
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

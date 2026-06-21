@@ -20,6 +20,8 @@ import Teams from './pages/Teams.jsx';
 import Form from './pages/Form.jsx';
 import Gallery from './pages/Gallery.jsx';
 import AdminPage from './pages/AdminPage';
+import AuthConfirmed from './pages/AuthConfirmed';
+import ResetPassword from './pages/ResetPassword';
 
 import src from './assets/algae2.mp4';
 import ourapproach from './assets/our_approach.png';
@@ -99,11 +101,18 @@ function MainContent() {
         `https://raw.githubusercontent.com/cyanotracker/support_files_for_website/main/cyano_tweet_ids.txt?${new Date().getTime()}`,
         { cache: 'no-cache' }
       )
-        .then((response) => response.text())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch tweets: ${response.status}`);
+          }
+
+          return response.text();
+        })
         .then((data) => {
           const tweetsArray = data
-            .split('\n')
-            .filter((tweet) => tweet.trim() !== '');
+            .split(/\r?\n/)
+            .map((tweet) => tweet.trim())
+            .filter((tweet) => /^\d+$/.test(tweet));
           setTweets(tweetsArray);
         })
         .catch((error) => {
@@ -143,6 +152,8 @@ function AppContent() {
 
   const hideLayout =
     location.pathname === '/admin' ||
+    location.pathname === '/auth-confirmed' ||
+    location.pathname === '/reset-password' ||
     location.pathname === '/not-found';
 
   return (
@@ -159,6 +170,8 @@ function AppContent() {
         <Route path="/Map" element={<MapComponent />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/auth-confirmed" element={<AuthConfirmed />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route path="/not-found" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/not-found" />} />

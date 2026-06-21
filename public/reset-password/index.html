@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Reset Password | HAB Reporter</title>
+  </head>
+  <body>
+    <noscript>JavaScript is required to reset your password.</noscript>
+    <script>
+      // GitHub Pages serves this file on direct email-link visits. Move to the
+      // React app without copying recovery credentials into browser storage.
+      window.location.replace('/?reset-password=1' + window.location.search.replace(/^\?/, '&') + window.location.hash);
+    </script>
+  </body>
+</html>
