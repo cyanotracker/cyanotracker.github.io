@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "RL29J4CMUD.com.chintan.cyanotracker",
+        "paths": [
+          "/auth-confirmed",
+          "/auth-confirmed/*",
+          "/reset-password",
+          "/reset-password/*"
+        ]
+      }
+    ]
+  }
+}
