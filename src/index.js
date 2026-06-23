@@ -4,16 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { getResetPasswordFallbackPath } from './lib/resetPasswordFallback';
 
-const initialParameters = new URLSearchParams(window.location.search);
-if (initialParameters.get('reset-password') === '1') {
-  initialParameters.delete('reset-password');
-  const search = initialParameters.toString();
-  window.history.replaceState(
-    null,
-    '',
-    `/reset-password${search ? `?${search}` : ''}${window.location.hash}`
-  );
+const resetPasswordFallbackPath = getResetPasswordFallbackPath();
+if (resetPasswordFallbackPath) {
+  window.history.replaceState(null, '', resetPasswordFallbackPath);
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

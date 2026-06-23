@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import logo from '../assets/cyano_newlogo-removebg-preview.png';
 import { supabase } from '../lib/supabase';
@@ -7,6 +7,36 @@ import './ResetPassword.css';
 
 const INVALID_LINK_MESSAGE =
   'This password recovery link is invalid or has expired. Please request a new one.';
+const SAME_PASSWORD_MESSAGE =
+  'Your new password must be different from your previous password.';
+const APP_DEEP_LINK = 'com.chintan.cyanotracker://reset-password';
+const MOBILE_APP_FALLBACK_DELAY_MS = 1800;
+const MOBILE_OPEN_ATTEMPT_STATE = 'habResetAppOpenAttempted';
+
+export function isMobileDevice(navigatorObject = window.navigator) {
+  const mobileUserAgent = /Android|iPhone|iPad|iPod|Mobile/i.test(
+    navigatorObject.userAgent || ''
+  );
+  const iPadDesktopMode =
+    navigatorObject.platform === 'MacIntel' &&
+    navigatorObject.maxTouchPoints > 1;
+
+  return Boolean(navigatorObject.userAgentData?.mobile) || mobileUserAgent || iPadDesktopMode;
+}
+
+export function getResetAppDeepLink(locationObject = window.location) {
+  return `${APP_DEEP_LINK}${locationObject.search || ''}${locationObject.hash || ''}`;
+}
+
+export function getUpdatePasswordErrorMessage(error) {
+  const errorMessage = error?.message?.trim() || '';
+  const isSamePassword = error?.code === 'same_password' ||
+    /same password|matches? (?:the )?(?:old|previous|current) password|different from (?:the )?(?:old|previous|current) password/i
+      .test(errorMessage);
+
+  if (isSamePassword) return SAME_PASSWORD_MESSAGE;
+  return errorMessage || 'Unable to update your password. Please try again.';
+}
 
 export function getRecoveryCredentials(locationObject = window.location) {
   const query = new URLSearchParams(locationObject.search);
@@ -41,7 +71,13 @@ export async function establishRecoverySession(credentials, client = supabase) {
 
 function ResetPassword() {
   const recoveryCredentials = useRef(getRecoveryCredentials());
+  const resetAppDeepLink = useRef(getResetAppDeepLink());
   const recoverySession = useRef(null);
+  const attemptedToOpenApp = useRef(false);
+  const appOpenWasAlreadyAttempted = useRef(
+    Boolean(window.history.state?.[MOBILE_OPEN_ATTEMPT_STATE])
+  );
+  const [isMobile] = useState(isMobileDevice);
   const [status, setStatus] = useState('loading');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -63,34 +99,76 @@ function ResetPassword() {
     ? 'Strong'
     : passedRequirementCount >= 3 ? 'Moderate' : 'Weak';
 
+  const openApp = useCallback(() => {
+    window.location.assign(resetAppDeepLink.current);
+  }, []);
+
   useEffect(() => {
     let active = true;
+    let fallbackTimer;
 
     // Remove recovery credentials from the visible URL before any network request.
-    window.history.replaceState(null, '', '/reset-password');
+    window.history.replaceState(
+      isMobile && recoveryCredentials.current
+        ? { ...window.history.state, [MOBILE_OPEN_ATTEMPT_STATE]: true }
+        : window.history.state,
+      '',
+      '/reset-password'
+    );
 
-    if (!recoverySession.current) {
-      recoverySession.current = establishRecoverySession(recoveryCredentials.current);
+    const establishWebSession = () => {
+      if (!recoverySession.current) {
+        recoverySession.current = establishRecoverySession(recoveryCredentials.current);
+      }
+
+      recoverySession.current
+        .then(() => {
+          if (active) {
+            setStatus('ready');
+            setMessage('');
+          }
+        })
+        .catch((error) => {
+          if (active) {
+            setStatus('error');
+            setMessage(error?.message?.trim() || INVALID_LINK_MESSAGE);
+          }
+        });
+    };
+
+    const shouldAttemptApp =
+      isMobile &&
+      recoveryCredentials.current &&
+      !attemptedToOpenApp.current &&
+      !appOpenWasAlreadyAttempted.current;
+
+    if (shouldAttemptApp) {
+      attemptedToOpenApp.current = true;
+      openApp();
+      fallbackTimer = window.setTimeout(() => {
+        if (document.visibilityState === 'visible') {
+          establishWebSession();
+        }
+      }, MOBILE_APP_FALLBACK_DELAY_MS);
+    } else {
+      establishWebSession();
     }
 
-    recoverySession.current
-      .then(() => {
-        if (active) {
-          setStatus('ready');
-          setMessage('');
-        }
-      })
-      .catch(() => {
-        if (active) {
-          setStatus('error');
-          setMessage(INVALID_LINK_MESSAGE);
-        }
-      });
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && !recoverySession.current) {
+        establishWebSession();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       active = false;
+      if (fallbackTimer) {
+        window.clearTimeout(fallbackTimer);
+      }
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [isMobile, openApp]);
 
   const updatePassword = async (event) => {
     event.preventDefault();
@@ -102,10 +180,12 @@ function ResetPassword() {
     setStatus('updating');
     setMessage('');
 
-    const { error } = await supabase.auth.updateUser({ password });
-    if (error) {
+    try {
+      const { error } = await supabase.auth.updateUser({ password });
+      if (error) throw error;
+    } catch (error) {
       setStatus('ready');
-      setMessage('Unable to update your password. Please request a new recovery link.');
+      setMessage(getUpdatePasswordErrorMessage(error));
       return;
     }
 

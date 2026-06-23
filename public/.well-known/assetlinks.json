@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chintan.cynaotrackerorg",
+      "sha256_cert_fingerprints": [
+        "51:BC:C3:34:6D:DC:14:87:4E:43:8B:03:C6:28:B6:EF:6D:F4:2D:87:E4:96:8B:B0:A3:CD:E8:A4:C2:B0:68:9F"
+      ]
+    }
+  }
+]

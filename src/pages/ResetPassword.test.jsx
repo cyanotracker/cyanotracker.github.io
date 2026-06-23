@@ -13,7 +13,14 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { StrictMode } from 'react';
 import { supabase } from '../lib/supabase';
 import { validatePassword } from '../lib/passwordValidation';
-import ResetPassword, { establishRecoverySession, getRecoveryCredentials } from './ResetPassword';
+import { getResetPasswordFallbackPath } from '../lib/resetPasswordFallback';
+import ResetPassword, {
+  establishRecoverySession,
+  getRecoveryCredentials,
+  getResetAppDeepLink,
+  getUpdatePasswordErrorMessage,
+  isMobileDevice,
+} from './ResetPassword';
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -69,6 +76,78 @@ test('uses token pairs to establish a recovery session', async () => {
     access_token: 'access-secret',
     refresh_token: 'refresh-secret',
   });
+});
+
+test('constructs the mobile deep link without changing query or hash parameters', () => {
+  expect(getResetAppDeepLink({
+    search: '?code=a%2Bb&next=%2Fhome',
+    hash: '#access_token=access-secret&refresh_token=refresh-secret&type=recovery',
+  })).toBe(
+    'com.chintan.cyanotracker://reset-password?code=a%2Bb&next=%2Fhome' +
+    '#access_token=access-secret&refresh_token=refresh-secret&type=recovery'
+  );
+  expect(isMobileDevice({ userAgent: 'Mozilla/5.0 (Linux; Android 14)', platform: '' }))
+    .toBe(true);
+  expect(isMobileDevice({ userAgent: 'Mozilla/5.0 (Windows NT 10.0)', platform: '' }))
+    .toBe(false);
+});
+
+test('rewrites GitHub Pages reset-password fallback to the React route', () => {
+  expect(getResetPasswordFallbackPath({
+    search: '?reset-password=1&code=one-time-code',
+    hash: '#access_token=access-secret',
+  })).toBe('/reset-password?code=one-time-code#access_token=access-secret');
+  expect(getResetPasswordFallbackPath({
+    search: '?code=one-time-code',
+    hash: '',
+  })).toBeNull();
+});
+
+test('maps same-password errors to the required message', () => {
+  const expectedMessage = 'Your new password must be different from your previous password.';
+
+  expect(getUpdatePasswordErrorMessage({ code: 'same_password', message: 'Password rejected' }))
+    .toBe(expectedMessage);
+  expect(getUpdatePasswordErrorMessage({
+    message: 'New password should be different from the old password.',
+  })).toBe(expectedMessage);
+});
+
+test('preserves an expired recovery-link error', async () => {
+  supabase.auth.exchangeCodeForSession.mockResolvedValue({
+    data: { session: null },
+    error: { message: 'Email link is expired' },
+  });
+  window.history.replaceState(null, '', '/reset-password?code=expired-code');
+
+  render(<ResetPassword />);
+
+  expect(await screen.findByRole('alert')).toHaveTextContent('Email link is expired');
+});
+
+test('shows the specific same-password error after form submission', async () => {
+  supabase.auth.exchangeCodeForSession.mockResolvedValue({
+    data: { session: { user: { id: 'user-id' } } },
+    error: null,
+  });
+  supabase.auth.updateUser.mockResolvedValue({
+    error: { code: 'same_password', message: 'New password matches the old password' },
+  });
+  window.history.replaceState(null, '', '/reset-password?code=one-time-code');
+
+  render(<ResetPassword />);
+
+  fireEvent.change(await screen.findByLabelText('New password'), {
+    target: { value: 'ValidPass1!' },
+  });
+  fireEvent.change(screen.getByLabelText('Confirm password'), {
+    target: { value: 'ValidPass1!' },
+  });
+  fireEvent.click(screen.getByRole('button', { name: 'Reset Password' }));
+
+  expect(await screen.findByText(
+    'Your new password must be different from your previous password.'
+  )).toBeInTheDocument();
 });
 
 test('matches the HAB Reporter password rules', () => {
