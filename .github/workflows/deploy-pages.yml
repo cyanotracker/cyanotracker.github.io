@@ -36,6 +36,11 @@ jobs:
         env:
           CI: "false"
           REACT_APP_SUPABASE_API_KEY: ${{ secrets.REACT_APP_SUPABASE_API_KEY }}
+            
+      - name: Ensure .well-known AASA is published
+        run: |
+          mkdir -p build/.well-known
+          cp public/apple-app-site-association build/.well-known/apple-app-site-association
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -45,6 +50,7 @@ jobs:
         with:
           path: build
           include-hidden-files: true
+  
 
   deploy:
     environment:
