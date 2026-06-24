@@ -36,7 +36,7 @@ jobs:
         env:
           CI: "false"
           REACT_APP_SUPABASE_API_KEY: ${{ secrets.REACT_APP_SUPABASE_API_KEY }}
-            
+
       - name: Ensure .well-known AASA is published
         run: |
           mkdir -p build/.well-known
@@ -45,11 +45,18 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Package site (keeps .well-known)
+        run: |
+          tar --dereference --hard-dereference \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            -C ./build .
+
       - name: Upload website artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
-          path: build
-          include-hidden-files: true
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
   
 
   deploy:
