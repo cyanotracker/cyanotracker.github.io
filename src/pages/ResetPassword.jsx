@@ -43,10 +43,15 @@ export function getRecoveryCredentials(locationObject = window.location) {
   const hash = new URLSearchParams((locationObject.hash || '').replace(/^#/, ''));
 
   const code = query.get('code');
+  const tokenHash = query.get('token_hash');
+  const type = query.get('type');
   const accessToken = hash.get('access_token');
   const refreshToken = hash.get('refresh_token');
 
   if (code) return { type: 'code', code };
+  if (tokenHash && type === 'recovery') {
+    return { type: 'token_hash', tokenHash };
+  }
   if (accessToken && refreshToken) {
     return { type: 'tokens', accessToken, refreshToken };
   }
@@ -57,12 +62,20 @@ export function getRecoveryCredentials(locationObject = window.location) {
 export async function establishRecoverySession(credentials, client = supabase) {
   if (!credentials) throw new Error(INVALID_LINK_MESSAGE);
 
-  const result = credentials.type === 'code'
-    ? await client.auth.exchangeCodeForSession(credentials.code)
-    : await client.auth.setSession({
-        access_token: credentials.accessToken,
-        refresh_token: credentials.refreshToken,
-      });
+  let result;
+  if (credentials.type === 'code') {
+    result = await client.auth.exchangeCodeForSession(credentials.code);
+  } else if (credentials.type === 'token_hash') {
+    result = await client.auth.verifyOtp({
+      token_hash: credentials.tokenHash,
+      type: 'recovery',
+    });
+  } else {
+    result = await client.auth.setSession({
+      access_token: credentials.accessToken,
+      refresh_token: credentials.refreshToken,
+    });
+  }
 
   if (result.error || !result.data?.session) {
     throw result.error || new Error(INVALID_LINK_MESSAGE);

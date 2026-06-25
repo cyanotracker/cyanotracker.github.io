@@ -3,6 +3,7 @@ jest.mock('../lib/supabase', () => ({
     auth: {
       exchangeCodeForSession: jest.fn(),
       setSession: jest.fn(),
+      verifyOtp: jest.fn(),
       updateUser: jest.fn(),
       signOut: jest.fn(),
     },
@@ -47,6 +48,18 @@ test('reads implicit token recovery links', () => {
   });
 });
 
+test('reads token hash recovery links', () => {
+  expect(
+    getRecoveryCredentials({
+      search: '?token_hash=test-token-hash&type=recovery',
+      hash: '',
+    })
+  ).toEqual({
+    type: 'token_hash',
+    tokenHash: 'test-token-hash',
+  });
+});
+
 test('exchanges a PKCE code for a recovery session', async () => {
   const exchangeCodeForSession = jest.fn().mockResolvedValue({
     data: { session: { user: { id: 'user-id' } } },
@@ -75,6 +88,43 @@ test('uses token pairs to establish a recovery session', async () => {
   expect(setSession).toHaveBeenCalledWith({
     access_token: 'access-secret',
     refresh_token: 'refresh-secret',
+  });
+});
+
+test('uses token hashes to establish a recovery session', async () => {
+  const verifyOtp = jest.fn().mockResolvedValue({
+    data: { session: { user: { id: 'user-id' } } },
+    error: null,
+  });
+
+  await establishRecoverySession(
+    { type: 'token_hash', tokenHash: 'test-token-hash' },
+    { auth: { verifyOtp } }
+  );
+
+  expect(verifyOtp).toHaveBeenCalledWith({
+    token_hash: 'test-token-hash',
+    type: 'recovery',
+  });
+});
+
+test('verifies token hash recovery links from the reset page', async () => {
+  supabase.auth.verifyOtp.mockResolvedValue({
+    data: { session: { user: { id: 'user-id' } } },
+    error: null,
+  });
+  window.history.replaceState(
+    null,
+    '',
+    '/reset-password?token_hash=test-token-hash&type=recovery'
+  );
+
+  render(<ResetPassword />);
+
+  expect(await screen.findByLabelText('New password')).toBeInTheDocument();
+  expect(supabase.auth.verifyOtp).toHaveBeenCalledWith({
+    token_hash: 'test-token-hash',
+    type: 'recovery',
   });
 });
 
