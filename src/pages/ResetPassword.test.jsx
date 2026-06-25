@@ -128,6 +128,37 @@ test('verifies token hash recovery links from the reset page', async () => {
   });
 });
 
+test('updates the password after token hash recovery succeeds', async () => {
+  supabase.auth.verifyOtp.mockResolvedValue({
+    data: { session: { user: { id: 'user-id' } } },
+    error: null,
+  });
+  supabase.auth.updateUser.mockResolvedValue({ error: null });
+  supabase.auth.signOut.mockResolvedValue({ error: null });
+  window.history.replaceState(null, '', '/reset-password?token_hash=test-token&type=recovery');
+
+  render(<ResetPassword />);
+
+  fireEvent.change(await screen.findByLabelText('New password'), {
+    target: { value: 'ValidPass1!' },
+  });
+  fireEvent.change(screen.getByLabelText('Confirm password'), {
+    target: { value: 'ValidPass1!' },
+  });
+  fireEvent.click(screen.getByRole('button', { name: 'Reset Password' }));
+
+  await waitFor(() => {
+    expect(supabase.auth.verifyOtp).toHaveBeenCalledWith({
+      token_hash: 'test-token',
+      type: 'recovery',
+    });
+    expect(supabase.auth.updateUser).toHaveBeenCalledWith({ password: 'ValidPass1!' });
+  });
+  expect(await screen.findByText(
+    'Password updated successfully. You can now log in to HAB Reporter.'
+  )).toBeInTheDocument();
+});
+
 test('constructs the mobile deep link without changing query or hash parameters', () => {
   expect(getResetAppDeepLink({
     search: '?code=a%2Bb&next=%2Fhome',

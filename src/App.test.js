@@ -1,3 +1,11 @@
+jest.mock('./lib/supabase', () => ({
+  supabase: {
+    auth: {
+      verifyOtp: jest.fn(),
+    },
+  },
+}));
+
 import { getAppDeepLink, isMobileDevice } from './pages/AuthConfirmed';
 
 test('preserves query and hash parameters in the app deep link', () => {
